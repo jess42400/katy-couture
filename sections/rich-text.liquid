@@ -1,0 +1,67 @@
+{%- comment -%}
+  RICH TEXT SECTION
+  Simple text content block
+{%- endcomment -%}
+
+<section class="section rich-text {% if section.settings.alignment == 'left' %}rich-text--left{% endif %}">
+  <div class="container">
+    <div class="rich-text__content">
+      {%- if section.settings.title != blank -%}
+        <h2 class="rich-text__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="rich-text__text">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link }}" class="btn btn--secondary">
+          {{ section.settings.button_label }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Texte enrichi",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignement",
+      "options": [
+        { "value": "center", "label": "Centré" },
+        { "value": "left", "label": "Gauche" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Texte enrichi"
+    }
+  ]
+}
+{% endschema %}

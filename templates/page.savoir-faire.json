@@ -1,0 +1,47 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-savoir-faire",
+      "blocks": {
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "title": "Sélection des tissus",
+            "text": "Nous sélectionnons avec soin chaque tissu pour sa qualité, sa texture et ses couleurs. Seules les plus belles matières trouvent leur place dans notre atelier."
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "title": "Découpe sur mesure",
+            "text": "Chaque pièce de tissu est découpée à la main selon nos patrons exclusifs. Cette étape demande précision et attention pour garantir un rendu parfait."
+          }
+        },
+        "step-3": {
+          "type": "step",
+          "settings": {
+            "title": "Assemblage artisanal",
+            "text": "La couture est réalisée entièrement à la main, point par point. Nous prenons le temps nécessaire pour que chaque assemblage soit impeccable."
+          }
+        },
+        "step-4": {
+          "type": "step",
+          "settings": {
+            "title": "Finitions et pompons",
+            "text": "Les pompons sont confectionnés à la main et cousus avec soin. Chaque chèche reçoit son numéro unique avant d'être soigneusement emballé."
+          }
+        }
+      },
+      "block_order": ["step-1", "step-2", "step-3", "step-4"],
+      "settings": {
+        "subtitle": "Artisanat",
+        "title": "Notre Savoir-Faire",
+        "intro": "Chaque chèche Katy Couture est le fruit d'un travail minutieux, réalisé entièrement à la main dans notre atelier. De la sélection des tissus à la couture des pompons, découvrez les étapes qui donnent vie à nos créations.",
+        "quote": "Le fait-main, c'est l'âme du créateur dans chaque point de couture",
+        "cta_title": "Découvrez nos créations",
+        "cta_text": "Chaque pièce est unique, numérotée, et ne sera jamais reproduite à l'identique."
+      }
+    }
+  },
+  "order": ["main"]
+}

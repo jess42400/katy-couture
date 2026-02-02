@@ -1,0 +1,69 @@
+{%- comment -%}
+  MANIFESTE SECTION
+  Layout : Grande image à gauche (60%) + texte à droite (40%)
+  Fond crème chaud - PAS d'icônes/stickers
+{%- endcomment -%}
+
+<section class="manifeste" style="background-color: {{ section.settings.background_color | default: '#F5F2EB' }};">
+  {%- comment -%} Image à gauche - 60% {%- endcomment -%}
+  <div class="manifeste__image reveal-scale">
+    {%- if section.settings.image -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 1200 }}"
+        alt="{{ section.settings.image.alt | escape }}"
+        loading="lazy"
+      >
+    {%- else -%}
+      <div class="manifeste__image-placeholder"></div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} Texte à droite - 40% {%- endcomment -%}
+  <div class="manifeste__content reveal">
+    {%- if section.settings.title != blank -%}
+      <h2 class="manifeste__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <div class="manifeste__text">
+        {{ section.settings.text }}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Manifeste",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image (grande, lifestyle)"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "L'art du fait-main"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte (2-3 phrases max)",
+      "default": "<p>Chaque création Katy Couture naît de la passion et du savoir-faire artisanal français. Des pièces uniques, numérotées, confectionnées avec amour.</p>"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#F5F2EB"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Manifeste"
+    }
+  ]
+}
+{% endschema %}

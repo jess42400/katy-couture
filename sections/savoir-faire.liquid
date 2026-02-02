@@ -1,0 +1,113 @@
+{%- comment -%}
+  SAVOIR-FAIRE SECTION
+  3 icônes présentant les valeurs de la marque
+{%- endcomment -%}
+
+<section class="section savoir-faire">
+  <div class="container">
+    <div class="savoir-faire__header reveal">
+      {%- if section.settings.subtitle != blank -%}
+        <p class="savoir-faire__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.title != blank -%}
+        <h2 class="savoir-faire__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="savoir-faire__grid">
+      {%- for block in section.blocks -%}
+        <div class="savoir-faire__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.icon != blank -%}
+            <span class="savoir-faire__icon">{{ block.settings.icon }}</span>
+          {%- endif -%}
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="savoir-faire__item-title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.text != blank -%}
+            <p class="savoir-faire__item-text">{{ block.settings.text }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Notre savoir-faire",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "L'excellence artisanale"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Notre Savoir-Faire"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Valeur",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icône (emoji)",
+          "default": "🇫🇷"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Fait-main en France"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texte",
+          "default": "Chaque pièce est confectionnée à la main dans notre atelier français."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Notre savoir-faire",
+      "blocks": [
+        {
+          "type": "value",
+          "settings": {
+            "icon": "🇫🇷",
+            "title": "Fait-main en France",
+            "text": "Chaque pièce est confectionnée à la main dans notre atelier français avec passion et savoir-faire."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "icon": "✨",
+            "title": "Pièces Uniques",
+            "text": "Chaque chèche est numéroté et unique. Vous ne trouverez jamais deux pièces identiques."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "icon": "🧶",
+            "title": "Matières Premium",
+            "text": "Doublures sherpa, minky et faux fur soigneusement sélectionnées pour leur douceur et leur qualité."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

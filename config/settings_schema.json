@@ -2,256 +2,171 @@
   {
     "name": "theme_info",
     "theme_name": "Katy Couture",
-    "theme_version": "1.0.0",
+    "theme_version": "2.0.0",
     "theme_author": "Katy Couture",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https://help.shopify.com/",
+    "theme_support_url": "https://help.shopify.com/"
   },
   {
-    "name": "t:settings.typography.name",
+    "name": "Général",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 50,
+        "max": 250,
+        "step": 10,
+        "unit": "px",
+        "label": "Largeur du logo",
+        "default": 120
+      }
+    ]
+  },
+  {
+    "name": "Couleurs",
     "settings": [
       {
         "type": "header",
-        "content": "t:settings.typography.headings"
+        "content": "Couleurs principales"
       },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Vert forêt (principal)",
+        "default": "#2C3E2C"
+      },
+      {
+        "type": "color",
+        "id": "color_cream",
+        "label": "Crème chaud (fond)",
+        "default": "#F5F2EB"
+      },
+      {
+        "type": "header",
+        "content": "Couleurs d'accent"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Or subtil",
+        "default": "#C9A962"
+      },
+      {
+        "type": "color",
+        "id": "color_terracotta",
+        "label": "Terracotta doux",
+        "default": "#B87B5E"
+      },
+      {
+        "type": "color",
+        "id": "color_rose",
+        "label": "Rose poudré",
+        "default": "#D4B5A8"
+      },
+      {
+        "type": "header",
+        "content": "Couleurs neutres"
+      },
+      {
+        "type": "color",
+        "id": "color_dark",
+        "label": "Noir doux",
+        "default": "#1A1A1A"
+      },
+      {
+        "type": "color",
+        "id": "color_light",
+        "label": "Blanc cassé",
+        "default": "#FAFAF8"
+      }
+    ]
+  },
+  {
+    "name": "Typographie",
+    "settings": [
       {
         "type": "font_picker",
         "id": "type_heading_font",
-        "default": "playfair_display_n4",
-        "label": "t:settings.typography.heading_font"
-      },
-      {
-        "type": "range",
-        "id": "heading_font_size_scale",
-        "min": 80,
-        "max": 150,
-        "step": 5,
-        "unit": "%",
-        "label": "t:settings.typography.heading_scale",
-        "default": 100
-      },
-      {
-        "type": "header",
-        "content": "t:settings.typography.body"
+        "label": "Police des titres",
+        "default": "playfair_display_n4"
       },
       {
         "type": "font_picker",
-        "id": "type_primary_font",
-        "default": "montserrat_n4",
-        "label": "t:settings.typography.body_font"
-      },
-      {
-        "type": "range",
-        "id": "body_font_size_scale",
-        "min": 80,
-        "max": 130,
-        "step": 5,
-        "unit": "%",
-        "label": "t:settings.typography.body_scale",
-        "default": 100
+        "id": "type_body_font",
+        "label": "Police du corps",
+        "default": "inter_n4"
       }
     ]
   },
   {
-    "name": "t:settings.colors.name",
+    "name": "Réseaux sociaux",
     "settings": [
       {
         "type": "header",
-        "content": "t:settings.colors.primary_colors"
+        "content": "Comptes sociaux"
       },
       {
-        "type": "color",
-        "id": "color_background",
-        "default": "#FDFBF7",
-        "label": "t:settings.colors.background"
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram",
+        "info": "https://instagram.com/votre-compte"
       },
       {
-        "type": "color",
-        "id": "color_foreground",
-        "default": "#1A1A1A",
-        "label": "t:settings.colors.text"
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "TikTok",
+        "info": "https://tiktok.com/@votre-compte"
       },
       {
-        "type": "header",
-        "content": "t:settings.colors.accent_colors"
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook",
+        "info": "https://facebook.com/votre-page"
       },
       {
-        "type": "color",
-        "id": "color_accent",
-        "default": "#C9A962",
-        "label": "t:settings.colors.accent"
-      },
-      {
-        "type": "color",
-        "id": "color_accent_contrast",
-        "default": "#FFFFFF",
-        "label": "t:settings.colors.accent_contrast"
-      },
-      {
-        "type": "header",
-        "content": "t:settings.colors.secondary_colors"
-      },
-      {
-        "type": "color",
-        "id": "color_secondary",
-        "default": "#2C2C2C",
-        "label": "t:settings.colors.secondary"
-      },
-      {
-        "type": "color",
-        "id": "color_secondary_contrast",
-        "default": "#FFFFFF",
-        "label": "t:settings.colors.secondary_contrast"
-      },
-      {
-        "type": "header",
-        "content": "t:settings.colors.borders"
-      },
-      {
-        "type": "color",
-        "id": "color_border",
-        "default": "#E5E5E5",
-        "label": "t:settings.colors.border"
-      },
-      {
-        "type": "color",
-        "id": "color_border_dark",
-        "default": "#C9A962",
-        "label": "t:settings.colors.border_accent"
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest",
+        "info": "https://pinterest.com/votre-compte"
       }
     ]
   },
   {
-    "name": "t:settings.layout.name",
-    "settings": [
-      {
-        "type": "select",
-        "id": "max_page_width",
-        "label": "t:settings.layout.page_width",
-        "options": [
-          {
-            "value": "90rem",
-            "label": "t:settings.layout.narrow"
-          },
-          {
-            "value": "110rem",
-            "label": "t:settings.layout.wide"
-          },
-          {
-            "value": "130rem",
-            "label": "t:settings.layout.extra_wide"
-          }
-        ],
-        "default": "90rem"
-      },
-      {
-        "type": "range",
-        "id": "min_page_margin",
-        "min": 10,
-        "max": 100,
-        "step": 2,
-        "unit": "px",
-        "label": "t:settings.layout.page_margin",
-        "default": 24
-      },
-      {
-        "type": "range",
-        "id": "section_spacing",
-        "min": 20,
-        "max": 120,
-        "step": 4,
-        "unit": "px",
-        "label": "t:settings.layout.section_spacing",
-        "default": 80
-      }
-    ]
-  },
-  {
-    "name": "t:settings.buttons.name",
-    "settings": [
-      {
-        "type": "range",
-        "id": "button_border_radius",
-        "min": 0,
-        "max": 40,
-        "step": 1,
-        "unit": "px",
-        "label": "t:settings.buttons.border_radius",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "input_border_radius",
-        "min": 0,
-        "max": 20,
-        "step": 1,
-        "unit": "px",
-        "label": "t:settings.buttons.input_radius",
-        "default": 0
-      }
-    ]
-  },
-  {
-    "name": "t:settings.animations.name",
+    "name": "Produits",
     "settings": [
       {
         "type": "checkbox",
-        "id": "enable_animations",
-        "label": "t:settings.animations.enable",
+        "id": "show_vendor",
+        "label": "Afficher le fabricant",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_badges",
+        "label": "Afficher les badges (Fait-main, Pièce unique)",
         "default": true
       },
       {
-        "type": "select",
-        "id": "animation_style",
-        "label": "t:settings.animations.style",
-        "options": [
-          {
-            "value": "subtle",
-            "label": "t:settings.animations.subtle"
-          },
-          {
-            "value": "elegant",
-            "label": "t:settings.animations.elegant"
-          },
-          {
-            "value": "dramatic",
-            "label": "t:settings.animations.dramatic"
-          }
-        ],
-        "default": "elegant"
-      }
-    ]
-  },
-  {
-    "name": "t:settings.social.name",
-    "settings": [
-      {
-        "type": "header",
-        "content": "t:settings.social.accounts"
+        "type": "text",
+        "id": "badge_handmade_text",
+        "label": "Texte badge fait-main",
+        "default": "Fait-main en France"
       },
       {
         "type": "text",
-        "id": "social_instagram",
-        "label": "Instagram",
-        "info": "t:settings.social.handle_info"
-      },
-      {
-        "type": "text",
-        "id": "social_facebook",
-        "label": "Facebook",
-        "info": "t:settings.social.url_info"
-      },
-      {
-        "type": "text",
-        "id": "social_pinterest",
-        "label": "Pinterest",
-        "info": "t:settings.social.url_info"
-      },
-      {
-        "type": "text",
-        "id": "social_tiktok",
-        "label": "TikTok",
-        "info": "t:settings.social.handle_info"
+        "id": "badge_unique_text",
+        "label": "Texte badge pièce unique",
+        "default": "Pièce Unique"
       }
     ]
   }

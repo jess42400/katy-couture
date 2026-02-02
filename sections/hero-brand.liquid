@@ -1,0 +1,89 @@
+{%- comment -%}
+  HERO BRAND - Full screen, minimal
+  Page de marque, pas e-commerce
+  PAS de bouton "Découvrir" - juste scroll indicator élégant
+{%- endcomment -%}
+
+<section class="hero-brand" data-hero>
+  <div class="hero-brand__media">
+    {%- if section.settings.video -%}
+      {%- comment -%} Video only on desktop for performance {%- endcomment -%}
+      <video autoplay muted loop playsinline>
+        <source src="{{ section.settings.video }}" type="video/mp4">
+      </video>
+    {%- elsif section.settings.image -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 1200 }}"
+        srcset="
+          {{ section.settings.image | image_url: width: 600 }} 600w,
+          {{ section.settings.image | image_url: width: 900 }} 900w,
+          {{ section.settings.image | image_url: width: 1200 }} 1200w,
+          {{ section.settings.image | image_url: width: 1600 }} 1600w,
+          {{ section.settings.image | image_url: width: 2000 }} 2000w"
+        sizes="100vw"
+        alt="{{ section.settings.image.alt | escape }}"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      >
+    {%- else -%}
+      <div class="hero-brand__placeholder"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="hero-brand__overlay"></div>
+
+  <div class="hero-brand__content">
+    <h1 class="hero-brand__title">{{ section.settings.title | default: 'KATY COUTURE' }}</h1>
+    <p class="hero-brand__subtitle">{{ section.settings.subtitle | default: 'Créations artisanales françaises' }}</p>
+  </div>
+
+  {%- comment -%} Scroll indicator élégant - juste une ligne animée ou flèche fine {%- endcomment -%}
+  <div class="hero-brand__scroll" data-scroll-trigger>
+    {%- if section.settings.show_scroll_text -%}
+      <span class="hero-brand__scroll-text">Scroll</span>
+    {%- endif -%}
+    <div class="hero-brand__scroll-line"></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Marque",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image de fond"
+    },
+    {
+      "type": "url",
+      "id": "video",
+      "label": "URL Vidéo (MP4)"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "KATY COUTURE"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Créations artisanales françaises"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scroll_text",
+      "label": "Afficher le texte 'Scroll'",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Marque"
+    }
+  ]
+}
+{% endschema %}

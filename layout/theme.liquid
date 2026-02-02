@@ -1,38 +1,75 @@
-<!doctype html>
-<html lang="{{ request.locale.iso_code }}">
-  <head>
-    {% # Inlined CSS Variables %}
-    {% render 'css-variables' %}
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2C3E2C">
 
-    {% comment %}
-      Font preloading:
-      1. Preconnect to font CDN for faster connection
-      2. Preload only the critical font variant (base weight)
-      3. Additional variants load on-demand via @font-face
-    {% endcomment %}
-    {%- liquid
-      assign body_font_url = settings.type_primary_font | font_url
-      assign heading_font_url = settings.type_heading_font | font_url
-    -%}
-    {%- if body_font_url != blank or heading_font_url != blank -%}
-      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+  {%- comment -%} Preconnect to external resources {%- endcomment -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+  {%- comment -%} Google Fonts - Playfair Display & Inter {%- endcomment -%}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  {%- comment -%} Title {%- endcomment -%}
+  <title>
+    {%- if page_title -%}
+      {{ page_title }}
+      {%- if current_page != 1 %} - Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} - {{ shop.name }}{% endunless -%}
+    {%- else -%}
+      {{ shop.name }}
     {%- endif -%}
+  </title>
 
-    {% # Load base CSS (color palette system) and critical CSS %}
-    {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
-    {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
+  {%- comment -%} Meta description {%- endcomment -%}
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
 
-    {% # Social, title, etc. %}
-    {% render 'meta-tags' %}
+  {%- comment -%} Canonical URL {%- endcomment -%}
+  <link rel="canonical" href="{{ canonical_url }}">
 
-    {{ content_for_header }}
-  </head>
+  {%- comment -%} Favicon {%- endcomment -%}
+  {%- if settings.favicon -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+  {%- endif -%}
 
-  <body>
-    {% sections 'header-group' %}
+  {%- comment -%} CSS {%- endcomment -%}
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
 
+  {%- comment -%} Shopify required {%- endcomment -%}
+  {{ content_for_header }}
+
+  {%- comment -%} No-JS fallback {%- endcomment -%}
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+</head>
+
+<body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}">
+  {%- comment -%} Optional Loading Screen {%- endcomment -%}
+  {%- if settings.show_loading_screen -%}
+    <div class="loading-screen">
+      <span class="loading-screen__logo">KATY COUTURE</span>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} Skip link for accessibility {%- endcomment -%}
+  <a href="#main" class="visually-hidden">Aller au contenu</a>
+
+  {%- comment -%} Header {%- endcomment -%}
+  {% sections 'header-group' %}
+
+  {%- comment -%} Main Content {%- endcomment -%}
+  <main id="main" role="main">
     {{ content_for_layout }}
+  </main>
 
-    {% sections 'footer-group' %}
-  </body>
+  {%- comment -%} Footer {%- endcomment -%}
+  {% sections 'footer-group' %}
+
+  {%- comment -%} JavaScript {%- endcomment -%}
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+</body>
 </html>

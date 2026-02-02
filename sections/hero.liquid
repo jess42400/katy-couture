@@ -1,0 +1,120 @@
+{%- comment -%}
+  HERO SECTION
+  Full-width banner with image, title, and CTA
+  Style luxe inspiré The Row / Jacquemus
+{%- endcomment -%}
+
+<section class="hero" style="{% if section.settings.min_height %}min-height: {{ section.settings.min_height }}vh;{% endif %}">
+  <div class="hero__media">
+    {%- if section.settings.image -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 1920 }}"
+        alt="{{ section.settings.image.alt | escape }}"
+        width="1920"
+        height="1080"
+        loading="eager"
+        fetchpriority="high"
+        class="img-cover"
+      >
+    {%- else -%}
+      <div style="background: linear-gradient(135deg, #2C3E2C 0%, #3D4F3D 50%, #4A5E4A 100%); width: 100%; height: 100%;"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="hero__overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"></div>
+
+  <div class="hero__content">
+    {%- if section.settings.subtitle != blank -%}
+      <p class="hero__subtitle">{{ section.settings.subtitle }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.title != blank -%}
+      <h1 class="hero__title">{{ section.settings.title }}</h1>
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <p class="hero__text">{{ section.settings.text }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ section.settings.button_link }}" class="btn hero__btn">
+        {{ section.settings.button_label }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bannière hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Hauteur minimale",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité overlay",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Artisanat Français"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Chèches Artisanaux Fait-Main en France"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte",
+      "default": "Pièces uniques, numérotées, confectionnées avec passion"
+    },
+    {
+      "type": "header",
+      "content": "Bouton"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Découvrir la collection"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bannière hero"
+    }
+  ]
+}
+{% endschema %}

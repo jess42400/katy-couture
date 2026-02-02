@@ -1,0 +1,99 @@
+{%- comment -%}
+  MAIN CART SECTION
+  Shopping cart page
+{%- endcomment -%}
+
+<section class="section">
+  <div class="container">
+    <h1 class="text-center mb-lg">Panier</h1>
+
+    {%- if cart.item_count > 0 -%}
+      <div class="cart__grid">
+        <div class="cart__items">
+          {%- for item in cart.items -%}
+            <div class="cart-item">
+              <div class="cart-item__image aspect-ratio aspect-ratio--1-1">
+                {%- if item.image -%}
+                  <img
+                    src="{{ item.image | image_url: width: 200 }}"
+                    alt="{{ item.title | escape }}"
+                    loading="lazy"
+                    class="img-cover"
+                  >
+                {%- endif -%}
+              </div>
+
+              <div class="cart-item__info">
+                <h3 class="cart-item__title">
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
+                </h3>
+
+                {%- unless item.product.has_only_default_variant -%}
+                  <p class="cart-item__variant">{{ item.variant.title }}</p>
+                {%- endunless -%}
+
+                <div class="cart-item__quantity" data-quantity-selector data-cart-quantity-form data-line="{{ forloop.index }}">
+                  <button type="button" class="cart-item__quantity-btn" data-quantity-minus>-</button>
+                  <span class="cart-item__quantity-value" data-quantity-input>{{ item.quantity }}</span>
+                  <button type="button" class="cart-item__quantity-btn" data-quantity-plus>+</button>
+                </div>
+              </div>
+
+              <div class="cart-item__price">
+                <p class="cart-item__total">{{ item.line_price | money }}</p>
+                <button type="button" class="cart-item__remove" data-cart-remove data-line="{{ forloop.index }}">
+                  Supprimer
+                </button>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="cart__summary">
+          <h2 class="cart__summary-title">Récapitulatif</h2>
+
+          <div class="cart__summary-row">
+            <span>Sous-total</span>
+            <span>{{ cart.total_price | money }}</span>
+          </div>
+
+          <div class="cart__summary-row">
+            <span>Livraison</span>
+            <span>Calculée à l'étape suivante</span>
+          </div>
+
+          <div class="cart__summary-row cart__summary-total">
+            <span>Total</span>
+            <span>{{ cart.total_price | money }}</span>
+          </div>
+
+          <form action="/checkout" method="post">
+            <button type="submit" class="btn btn--primary cart__checkout-btn">
+              Commander
+            </button>
+          </form>
+
+          <p class="text-center mt-sm">
+            <a href="{{ routes.all_products_collection_url }}" class="btn--link">Continuer mes achats</a>
+          </p>
+        </div>
+      </div>
+    {%- else -%}
+      <div class="cart__empty">
+        <h2 class="cart__empty-title">Votre panier est vide</h2>
+        <p class="mb-lg">Découvrez nos créations artisanales.</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary">
+          Voir la boutique
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Panier principal",
+  "tag": "section",
+  "class": "section-main-cart"
+}
+{% endschema %}

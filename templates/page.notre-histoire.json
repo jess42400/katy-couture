@@ -1,0 +1,62 @@
+{
+  "sections": {
+    "main": {
+      "type": "notre-histoire",
+      "blocks": {
+        "story_1": {
+          "type": "story_block",
+          "settings": {
+            "heading": "Le commencement",
+            "text": "<p>Tout a commencé dans un petit atelier, avec une machine à coudre et une passion débordante pour la création. Chaque pièce raconte une histoire, celle d'un savoir-faire transmis et d'un amour pour les belles matières.</p>",
+            "reverse": false
+          }
+        },
+        "quote_1": {
+          "type": "quote",
+          "settings": {
+            "quote": "Chaque pièce est une invitation au voyage, un fragment de poésie à porter sur soi.",
+            "author": "Katy, fondatrice",
+            "background_color": "#F5F2EB"
+          }
+        },
+        "story_2": {
+          "type": "story_block",
+          "settings": {
+            "heading": "Notre atelier",
+            "text": "<p>Dans notre atelier baigné de lumière, chaque création prend vie. De la sélection des tissus à la couture finale, tout est fait avec le plus grand soin, pour vous offrir une pièce d'exception.</p>",
+            "reverse": true
+          }
+        },
+        "story_3": {
+          "type": "story_block",
+          "settings": {
+            "heading": "Des pièces uniques",
+            "text": "<p>Chaque création est numérotée et unique. Nous ne produisons jamais deux pièces identiques. C'est notre engagement envers l'authenticité et l'exclusivité.</p>",
+            "reverse": false
+          }
+        },
+        "quote_2": {
+          "type": "quote",
+          "settings": {
+            "quote": "Le fait-main, c'est accepter l'imperfection comme une signature d'authenticité.",
+            "author": "Katy",
+            "background_color": "#2C3E2C"
+          }
+        },
+        "gallery": {
+          "type": "gallery",
+          "settings": {
+            "title": "Dans les coulisses"
+          }
+        }
+      },
+      "block_order": ["story_1", "quote_1", "story_2", "story_3", "quote_2", "gallery"],
+      "settings": {
+        "subtitle": "L'histoire de",
+        "title": "Katy Couture",
+        "intro": "Née d'une passion pour l'artisanat et le beau, Katy Couture crée des accessoires uniques, confectionnés à la main avec amour dans notre atelier français. Chaque pièce raconte une histoire, celle d'un savoir-faire transmis et réinventé."
+      }
+    }
+  },
+  "order": ["main"]
+}

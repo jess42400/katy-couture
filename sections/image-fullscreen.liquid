@@ -1,0 +1,61 @@
+{%- comment -%}
+  IMAGE FULLSCREEN SECTION
+  Grande photo lifestyle avec texte overlay
+{%- endcomment -%}
+
+<section class="image-fullscreen parallax-container">
+  <div class="image-fullscreen__media">
+    {%- if section.settings.image -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 2000 }}"
+        alt="{{ section.settings.image.alt | escape }}"
+        loading="lazy"
+        class="parallax"
+      >
+    {%- else -%}
+      <div style="background: linear-gradient(135deg, #2C3E2C 0%, #4A5E4A 100%); width: 100%; height: 100%;"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="image-fullscreen__overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 | default: 0.4 }};"></div>
+
+  <div class="image-fullscreen__content reveal">
+    {%- if section.settings.text != blank -%}
+      <p class="image-fullscreen__text">{{ section.settings.text }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image plein écran",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Texte (citation)",
+      "default": "Confectionné avec passion"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité overlay",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image plein écran"
+    }
+  ]
+}
+{% endschema %}

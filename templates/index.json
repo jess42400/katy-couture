@@ -1,141 +1,139 @@
 {
   "sections": {
-    "hero": {
-      "type": "hero-banner",
+    "hero-brand": {
+      "type": "hero-brand",
       "settings": {
-        "subheading": "Collection exclusive",
-        "heading": "L'elegance intemporelle",
-        "text": "Decouvrez notre collection de pieces d'exception, creees avec passion et savoir-faire.",
-        "button_label": "Decouvrir",
-        "button_link": "shopify://collections/all",
-        "button_style": "accent",
-        "overlay_opacity": 30,
-        "height": "hero-banner--large",
-        "content_position": "hero-banner__content--center"
+        "title": "KATY COUTURE",
+        "subtitle": "Créations artisanales françaises",
+        "show_scroll_text": true
       }
     },
-    "featured-collection": {
-      "type": "featured-collection",
+    "manifeste": {
+      "type": "manifeste",
       "settings": {
-        "subheading": "Selection",
-        "heading": "Nos pieces signatures",
-        "header_alignment": "featured-collection__header--center",
-        "products_count": 4,
-        "columns": "4",
-        "image_ratio": "portrait",
-        "card_alignment": "center",
-        "show_vendor": false,
-        "show_secondary_image": true,
-        "show_view_all": true,
-        "view_all_label": "Voir la collection"
+        "title": "L'art du fait-main",
+        "text": "<p>Chaque création Katy Couture naît de la passion et du savoir-faire artisanal français. Des pièces uniques, numérotées, confectionnées avec amour dans notre atelier.</p>",
+        "background_color": "#F5F2EB"
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
+    "image-fullscreen": {
+      "type": "image-fullscreen",
       "settings": {
-        "subheading": "Notre histoire",
-        "heading": "L'art du savoir-faire",
-        "text": "<p>Chaque piece est le fruit d'un travail minutieux, realise par des artisans passionnes. Nous selectionnons les plus belles matieres pour creer des pieces uniques qui traverseront le temps.</p>",
-        "button_label": "En savoir plus",
-        "button_style": "secondary",
-        "layout": "image-with-text--image-left",
-        "text_alignment": "image-with-text__content--left"
+        "text": "Confectionné avec passion",
+        "overlay_opacity": 40
       }
     },
-    "brand-values": {
-      "type": "brand-values",
+    "nos-univers": {
+      "type": "nos-univers",
       "settings": {
-        "subheading": "Nos valeurs",
-        "heading": "Ce qui nous definit"
+        "subtitle": "",
+        "title": "Nos univers"
       },
       "blocks": {
-        "value-1": {
-          "type": "value",
+        "cat-1": {
+          "type": "category",
           "settings": {
-            "title": "Qualite premium",
-            "description": "Nous selectionnons uniquement les matieres les plus nobles pour nos creations."
+            "title": "Chèches & Écharpes",
+            "link": "/collections/cheches-echarpes"
           }
         },
-        "value-2": {
-          "type": "value",
+        "cat-2": {
+          "type": "category",
           "settings": {
-            "title": "Savoir-faire artisanal",
-            "description": "Chaque piece est realisee a la main par nos artisans experts."
+            "title": "Sacs",
+            "link": "/collections/sacs"
           }
         },
-        "value-3": {
-          "type": "value",
+        "cat-3": {
+          "type": "category",
           "settings": {
-            "title": "Livraison soignee",
-            "description": "Un emballage elegant et une livraison securisee pour chaque commande."
+            "title": "Chapeaux",
+            "link": "/collections/chapeaux"
           }
         },
-        "value-4": {
-          "type": "value",
+        "cat-4": {
+          "type": "category",
           "settings": {
-            "title": "Service client",
-            "description": "Une equipe dediee pour vous accompagner dans votre experience."
+            "title": "Nouveautés",
+            "link": "/collections/nouveautes"
           }
         }
       },
-      "block_order": ["value-1", "value-2", "value-3", "value-4"]
+      "block_order": ["cat-1", "cat-2", "cat-3", "cat-4"]
     },
-    "testimonials": {
-      "type": "testimonials",
+    "histoire-teaser": {
+      "type": "histoire-teaser",
       "settings": {
-        "subheading": "Temoignages",
-        "heading": "Ce que disent nos clientes",
-        "style": "testimonials--bordered"
+        "title": "Née d'une passion",
+        "text": "Katy Couture est née dans un petit atelier, avec une machine à coudre et un rêve : créer des pièces uniques qui racontent une histoire.",
+        "link_text": "Lire notre histoire",
+        "link": "/pages/notre-histoire",
+        "background_color": "#2C3E2C"
+      }
+    },
+    "matieres": {
+      "type": "matieres",
+      "settings": {
+        "title": "Nos matières",
+        "background_color": "#FAFAF8"
       },
       "blocks": {
-        "testimonial-1": {
-          "type": "testimonial",
+        "matiere-1": {
+          "type": "matiere",
           "settings": {
-            "rating": 5,
-            "quote": "Une experience d'achat exceptionnelle. La qualite est au rendez-vous.",
-            "author": "Marie D.",
-            "title": "Cliente fidele"
+            "title": "Sherpa"
           }
         },
-        "testimonial-2": {
-          "type": "testimonial",
+        "matiere-2": {
+          "type": "matiere",
           "settings": {
-            "rating": 5,
-            "quote": "Des pieces uniques qui font la difference. Je recommande vivement.",
-            "author": "Sophie L.",
-            "title": "Acheteuse reguliere"
+            "title": "Minky"
           }
         },
-        "testimonial-3": {
-          "type": "testimonial",
+        "matiere-3": {
+          "type": "matiere",
           "settings": {
-            "rating": 5,
-            "quote": "Le service client est impeccable et les produits sont magnifiques.",
-            "author": "Claire M.",
-            "title": "Nouvelle cliente"
+            "title": "Faux Fur"
           }
         }
       },
-      "block_order": ["testimonial-1", "testimonial-2", "testimonial-3"]
+      "block_order": ["matiere-1", "matiere-2", "matiere-3"]
+    },
+    "instagram-feed": {
+      "type": "instagram-feed",
+      "settings": {
+        "title": "L'atelier au quotidien",
+        "handle": "@katycouture",
+        "background_color": "#FAFAF8"
+      },
+      "blocks": {
+        "img-1": { "type": "image" },
+        "img-2": { "type": "image" },
+        "img-3": { "type": "image" },
+        "img-4": { "type": "image" },
+        "img-5": { "type": "image" },
+        "img-6": { "type": "image" }
+      },
+      "block_order": ["img-1", "img-2", "img-3", "img-4", "img-5", "img-6"]
     },
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "subheading": "Newsletter",
-        "heading": "Restez informee",
-        "text": "Inscrivez-vous pour recevoir nos nouveautes et offres exclusives.",
+        "title": "Rejoignez l'aventure",
+        "text": "Nouveautés, coulisses de l'atelier, ventes privées",
         "button_label": "S'inscrire",
-        "disclaimer": "En vous inscrivant, vous acceptez notre politique de confidentialite.",
-        "style": "newsletter--dark"
+        "background_color": "#B87B5E"
       }
     }
   },
   "order": [
-    "hero",
-    "featured-collection",
-    "image-with-text",
-    "brand-values",
-    "testimonials",
+    "hero-brand",
+    "manifeste",
+    "image-fullscreen",
+    "nos-univers",
+    "histoire-teaser",
+    "matieres",
+    "instagram-feed",
     "newsletter"
   ]
 }

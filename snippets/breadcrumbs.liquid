@@ -1,0 +1,20 @@
+{%- comment -%}
+  BREADCRUMBS - Navigation breadcrumbs
+{%- endcomment -%}
+<nav class="breadcrumbs" aria-label="Fil d'ariane">
+  <a href="{{ routes.root_url }}" class="breadcrumbs__link">Accueil</a>
+  <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+  {%- if template.name == 'product' -%}
+    {%- if product.collections.size > 0 -%}
+      <a href="{{ product.collections.first.url }}" class="breadcrumbs__link">{{ product.collections.first.title }}</a>
+      <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+    {%- endif -%}
+    <span class="breadcrumbs__current" aria-current="page">{{ product.title }}</span>
+  {%- elsif template.name == 'collection' -%}
+    <span class="breadcrumbs__current" aria-current="page">{{ collection.title }}</span>
+  {%- elsif template.name == 'page' -%}
+    <span class="breadcrumbs__current" aria-current="page">{{ page.title }}</span>
+  {%- elsif template.name == 'cart' -%}
+    <span class="breadcrumbs__current" aria-current="page">Panier</span>
+  {%- endif -%}
+</nav>

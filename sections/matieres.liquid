@@ -1,0 +1,101 @@
+{%- comment -%}
+  MATIÈRES SECTION
+  Vraies IMAGES de textures (pas d'icônes)
+  Nom de la matière en overlay discret
+  PAS de descriptions longues
+  Layout horizontal ou grid élégant
+{%- endcomment -%}
+
+<section class="section section--lg matieres" style="background-color: {{ section.settings.background_color | default: '#FAFAF8' }};">
+  <div class="container">
+    <header class="matieres__header reveal">
+      <h2>{{ section.settings.title | default: 'Nos matières' }}</h2>
+    </header>
+
+    <div class="matieres__grid reveal-stagger">
+      {%- for block in section.blocks -%}
+        <div class="matiere-card" {{ block.shopify_attributes }}>
+          <div class="matiere-card__media">
+            {%- if block.settings.image -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 800 }}"
+                alt="{{ block.settings.title }}"
+                loading="lazy"
+                class="matiere-card__image"
+              >
+            {%- else -%}
+              <div class="matiere-card__image matiere-card__image--placeholder" style="background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-rose, #D4B5A8) 100%);"></div>
+            {%- endif -%}
+            <div class="matiere-card__overlay"></div>
+          </div>
+
+          <span class="matiere-card__title">{{ block.settings.title }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Nos matières",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Nos matières"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#FAFAF8"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "matiere",
+      "name": "Matière",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image texture (vraie photo de la matière)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Nom",
+          "default": "Sherpa"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Nos matières",
+      "blocks": [
+        {
+          "type": "matiere",
+          "settings": {
+            "title": "Sherpa"
+          }
+        },
+        {
+          "type": "matiere",
+          "settings": {
+            "title": "Minky"
+          }
+        },
+        {
+          "type": "matiere",
+          "settings": {
+            "title": "Faux Fur"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

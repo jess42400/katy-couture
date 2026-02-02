@@ -1,0 +1,101 @@
+{%- comment -%}
+  COLLECTION LIST
+  Grid of collection cards
+{%- endcomment -%}
+
+<section class="section">
+  <div class="container">
+    {%- if section.settings.title != blank -%}
+      <header class="featured-collection__header">
+        <h2 class="featured-collection__title">{{ section.settings.title }}</h2>
+      </header>
+    {%- endif -%}
+
+    <div class="grid grid--{{ section.settings.columns }}">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.collection.url | default: '#' }}" class="collection-list__item aspect-ratio aspect-ratio--3-2" {{ block.shopify_attributes }}>
+          {%- if block.settings.image -%}
+            <img
+              src="{{ block.settings.image | image_url: width: 800 }}"
+              alt="{{ block.settings.collection.title | escape }}"
+              loading="lazy"
+              class="collection-list__image"
+            >
+          {%- elsif block.settings.collection.image -%}
+            <img
+              src="{{ block.settings.collection.image | image_url: width: 800 }}"
+              alt="{{ block.settings.collection.title | escape }}"
+              loading="lazy"
+              class="collection-list__image"
+            >
+          {%- else -%}
+            <div style="background-color: #f0f0f0; width: 100%; height: 100%;"></div>
+          {%- endif -%}
+
+          <div class="collection-list__overlay">
+            <h3 class="collection-list__title">
+              {{ block.settings.title | default: block.settings.collection.title | default: 'Collection' }}
+            </h3>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Liste de collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Nos collections"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Colonnes",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" }
+      ],
+      "default": "3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre personnalisé"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image personnalisée"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Liste de collections",
+      "blocks": [
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" }
+      ]
+    }
+  ]
+}
+{% endschema %}

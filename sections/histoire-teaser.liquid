@@ -1,0 +1,89 @@
+{%- comment -%}
+  NOTRE HISTOIRE - Section teaser
+  TOUT cliquable vers /pages/notre-histoire
+  Layout : Texte à gauche + image atelier à droite
+  Fond : vert forêt avec texte crème
+{%- endcomment -%}
+
+{%- assign link_url = section.settings.link | default: '/pages/notre-histoire' -%}
+
+<a href="{{ link_url }}" class="histoire-section" style="background-color: {{ section.settings.background_color | default: '#2C3E2C' }};">
+  {%- comment -%} Texte à gauche {%- endcomment -%}
+  <div class="histoire-section__content reveal">
+    {%- if section.settings.title != blank -%}
+      <h2 class="histoire-section__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <p class="histoire-section__text">{{ section.settings.text }}</p>
+    {%- endif -%}
+
+    <span class="histoire-section__link">
+      {{ section.settings.link_text | default: 'Lire notre histoire' }}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </span>
+  </div>
+
+  {%- comment -%} Image à droite {%- endcomment -%}
+  <div class="histoire-section__image reveal-scale">
+    {%- if section.settings.image -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 1000 }}"
+        alt="{{ section.settings.image.alt | default: 'Notre atelier' }}"
+        loading="lazy"
+      >
+    {%- else -%}
+      <div class="histoire-section__image-placeholder"></div>
+    {%- endif -%}
+  </div>
+</a>
+
+{% schema %}
+{
+  "name": "Notre Histoire",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Née d'une passion"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte (3 lignes max)",
+      "default": "Katy Couture est née dans un petit atelier, avec une machine à coudre et un rêve : créer des pièces uniques qui racontent une histoire."
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Texte du lien",
+      "default": "Lire notre histoire"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Lien",
+      "default": "/pages/notre-histoire"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image atelier"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#2C3E2C"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Notre Histoire"
+    }
+  ]
+}
+{% endschema %}

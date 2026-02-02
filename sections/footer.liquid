@@ -1,356 +1,95 @@
-<footer class="footer full-width">
-  <div class="footer__main">
-    <div class="footer__brand">
-      {%- if section.settings.logo -%}
-        <a href="{{ routes.root_url }}" class="footer__logo">
-          {{ section.settings.logo | image_url: width: 300 | image_tag }}
-        </a>
+{%- comment -%}
+  FOOTER - Style éditorial / Site de marque
+  Fond noir doux, texte crème
+  Logo centré, 3 colonnes, icônes ligne fine
+{%- endcomment -%}
+
+<footer class="footer">
+  <div class="container">
+    {%- comment -%} Logo centré {%- endcomment -%}
+    <div class="footer__logo">
+      {%- if settings.logo -%}
+        <img
+          src="{{ settings.logo | image_url: width: 200 }}"
+          alt="{{ shop.name }}"
+          class="footer__logo-image"
+        >
       {%- else -%}
-        <a href="{{ routes.root_url }}" class="footer__logo-text">
-          {{ shop.name }}
-        </a>
+        <span class="footer__logo-text">KATY COUTURE</span>
       {%- endif -%}
+    </div>
 
-      {%- if section.settings.description != blank -%}
-        <p class="footer__description">{{ section.settings.description }}</p>
-      {%- endif -%}
+    {%- comment -%} 3 colonnes {%- endcomment -%}
+    <div class="footer__grid">
+      {%- comment -%} La marque {%- endcomment -%}
+      <div class="footer__column">
+        <h3 class="footer__title">La marque</h3>
+        <ul class="footer__links">
+          <li><a href="/pages/notre-histoire" class="footer__link">Notre histoire</a></li>
+          <li><a href="/pages/savoir-faire" class="footer__link">Savoir-faire</a></li>
+          <li><a href="/pages/contact" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
 
-      <div class="footer__social">
-        {%- if settings.social_instagram != blank -%}
-          <a href="https://instagram.com/{{ settings.social_instagram }}" class="footer__social-link" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-            </svg>
-          </a>
-        {%- endif -%}
+      {%- comment -%} Aide {%- endcomment -%}
+      <div class="footer__column">
+        <h3 class="footer__title">Aide</h3>
+        <ul class="footer__links">
+          <li><a href="/pages/faq" class="footer__link">FAQ</a></li>
+          <li><a href="/pages/livraison" class="footer__link">Livraison</a></li>
+          <li><a href="/pages/retours" class="footer__link">Retours</a></li>
+          <li><a href="/policies/terms-of-service" class="footer__link">CGV</a></li>
+        </ul>
+      </div>
 
-        {%- if settings.social_facebook != blank -%}
-          <a href="{{ settings.social_facebook }}" class="footer__social-link" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-            </svg>
-          </a>
-        {%- endif -%}
+      {%- comment -%} Suivez-nous {%- endcomment -%}
+      <div class="footer__column">
+        <h3 class="footer__title">Suivez-nous</h3>
+        <div class="footer__social">
+          {%- if settings.social_instagram_link != blank -%}
+            <a href="{{ settings.social_instagram_link }}" class="footer__social-link" target="_blank" rel="noopener" aria-label="Instagram">
+              {% render 'icon-instagram' %}
+            </a>
+          {%- endif -%}
 
-        {%- if settings.social_pinterest != blank -%}
-          <a href="{{ settings.social_pinterest }}" class="footer__social-link" target="_blank" rel="noopener" aria-label="Pinterest">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M8 12a4 4 0 1 0 8 0c0-2.21-1.79-4-4-4s-4 1.79-4 4z"/>
-              <path d="M12 2a10 10 0 0 0-4 19.2V16"/>
-              <path d="m9 16 1.5 6"/>
-            </svg>
-          </a>
-        {%- endif -%}
+          {%- if settings.social_tiktok_link != blank -%}
+            <a href="{{ settings.social_tiktok_link }}" class="footer__social-link" target="_blank" rel="noopener" aria-label="TikTok">
+              {% render 'icon-tiktok' %}
+            </a>
+          {%- endif -%}
 
-        {%- if settings.social_tiktok != blank -%}
-          <a href="https://tiktok.com/@{{ settings.social_tiktok }}" class="footer__social-link" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-            </svg>
-          </a>
-        {%- endif -%}
+          {%- if settings.social_pinterest_link != blank -%}
+            <a href="{{ settings.social_pinterest_link }}" class="footer__social-link" target="_blank" rel="noopener" aria-label="Pinterest">
+              {% render 'icon-pinterest' %}
+            </a>
+          {%- endif -%}
+
+          {%- if settings.social_facebook_link != blank -%}
+            <a href="{{ settings.social_facebook_link }}" class="footer__social-link" target="_blank" rel="noopener" aria-label="Facebook">
+              {% render 'icon-facebook' %}
+            </a>
+          {%- endif -%}
+        </div>
       </div>
     </div>
 
-    <div class="footer__links">
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'menu' -%}
-            <div class="footer__column" {{ block.shopify_attributes }}>
-              {%- if block.settings.heading != blank -%}
-                <h3 class="footer__column-title">{{ block.settings.heading }}</h3>
-              {%- endif -%}
-
-              {%- if block.settings.menu != blank -%}
-                <ul class="footer__menu">
-                  {%- for link in block.settings.menu.links -%}
-                    <li>
-                      <a href="{{ link.url }}" class="footer__link">{{ link.title }}</a>
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              {%- endif -%}
-            </div>
-
-          {%- when 'text' -%}
-            <div class="footer__column" {{ block.shopify_attributes }}>
-              {%- if block.settings.heading != blank -%}
-                <h3 class="footer__column-title">{{ block.settings.heading }}</h3>
-              {%- endif -%}
-
-              {%- if block.settings.text != blank -%}
-                <div class="footer__text">{{ block.settings.text }}</div>
-              {%- endif -%}
-            </div>
-        {%- endcase -%}
-      {%- endfor -%}
-    </div>
-  </div>
-
-  <div class="footer__bottom">
-    <div class="footer__copyright">
-      &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}.
-      {{ 'footer.all_rights_reserved' | t }}
+    {%- comment -%} Fait main en France - SANS emoji {%- endcomment -%}
+    <div class="footer__made-in">
+      <span>Fait-main en France</span>
     </div>
 
-    {%- if section.settings.show_payment_icons -%}
-      <div class="footer__payment">
-        {%- for type in shop.enabled_payment_types -%}
-          {{ type | payment_type_svg_tag: class: 'footer__payment-icon' }}
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
+    {%- comment -%} Copyright {%- endcomment -%}
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        &copy; {{ 'now' | date: '%Y' }} Katy Couture. Tous droits réservés.
+      </p>
+    </div>
   </div>
 </footer>
 
-{% stylesheet %}
-  .footer {
-    background-color: var(--color-secondary);
-    color: var(--color-secondary-contrast);
-    padding: var(--gap-2xl) var(--page-margin) var(--gap-xl);
-  }
-
-  .footer__main {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: var(--gap-2xl);
-    max-width: var(--page-width);
-    margin: 0 auto var(--gap-2xl);
-  }
-
-  .footer__brand {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-md);
-  }
-
-  .footer__logo img {
-    max-height: 3rem;
-    width: auto;
-  }
-
-  .footer__logo-text {
-    font-family: var(--font-heading);
-    font-size: var(--heading-md);
-    font-weight: 400;
-    letter-spacing: var(--letter-spacing-wide);
-    text-transform: uppercase;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .footer__description {
-    font-size: var(--text-base);
-    line-height: 1.6;
-    opacity: 0.8;
-    margin: 0;
-  }
-
-  .footer__social {
-    display: flex;
-    gap: var(--gap-sm);
-    margin-top: var(--gap-sm);
-  }
-
-  .footer__social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: inherit;
-    transition: all var(--animation-duration) var(--animation-easing);
-  }
-
-  .footer__social-link:hover {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-accent-contrast);
-  }
-
-  .footer__links {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--gap-xl);
-  }
-
-  .footer__column-title {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    letter-spacing: var(--letter-spacing-wide);
-    text-transform: uppercase;
-    margin: 0 0 var(--gap-md);
-  }
-
-  .footer__menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .footer__link {
-    display: block;
-    padding: 0.375rem 0;
-    font-size: var(--text-sm);
-    text-decoration: none;
-    color: inherit;
-    opacity: 0.8;
-    transition: opacity var(--animation-duration) var(--animation-easing);
-  }
-
-  .footer__link:hover {
-    opacity: 1;
-    color: var(--color-accent);
-  }
-
-  .footer__text {
-    font-size: var(--text-sm);
-    line-height: 1.6;
-    opacity: 0.8;
-  }
-
-  .footer__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: var(--gap-xl);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    max-width: var(--page-width);
-    margin: 0 auto;
-  }
-
-  .footer__copyright {
-    font-size: var(--text-sm);
-    opacity: 0.7;
-  }
-
-  .footer__payment {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .footer__payment-icon {
-    height: 1.5rem;
-    width: auto;
-  }
-
-  @media (max-width: 1024px) {
-    .footer__main {
-      grid-template-columns: 1fr;
-      gap: var(--gap-xl);
-    }
-
-    .footer__links {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .footer__links {
-      grid-template-columns: 1fr;
-    }
-
-    .footer__bottom {
-      flex-direction: column;
-      gap: var(--gap-md);
-      text-align: center;
-    }
-  }
-{% endstylesheet %}
-
 {% schema %}
 {
-  "name": "t:general.footer",
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.brand"
-    },
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "t:sections.footer.settings.logo"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "t:labels.description",
-      "default": "Creations d'exception pour femmes exigeantes. Qualite, elegance et raffinement."
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.payment"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_payment_icons",
-      "label": "t:labels.show_payment_icons",
-      "default": true
-    }
-  ],
-  "blocks": [
-    {
-      "type": "menu",
-      "name": "t:sections.footer.blocks.menu",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "t:labels.heading",
-          "default": "Liens"
-        },
-        {
-          "type": "link_list",
-          "id": "menu",
-          "label": "t:labels.menu"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "name": "t:sections.footer.blocks.text",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "t:labels.heading",
-          "default": "Contact"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "t:labels.text",
-          "default": "<p>contact@katycouture.com<br>+33 1 23 45 67 89</p>"
-        }
-      ]
-    }
-  ],
-  "default": {
-    "blocks": [
-      {
-        "type": "menu",
-        "settings": {
-          "heading": "Boutique"
-        }
-      },
-      {
-        "type": "menu",
-        "settings": {
-          "heading": "Informations"
-        }
-      },
-      {
-        "type": "text",
-        "settings": {
-          "heading": "Contact",
-          "text": "<p>contact@katycouture.com<br>+33 1 23 45 67 89</p>"
-        }
-      }
-    ]
-  }
+  "name": "Pied de page",
+  "settings": []
 }
 {% endschema %}

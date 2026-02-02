@@ -1,0 +1,122 @@
+{%- comment -%}
+  NOS UNIVERS / NOS CRÉATIONS
+  4 GRANDS blocs visuels 100% CLIQUABLES
+  PAS de "Découvrir" - juste le titre en overlay
+  Hover : zoom image + overlay s'éclaircit + titre monte
+{%- endcomment -%}
+
+<section class="section section--lg nos-univers">
+  <div class="container">
+    <header class="nos-univers__header reveal">
+      {%- if section.settings.subtitle != blank -%}
+        <p class="subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.title }}</h2>
+    </header>
+
+    <div class="nos-univers__grid">
+      {%- for block in section.blocks -%}
+        {%- assign link_url = block.settings.link | default: '/collections/all' -%}
+
+        <a href="{{ link_url }}" class="univers-card reveal" style="--delay: {{ forloop.index | times: 0.1 }}s;" {{ block.shopify_attributes }}>
+          <div class="univers-card__media">
+            {%- if block.settings.image -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 900 }}"
+                alt="{{ block.settings.title }}"
+                loading="lazy"
+                class="univers-card__image"
+              >
+            {%- else -%}
+              <div class="univers-card__image univers-card__image--placeholder"></div>
+            {%- endif -%}
+            <div class="univers-card__overlay"></div>
+          </div>
+
+          <div class="univers-card__content">
+            <h3 class="univers-card__title">{{ block.settings.title }}</h3>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Nos Univers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Créations"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Nos univers"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Catégorie",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image lifestyle"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Nom",
+          "default": "Chèches & Écharpes"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien vers collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Nos Univers",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "Chèches & Écharpes",
+            "link": "/collections/cheches-echarpes"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Sacs",
+            "link": "/collections/sacs"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Chapeaux",
+            "link": "/collections/chapeaux"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Nouveautés",
+            "link": "/collections/nouveautes"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,415 @@
+{%- comment -%}
+  NOTRE HISTOIRE - Page éditoriale
+  Hero avec grande image atelier + sections alternées image/texte
+  Citations élégantes, photos coulisses
+{%- endcomment -%}
+
+{%- comment -%} Hero avec image plein écran {%- endcomment -%}
+<section class="histoire-hero">
+  <div class="histoire-hero__media">
+    {%- if section.settings.hero_image -%}
+      <img
+        src="{{ section.settings.hero_image | image_url: width: 2000 }}"
+        alt="{{ section.settings.hero_image.alt | escape | default: 'Atelier Katy Couture' }}"
+        class="histoire-hero__img"
+      >
+    {%- else -%}
+      <div class="histoire-hero__placeholder"></div>
+    {%- endif -%}
+    <div class="histoire-hero__overlay"></div>
+  </div>
+
+  <div class="histoire-hero__content">
+    {%- if section.settings.subtitle != blank -%}
+      <span class="histoire-hero__subtitle">{{ section.settings.subtitle }}</span>
+    {%- endif -%}
+    <h1 class="histoire-hero__title">{{ section.settings.title | default: 'Notre Histoire' }}</h1>
+  </div>
+</section>
+
+{%- comment -%} Introduction {%- endcomment -%}
+{%- if section.settings.intro != blank -%}
+  <section class="histoire-intro">
+    <div class="container container--narrow">
+      <p class="histoire-intro__text">{{ section.settings.intro }}</p>
+    </div>
+  </section>
+{%- endif -%}
+
+{%- comment -%} Story Blocks {%- endcomment -%}
+{%- for block in section.blocks -%}
+  {%- case block.type -%}
+
+    {%- when 'story_block' -%}
+      <section class="histoire-block {% if block.settings.reverse %}histoire-block--reverse{% endif %}">
+        <div class="histoire-block__media">
+          {%- if block.settings.image -%}
+            <img
+              src="{{ block.settings.image | image_url: width: 1000 }}"
+              alt="{{ block.settings.image.alt | escape }}"
+              loading="lazy"
+            >
+          {%- else -%}
+            <div class="histoire-block__placeholder"></div>
+          {%- endif -%}
+        </div>
+        <div class="histoire-block__content">
+          {%- if block.settings.heading != blank -%}
+            <h2 class="histoire-block__title">{{ block.settings.heading }}</h2>
+          {%- endif -%}
+          <div class="histoire-block__text">{{ block.settings.text }}</div>
+        </div>
+      </section>
+
+    {%- when 'quote' -%}
+      <section class="histoire-quote" style="background-color: {{ block.settings.background_color | default: 'var(--color-cream)' }};">
+        <div class="container container--narrow">
+          <blockquote class="histoire-quote__text">
+            <p>{{ block.settings.quote }}</p>
+            {%- if block.settings.author != blank -%}
+              <cite class="histoire-quote__author">— {{ block.settings.author }}</cite>
+            {%- endif -%}
+          </blockquote>
+        </div>
+      </section>
+
+    {%- when 'image_fullwidth' -%}
+      <section class="histoire-fullimage">
+        {%- if block.settings.image -%}
+          <img
+            src="{{ block.settings.image | image_url: width: 2000 }}"
+            alt="{{ block.settings.image.alt | escape }}"
+            loading="lazy"
+          >
+        {%- endif -%}
+        {%- if block.settings.caption != blank -%}
+          <p class="histoire-fullimage__caption">{{ block.settings.caption }}</p>
+        {%- endif -%}
+      </section>
+
+    {%- when 'timeline' -%}
+      <section class="histoire-timeline">
+        <div class="container">
+          {%- if block.settings.title != blank -%}
+            <h2 class="histoire-timeline__title">{{ block.settings.title }}</h2>
+          {%- endif -%}
+          <div class="histoire-timeline__items">
+            {%- if block.settings.year_1 != blank -%}
+              <div class="histoire-timeline__item">
+                <span class="histoire-timeline__year">{{ block.settings.year_1 }}</span>
+                <p class="histoire-timeline__desc">{{ block.settings.desc_1 }}</p>
+              </div>
+            {%- endif -%}
+            {%- if block.settings.year_2 != blank -%}
+              <div class="histoire-timeline__item">
+                <span class="histoire-timeline__year">{{ block.settings.year_2 }}</span>
+                <p class="histoire-timeline__desc">{{ block.settings.desc_2 }}</p>
+              </div>
+            {%- endif -%}
+            {%- if block.settings.year_3 != blank -%}
+              <div class="histoire-timeline__item">
+                <span class="histoire-timeline__year">{{ block.settings.year_3 }}</span>
+                <p class="histoire-timeline__desc">{{ block.settings.desc_3 }}</p>
+              </div>
+            {%- endif -%}
+            {%- if block.settings.year_4 != blank -%}
+              <div class="histoire-timeline__item">
+                <span class="histoire-timeline__year">{{ block.settings.year_4 }}</span>
+                <p class="histoire-timeline__desc">{{ block.settings.desc_4 }}</p>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </section>
+
+    {%- when 'gallery' -%}
+      <section class="histoire-gallery">
+        <div class="container">
+          {%- if block.settings.title != blank -%}
+            <h2 class="histoire-gallery__title">{{ block.settings.title }}</h2>
+          {%- endif -%}
+          <div class="histoire-gallery__grid">
+            {%- if block.settings.image_1 -%}
+              <div class="histoire-gallery__item">
+                <img src="{{ block.settings.image_1 | image_url: width: 600 }}" alt="{{ block.settings.image_1.alt | escape }}" loading="lazy">
+              </div>
+            {%- endif -%}
+            {%- if block.settings.image_2 -%}
+              <div class="histoire-gallery__item">
+                <img src="{{ block.settings.image_2 | image_url: width: 600 }}" alt="{{ block.settings.image_2.alt | escape }}" loading="lazy">
+              </div>
+            {%- endif -%}
+            {%- if block.settings.image_3 -%}
+              <div class="histoire-gallery__item">
+                <img src="{{ block.settings.image_3 | image_url: width: 600 }}" alt="{{ block.settings.image_3.alt | escape }}" loading="lazy">
+              </div>
+            {%- endif -%}
+            {%- if block.settings.image_4 -%}
+              <div class="histoire-gallery__item">
+                <img src="{{ block.settings.image_4 | image_url: width: 600 }}" alt="{{ block.settings.image_4.alt | escape }}" loading="lazy">
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </section>
+
+  {%- endcase -%}
+{%- endfor -%}
+
+{% schema %}
+{
+  "name": "Notre Histoire",
+  "tag": "div",
+  "class": "page-notre-histoire",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Image hero (atelier)"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "L'histoire de"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Katy Couture"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "Née d'une passion pour l'artisanat et le beau, Katy Couture crée des accessoires uniques, confectionnés à la main avec amour dans notre atelier français. Chaque pièce raconte une histoire, celle d'un savoir-faire transmis et réinventé."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "story_block",
+      "name": "Section image + texte",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Titre",
+          "default": "Le commencement"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Texte",
+          "default": "<p>Tout a commencé dans un petit atelier, avec une machine à coudre et une passion débordante pour la création.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "reverse",
+          "label": "Image à droite",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "Citation",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Citation",
+          "default": "Chaque pièce est une invitation au voyage, un fragment de poésie à porter sur soi."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Auteur",
+          "default": "Katy, fondatrice"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Couleur de fond",
+          "default": "#F5F2EB"
+        }
+      ]
+    },
+    {
+      "type": "image_fullwidth",
+      "name": "Image pleine largeur",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Légende (optionnelle)"
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "name": "Timeline",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Les étapes clés"
+        },
+        {
+          "type": "header",
+          "content": "Étape 1"
+        },
+        {
+          "type": "text",
+          "id": "year_1",
+          "label": "Année",
+          "default": "2019"
+        },
+        {
+          "type": "text",
+          "id": "desc_1",
+          "label": "Description",
+          "default": "Création de Katy Couture"
+        },
+        {
+          "type": "header",
+          "content": "Étape 2"
+        },
+        {
+          "type": "text",
+          "id": "year_2",
+          "label": "Année",
+          "default": "2020"
+        },
+        {
+          "type": "text",
+          "id": "desc_2",
+          "label": "Description",
+          "default": "Première collection de chèches"
+        },
+        {
+          "type": "header",
+          "content": "Étape 3"
+        },
+        {
+          "type": "text",
+          "id": "year_3",
+          "label": "Année",
+          "default": "2022"
+        },
+        {
+          "type": "text",
+          "id": "desc_3",
+          "label": "Description",
+          "default": "Lancement des sacs artisanaux"
+        },
+        {
+          "type": "header",
+          "content": "Étape 4"
+        },
+        {
+          "type": "text",
+          "id": "year_4",
+          "label": "Année",
+          "default": "2024"
+        },
+        {
+          "type": "text",
+          "id": "desc_4",
+          "label": "Description",
+          "default": "Ouverture de notre nouvel atelier"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "name": "Galerie coulisses",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Dans les coulisses"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image 4"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Notre Histoire",
+      "blocks": [
+        {
+          "type": "story_block",
+          "settings": {
+            "heading": "Le commencement",
+            "text": "<p>Tout a commencé dans un petit atelier, avec une machine à coudre et une passion débordante pour la création. Chaque pièce raconte une histoire, celle d'un savoir-faire transmis et d'un amour pour les belles matières.</p>",
+            "reverse": false
+          }
+        },
+        {
+          "type": "quote",
+          "settings": {
+            "quote": "Chaque pièce est une invitation au voyage, un fragment de poésie à porter sur soi.",
+            "author": "Katy, fondatrice"
+          }
+        },
+        {
+          "type": "story_block",
+          "settings": {
+            "heading": "Notre atelier",
+            "text": "<p>Dans notre atelier baigné de lumière, chaque création prend vie. De la sélection des tissus à la couture finale, tout est fait avec le plus grand soin, pour vous offrir une pièce d'exception.</p>",
+            "reverse": true
+          }
+        },
+        {
+          "type": "story_block",
+          "settings": {
+            "heading": "Des pièces uniques",
+            "text": "<p>Chaque création est numérotée et unique. Nous ne produisons jamais deux pièces identiques. C'est notre engagement envers l'authenticité et l'exclusivité.</p>",
+            "reverse": false
+          }
+        },
+        {
+          "type": "gallery",
+          "settings": {
+            "title": "Dans les coulisses"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

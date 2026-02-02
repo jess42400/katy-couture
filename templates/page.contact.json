@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "contact": {
+      "type": "contact-form",
+      "settings": {
+        "title": "Contactez-nous",
+        "text": "Une question ? N'hésitez pas à nous contacter."
+      }
+    }
+  },
+  "order": ["contact"]
+}

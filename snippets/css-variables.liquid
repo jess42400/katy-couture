@@ -1,86 +1,167 @@
-{% doc %}
-  Renders global CSS variables from theme settings.
-  This snippet should be included in the <head> of the layout.
-  Works alongside assets/base.css to provide dynamic theme customization.
-
-  @example
-  {% render 'css-variables' %}
-{% enddoc %}
+{%- comment -%}
+  CSS Variables - Katy Couture Theme
+  Palette luxe : vert forêt, crème, or, terracotta, rose poudré
+{%- endcomment -%}
 
 {% style %}
-  /* Font faces - Body */
-  {{ settings.type_primary_font | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-
-  /* Font faces - Headings */
+  /* ============================================
+     FONT FACES
+     ============================================ */
   {{ settings.type_heading_font | font_face: font_display: 'swap' }}
   {{ settings.type_heading_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
-  {{ settings.type_heading_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
 
   :root {
-    /* Typography - Headings (override base.css with theme settings) */
-    --font-heading: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
-    --font-heading-style: {{ settings.type_heading_font.style }};
-    --font-heading-weight: {{ settings.type_heading_font.weight }};
-    --font-heading-scale: {{ settings.heading_font_size_scale | divided_by: 100.0 }};
+    /* ============================================
+       PALETTE KATY COUTURE
+       ============================================ */
 
-    /* Typography - Body (override base.css with theme settings) */
-    --font-body: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
-    --font-body-style: {{ settings.type_primary_font.style }};
-    --font-body-weight: {{ settings.type_primary_font.weight }};
-    --font-body-scale: {{ settings.body_font_size_scale | divided_by: 100.0 }};
+    /* Couleurs principales */
+    --color-primary: {{ settings.color_primary | default: '#2C3E2C' }};
+    --color-primary-light: {{ settings.color_primary | default: '#2C3E2C' | color_lighten: 10 }};
+    --color-primary-dark: {{ settings.color_primary | default: '#2C3E2C' | color_darken: 10 }};
 
-    /* Colors (override base.css with theme settings) */
-    --color-bg: {{ settings.color_background }};
-    --color-text: {{ settings.color_foreground }};
-    --color-accent: {{ settings.color_accent }};
-    --color-accent-contrast: {{ settings.color_accent_contrast }};
-    --color-secondary: {{ settings.color_secondary }};
-    --color-secondary-contrast: {{ settings.color_secondary_contrast }};
-    --color-border: {{ settings.color_border }};
+    --color-cream: {{ settings.color_cream | default: '#F5F2EB' }};
+    --color-cream-dark: {{ settings.color_cream | default: '#F5F2EB' | color_darken: 5 }};
 
-    /* Color variations */
-    --color-bg-alt: {{ settings.color_background | color_darken: 3 }};
-    --color-muted: {{ settings.color_foreground | color_lighten: 30 }};
-    --color-accent-hover: {{ settings.color_accent | color_darken: 10 }};
+    /* Couleurs d'accent */
+    --color-gold: {{ settings.color_gold | default: '#C9A962' }};
+    --color-gold-light: {{ settings.color_gold | default: '#C9A962' | color_lighten: 15 }};
+    --color-gold-dark: {{ settings.color_gold | default: '#C9A962' | color_darken: 10 }};
 
-    /* Layout */
-    --page-width: {{ settings.max_page_width }};
-    --page-margin: {{ settings.min_page_margin }}px;
-    --gap-sections: {{ settings.section_spacing }}px;
+    --color-terracotta: {{ settings.color_terracotta | default: '#B87B5E' }};
+    --color-terracotta-light: {{ settings.color_terracotta | default: '#B87B5E' | color_lighten: 15 }};
+    --color-terracotta-dark: {{ settings.color_terracotta | default: '#B87B5E' | color_darken: 10 }};
 
-    /* Buttons & Inputs */
-    --button-radius: {{ settings.button_border_radius }}px;
-    --input-radius: {{ settings.input_border_radius }}px;
+    --color-rose: {{ settings.color_rose | default: '#D4B5A8' }};
+    --color-rose-light: {{ settings.color_rose | default: '#D4B5A8' | color_lighten: 10 }};
+    --color-rose-dark: {{ settings.color_rose | default: '#D4B5A8' | color_darken: 15 }};
 
-    /* Animations */
-    --animation-duration: {% if settings.enable_animations %}{% case settings.animation_style %}{% when 'subtle' %}0.2s{% when 'elegant' %}0.4s{% when 'dramatic' %}0.6s{% endcase %}{% else %}0s{% endif %};
-    --animation-easing: cubic-bezier(0.25, 0.1, 0.25, 1);
-    --animation-easing-out: cubic-bezier(0.16, 1, 0.3, 1);
+    /* Couleurs neutres */
+    --color-dark: {{ settings.color_dark | default: '#1A1A1A' }};
+    --color-dark-soft: {{ settings.color_dark | default: '#1A1A1A' | color_lighten: 15 }};
+    --color-light: {{ settings.color_light | default: '#FAFAF8' }};
+    --color-light-dim: {{ settings.color_light | default: '#FAFAF8' | color_darken: 3 }};
 
-    /* Typography scale (uses font scale from settings) */
-    --text-xs: calc(0.75rem * var(--font-body-scale, 1));
-    --text-sm: calc(0.875rem * var(--font-body-scale, 1));
-    --text-base: calc(1rem * var(--font-body-scale, 1));
-    --text-lg: calc(1.125rem * var(--font-body-scale, 1));
-    --text-xl: calc(1.25rem * var(--font-body-scale, 1));
+    /* Couleurs fonctionnelles */
+    --color-border: #E8E6E1;
+    --color-border-dark: #D1CEC7;
+    --color-overlay: rgba(26, 26, 26, 0.4);
+    --color-overlay-light: rgba(26, 26, 26, 0.2);
+    --color-overlay-dark: rgba(26, 26, 26, 0.6);
 
-    --heading-sm: calc(1.25rem * var(--font-heading-scale, 1));
-    --heading-md: calc(1.5rem * var(--font-heading-scale, 1));
-    --heading-lg: calc(2rem * var(--font-heading-scale, 1));
-    --heading-xl: calc(2.5rem * var(--font-heading-scale, 1));
-    --heading-2xl: calc(3rem * var(--font-heading-scale, 1));
-    --heading-3xl: calc(4rem * var(--font-heading-scale, 1));
-    --heading-display: calc(5rem * var(--font-heading-scale, 1));
+    /* ============================================
+       TYPOGRAPHIE
+       ============================================ */
+    --font-heading: {{ settings.type_heading_font.family | default: 'Playfair Display' }}, {{ settings.type_heading_font.fallback_families | default: 'serif' }};
+    --font-heading-weight: {{ settings.type_heading_font.weight | default: 400 }};
+    --font-heading-style: {{ settings.type_heading_font.style | default: 'normal' }};
+
+    --font-body: {{ settings.type_body_font.family | default: 'Inter' }}, {{ settings.type_body_font.fallback_families | default: 'sans-serif' }};
+    --font-body-weight: {{ settings.type_body_font.weight | default: 400 }};
+    --font-body-style: {{ settings.type_body_font.style | default: 'normal' }};
+
+    /* Tailles de texte - fluides avec clamp() */
+    --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);
+    --text-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
+    --text-base: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+    --text-lg: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --text-xl: clamp(1.1rem, 1rem + 0.5vw, 1.25rem);
+
+    /* Tailles de titres - fluides */
+    --heading-xs: clamp(0.875rem, 0.8rem + 0.4vw, 1rem);
+    --heading-sm: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+    --heading-md: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+    --heading-lg: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+    --heading-xl: clamp(1.75rem, 1.5rem + 1.5vw, 2.5rem);
+    --heading-2xl: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+    --heading-3xl: clamp(2.5rem, 2rem + 3vw, 4rem);
+    --heading-display: clamp(3rem, 2rem + 5vw, 6rem);
+
+    /* Interlignage */
+    --leading-tight: 1.1;
+    --leading-snug: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.75;
+
+    /* Espacement lettres */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.05em;
+    --tracking-wider: 0.1em;
+    --tracking-widest: 0.2em;
+
+    /* ============================================
+       ESPACEMENTS
+       ============================================ */
+    --space-xs: 0.5rem;    /* 8px */
+    --space-sm: 1rem;      /* 16px */
+    --space-md: 2rem;      /* 32px */
+    --space-lg: 4rem;      /* 64px */
+    --space-xl: 7.5rem;    /* 120px */
+    --space-2xl: 11rem;    /* 176px */
+
+    /* Espacement sections */
+    --section-spacing: clamp(4rem, 3rem + 5vw, 8rem);
+    --section-spacing-sm: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    --max-width: 1400px;
+    --max-width-narrow: 800px;
+    --max-width-wide: 1600px;
+    --page-margin: clamp(1rem, 0.5rem + 2.5vw, 3rem);
+    --header-height: 80px;
+    --header-height-scrolled: 64px;
+
+    /* ============================================
+       TRANSITIONS & ANIMATIONS
+       ============================================ */
+    --duration-fast: 0.2s;
+    --duration-normal: 0.4s;
+    --duration-slow: 0.8s;
+    --duration-slower: 1.2s;
+
+    --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* ============================================
+       BORDURES & OMBRES
+       ============================================ */
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --radius-lg: 8px;
+    --radius-full: 9999px;
+
+    --shadow-sm: 0 1px 2px rgba(26, 26, 26, 0.05);
+    --shadow-md: 0 4px 6px rgba(26, 26, 26, 0.07);
+    --shadow-lg: 0 10px 15px rgba(26, 26, 26, 0.1);
+    --shadow-xl: 0 20px 25px rgba(26, 26, 26, 0.15);
+
+    /* ============================================
+       Z-INDEX
+       ============================================ */
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-header: 500;
+    --z-overlay: 800;
+    --z-modal: 900;
+    --z-toast: 1000;
   }
 
+  /* ============================================
+     RESPONSIVE - MOBILE
+     ============================================ */
   @media (max-width: 768px) {
     :root {
-      --heading-display: calc(3rem * var(--font-heading-scale, 1));
-      --heading-3xl: calc(2.5rem * var(--font-heading-scale, 1));
-      --heading-2xl: calc(2rem * var(--font-heading-scale, 1));
-      --gap-sections: calc({{ settings.section_spacing }}px * 0.6);
+      --header-height: 64px;
+      --header-height-scrolled: 56px;
+      --section-spacing: clamp(3rem, 2rem + 3vw, 5rem);
     }
   }
 {% endstyle %}

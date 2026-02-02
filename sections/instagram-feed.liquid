@@ -1,0 +1,118 @@
+{%- comment -%}
+  INSTAGRAM SECTION
+  Titre : "L'atelier au quotidien"
+  Grille 6 images
+  Handle @katycouture cliquable vers Instagram
+  Icônes réseaux minimalistes (ligne fine, pas colorées)
+{%- endcomment -%}
+
+<section class="section section--lg instagram-section" style="background-color: {{ section.settings.background_color | default: '#FAFAF8' }};">
+  <div class="container">
+    <header class="instagram-section__header reveal">
+      <h2>{{ section.settings.title | default: "L'atelier au quotidien" }}</h2>
+      {%- if settings.social_instagram_link != blank -%}
+        <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener" class="instagram-section__handle">
+          {{ section.settings.handle | default: '@katycouture' }}
+        </a>
+      {%- else -%}
+        <p class="instagram-section__handle">{{ section.settings.handle | default: '@katycouture' }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="instagram-section__grid reveal-stagger">
+        {%- for block in section.blocks -%}
+          <a href="{{ settings.social_instagram_link | default: '#' }}" target="_blank" rel="noopener" class="instagram-section__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.image -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 400 }}"
+                alt="Instagram"
+                loading="lazy"
+              >
+            {%- else -%}
+              <div class="instagram-section__placeholder"></div>
+            {%- endif -%}
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <div class="instagram-section__social reveal">
+      {%- if settings.social_instagram_link != blank -%}
+        <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener" class="instagram-section__social-link" aria-label="Instagram">
+          {% render 'icon-instagram' %}
+        </a>
+      {%- endif -%}
+
+      {%- if settings.social_tiktok_link != blank -%}
+        <a href="{{ settings.social_tiktok_link }}" target="_blank" rel="noopener" class="instagram-section__social-link" aria-label="TikTok">
+          {% render 'icon-tiktok' %}
+        </a>
+      {%- endif -%}
+
+      {%- if settings.social_pinterest_link != blank -%}
+        <a href="{{ settings.social_pinterest_link }}" target="_blank" rel="noopener" class="instagram-section__social-link" aria-label="Pinterest">
+          {% render 'icon-pinterest' %}
+        </a>
+      {%- endif -%}
+
+      {%- if settings.social_facebook_link != blank -%}
+        <a href="{{ settings.social_facebook_link }}" target="_blank" rel="noopener" class="instagram-section__social-link" aria-label="Facebook">
+          {% render 'icon-facebook' %}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Instagram",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "L'atelier au quotidien"
+    },
+    {
+      "type": "text",
+      "id": "handle",
+      "label": "Handle Instagram",
+      "default": "@katycouture"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#FAFAF8"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "title": "Notre Histoire",
+        "text": "Une passion pour l'artisanat et les matières nobles.",
+        "min_height": 50,
+        "overlay_opacity": 50
+      }
+    },
+    "content": {
+      "type": "image-with-text",
+      "settings": {
+        "subtitle": "Depuis 2020",
+        "title": "Une aventure artisanale",
+        "text": "<p>Katy Couture est née d'une passion pour le tissage traditionnel et les matières naturelles. Chaque pièce est créée avec soin dans notre atelier français.</p>",
+        "image_position": "left"
+      }
+    },
+    "values": {
+      "type": "rich-text",
+      "settings": {
+        "title": "Nos valeurs",
+        "text": "<p>Qualité, authenticité et respect de l'environnement guident chacune de nos créations. Nous travaillons avec des artisans locaux et privilégions les matières naturelles et durables.</p>",
+        "alignment": "center"
+      }
+    }
+  },
+  "order": ["hero", "content", "values"]
+}

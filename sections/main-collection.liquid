@@ -1,0 +1,69 @@
+{%- comment -%}
+  MAIN COLLECTION SECTION
+  Grille produits responsive : 2 cols mobile, 3 cols tablet, 4 cols desktop
+  Images format 9:16 (portrait)
+{%- endcomment -%}
+
+<section class="collection-page">
+  <div class="container">
+    {% render 'breadcrumbs' %}
+
+    <header class="collection-page__header">
+      <h1 class="collection-page__title">{{ collection.title }}</h1>
+      {%- if collection.description != blank -%}
+        <div class="collection-page__description">{{ collection.description }}</div>
+      {%- endif -%}
+    </header>
+
+    {%- if collection.products.size > 0 -%}
+      <div class="collection-page__toolbar">
+        <p class="collection-page__count">{{ collection.products_count }} produit{% if collection.products_count > 1 %}s{% endif %}</p>
+
+        <div class="collection-page__sort">
+          <label class="collection-page__sort-label" for="sort-select">Trier par</label>
+          <select id="sort-select" class="collection-page__sort-select" onchange="window.location.href = this.value">
+            {%- assign sort_options = 'manual,best-selling,title-ascending,title-descending,price-ascending,price-descending,created-ascending,created-descending' | split: ',' -%}
+            {%- assign sort_labels = 'Mis en avant,Meilleures ventes,A-Z,Z-A,Prix croissant,Prix décroissant,Plus ancien,Plus récent' | split: ',' -%}
+            {%- for option in sort_options -%}
+              <option value="{{ collection.url }}?sort_by={{ option }}" {% if collection.sort_by == option %}selected{% endif %}>
+                {{ sort_labels[forloop.index0] }}
+              </option>
+            {%- endfor -%}
+          </select>
+        </div>
+      </div>
+
+      <div class="products-grid">
+        {%- for product in collection.products -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        <nav class="collection-page__pagination" aria-label="Pagination">
+          {%- if paginate.previous -%}
+            <a href="{{ paginate.previous.url }}" class="btn btn--outline">Précédent</a>
+          {%- endif -%}
+
+          <span class="collection-page__pagination-info">
+            Page {{ paginate.current_page }} / {{ paginate.pages }}
+          </span>
+
+          {%- if paginate.next -%}
+            <a href="{{ paginate.next.url }}" class="btn btn--outline">Suivant</a>
+          {%- endif -%}
+        </nav>
+      {%- endif -%}
+    {%- else -%}
+      <p class="collection-page__empty">Aucun produit dans cette collection.</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection principale",
+  "tag": "section",
+  "class": "section-main-collection"
+}
+{% endschema %}

@@ -1,0 +1,225 @@
+{%- comment -%}
+  MAIN PRODUCT SECTION
+  Galerie 60% écran avec zoom, infos 40%
+  Badge discret "Pièce unique #XX"
+{%- endcomment -%}
+
+<section class="product">
+  <div class="container">
+    {% render 'breadcrumbs' %}
+
+    <div class="product__grid">
+      {%- comment -%} Gallery - Responsive with srcset {%- endcomment -%}
+      <div class="product__gallery">
+        <div class="product__main-image" data-zoom-container>
+          {%- if product.featured_image -%}
+            <img
+              src="{{ product.featured_image | image_url: width: 800 }}"
+              srcset="
+                {{ product.featured_image | image_url: width: 600 }} 600w,
+                {{ product.featured_image | image_url: width: 800 }} 800w,
+                {{ product.featured_image | image_url: width: 1000 }} 1000w,
+                {{ product.featured_image | image_url: width: 1400 }} 1400w"
+              sizes="(max-width: 767px) 100vw, (max-width: 1023px) 55vw, 60vw"
+              alt="{{ product.featured_image.alt | escape | default: product.title }}"
+              loading="eager"
+              fetchpriority="high"
+              data-main-image
+              data-zoom-image
+            >
+          {%- endif -%}
+        </div>
+
+        {%- if product.images.size > 1 -%}
+          <div class="product__thumbnails">
+            {%- for image in product.images limit: 8 -%}
+              <button
+                class="product__thumbnail {% if forloop.first %}product__thumbnail--active{% endif %}"
+                data-thumbnail
+                data-src="{{ image | image_url: width: 1400 }}"
+                data-srcset="
+                  {{ image | image_url: width: 600 }} 600w,
+                  {{ image | image_url: width: 800 }} 800w,
+                  {{ image | image_url: width: 1000 }} 1000w,
+                  {{ image | image_url: width: 1400 }} 1400w"
+                data-alt="{{ image.alt | escape }}"
+                aria-label="Voir l'image {{ forloop.index }}"
+                type="button"
+              >
+                <img
+                  src="{{ image | image_url: width: 150 }}"
+                  alt="{{ image.alt | escape }}"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Info - 40% width {%- endcomment -%}
+      <div class="product__info">
+        {%- comment -%} Badge discret Pièce Unique {%- endcomment -%}
+        {%- if product.metafields.custom.numero_piece != blank -%}
+          <span class="product__badge-unique">Pièce unique #{{ product.metafields.custom.numero_piece }}</span>
+        {%- else -%}
+          <span class="product__badge-unique">Pièce unique</span>
+        {%- endif -%}
+
+        <h1 class="product__title">{{ product.title }}</h1>
+
+        <div class="product__price">
+          {%- if product.compare_at_price > product.price -%}
+            <span class="product__price-compare">{{ product.compare_at_price | money }}</span>
+          {%- endif -%}
+          <span class="product__price-current">{{ product.price | money }}</span>
+        </div>
+
+        {%- comment -%} Form simple et élégant {%- endcomment -%}
+        <form action="/cart/add" method="post" class="product__form" id="product-form-{{ product.id }}" data-add-to-cart-form>
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          {%- unless product.has_only_default_variant -%}
+            <div class="product__variants">
+              {%- for option in product.options_with_values -%}
+                <div class="product__option">
+                  <label class="product__option-label">{{ option.name }}</label>
+                  <select name="options[{{ option.name }}]" class="product__option-select" data-variant-select>
+                    {%- for value in option.values -%}
+                      <option value="{{ value }}" {% if option.selected_value == value %}selected{% endif %}>
+                        {{ value }}
+                      </option>
+                    {%- endfor -%}
+                  </select>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endunless -%}
+
+          {%- comment -%} Desktop: button in flow {%- endcomment -%}
+          <div class="product__add-btn-desktop">
+            <button
+              type="submit"
+              class="btn btn--primary product__add-btn"
+              data-add-to-cart-btn
+              {% unless product.available %}disabled{% endunless %}
+            >
+              {%- if product.available -%}
+                Ajouter au panier
+              {%- else -%}
+                Épuisé
+              {%- endif -%}
+            </button>
+          </div>
+        </form>
+
+        {%- comment -%} Mobile: Sticky button at bottom {%- endcomment -%}
+        <div class="product__add-btn-wrapper">
+          <button
+            type="submit"
+            form="product-form-{{ product.id }}"
+            class="btn btn--primary product__add-btn"
+            data-add-to-cart-btn-mobile
+            {% unless product.available %}disabled{% endunless %}
+          >
+            {%- if product.available -%}
+              Ajouter au panier — {{ product.price | money }}
+            {%- else -%}
+              Épuisé
+            {%- endif -%}
+          </button>
+        </div>
+
+        {%- comment -%} Accordéon élégant {%- endcomment -%}
+        <div class="product__accordion">
+          <details class="product__accordion-item">
+            <summary class="product__accordion-header">
+              <span>Matières</span>
+              <span class="product__accordion-icon"></span>
+            </summary>
+            <div class="product__accordion-content">
+              {%- if product.metafields.custom.composition != blank -%}
+                {{ product.metafields.custom.composition }}
+              {%- else -%}
+                <p>Tissu extérieur de qualité premium. Doublure ultra-douce en sherpa, minky ou fausse fourrure selon le modèle.</p>
+              {%- endif -%}
+            </div>
+          </details>
+
+          <details class="product__accordion-item">
+            <summary class="product__accordion-header">
+              <span>Dimensions</span>
+              <span class="product__accordion-icon"></span>
+            </summary>
+            <div class="product__accordion-content">
+              {%- if product.metafields.custom.dimensions != blank -%}
+                {{ product.metafields.custom.dimensions }}
+              {%- else -%}
+                <p>Format triangulaire généreux. Dimensions approximatives : 180cm x 90cm (variable selon les modèles).</p>
+              {%- endif -%}
+            </div>
+          </details>
+
+          <details class="product__accordion-item">
+            <summary class="product__accordion-header">
+              <span>Entretien</span>
+              <span class="product__accordion-icon"></span>
+            </summary>
+            <div class="product__accordion-content">
+              {%- if product.metafields.custom.entretien != blank -%}
+                {{ product.metafields.custom.entretien }}
+              {%- else -%}
+                <p>Lavage à 30°C en programme délicat. Ne pas utiliser de sèche-linge. Repasser à basse température sur l'envers.</p>
+              {%- endif -%}
+            </div>
+          </details>
+
+          <details class="product__accordion-item">
+            <summary class="product__accordion-header">
+              <span>Livraison</span>
+              <span class="product__accordion-icon"></span>
+            </summary>
+            <div class="product__accordion-content">
+              <p>Livraison offerte en France métropolitaine à partir de 80€.</p>
+              <p>Expédition sous 2-3 jours ouvrés. Retours gratuits sous 14 jours.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} Vous aimerez aussi {%- endcomment -%}
+{%- assign related_collection = product.collections.first -%}
+{%- if related_collection.products.size > 1 -%}
+  <section class="related-products">
+    <div class="container">
+      <header class="related-products__header">
+        <h2 class="related-products__title">Vous aimerez aussi</h2>
+      </header>
+
+      <div class="related-products__grid">
+        {%- assign related_count = 0 -%}
+        {%- for related_product in related_collection.products -%}
+          {%- unless related_product.id == product.id -%}
+            {%- if related_count < 4 -%}
+              {% render 'product-card', product: related_product %}
+              {%- assign related_count = related_count | plus: 1 -%}
+            {%- endif -%}
+          {%- endunless -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Produit principal",
+  "tag": "section",
+  "class": "section-main-product",
+  "settings": []
+}
+{% endschema %}

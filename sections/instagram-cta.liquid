@@ -1,0 +1,98 @@
+{%- comment -%}
+  INSTAGRAM CTA SECTION
+  Call-to-action pour suivre sur les réseaux sociaux
+{%- endcomment -%}
+
+<section class="section instagram-cta">
+  <div class="container">
+    <div class="instagram-cta__header reveal">
+      {%- if section.settings.subtitle != blank -%}
+        <p class="instagram-cta__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.title != blank -%}
+        <h2 class="instagram-cta__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.handle != blank -%}
+        <p class="instagram-cta__handle">{{ section.settings.handle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="instagram-cta__social reveal">
+      {%- if settings.social_instagram_link != blank -%}
+        <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener" class="instagram-cta__social-link" aria-label="Instagram">
+          {% render 'icon-instagram' %}
+        </a>
+      {%- endif -%}
+
+      {%- if settings.social_tiktok_link != blank -%}
+        <a href="{{ settings.social_tiktok_link }}" target="_blank" rel="noopener" class="instagram-cta__social-link" aria-label="TikTok">
+          {% render 'icon-tiktok' %}
+        </a>
+      {%- endif -%}
+
+      {%- if settings.social_pinterest_link != blank -%}
+        <a href="{{ settings.social_pinterest_link }}" target="_blank" rel="noopener" class="instagram-cta__social-link" aria-label="Pinterest">
+          {% render 'icon-pinterest' %}
+        </a>
+      {%- endif -%}
+
+      {%- if settings.social_facebook_link != blank -%}
+        <a href="{{ settings.social_facebook_link }}" target="_blank" rel="noopener" class="instagram-cta__social-link" aria-label="Facebook">
+          {% render 'icon-facebook' %}
+        </a>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="reveal" style="margin-top: var(--spacing-lg);">
+        <a href="{{ section.settings.button_link | default: settings.social_instagram_link }}" target="_blank" rel="noopener" class="btn instagram-cta__btn">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CTA Réseaux sociaux",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Rejoignez-nous"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Suivez nos créations"
+    },
+    {
+      "type": "text",
+      "id": "handle",
+      "label": "Handle Instagram",
+      "default": "@katycouture"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Nous suivre sur Instagram"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Réseaux sociaux"
+    }
+  ]
+}
+{% endschema %}

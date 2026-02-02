@@ -1,0 +1,178 @@
+{%- comment -%}
+  PAGE SAVOIR-FAIRE
+  Les étapes de création, les matières expliquées
+{%- endcomment -%}
+
+{%- comment -%} Hero {%- endcomment -%}
+<div class="page-histoire__hero">
+  <div class="page-histoire__hero-media">
+    {%- if section.settings.hero_image -%}
+      <img src="{{ section.settings.hero_image | image_url: width: 2000 }}" alt="Savoir-faire">
+    {%- else -%}
+      <div style="background: linear-gradient(135deg, #2C3E2C 0%, #4A5E4A 100%); width: 100%; height: 100%;"></div>
+    {%- endif -%}
+  </div>
+  <div class="page-histoire__hero-overlay"></div>
+  <div class="page-histoire__hero-content">
+    <p class="subtitle" style="color: rgba(255,255,255,0.8);">{{ section.settings.subtitle }}</p>
+    <h1 style="color: #fff;">{{ section.settings.title }}</h1>
+  </div>
+</div>
+
+{%- comment -%} Introduction {%- endcomment -%}
+<section class="section section--lg">
+  <div class="container container--narrow text-center reveal">
+    <p style="font-size: 18px; line-height: 1.8; color: var(--color-text-light);">
+      {{ section.settings.intro }}
+    </p>
+  </div>
+</section>
+
+{%- comment -%} Étapes {%- endcomment -%}
+<div class="container">
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'step' -%}
+      <div class="page-savoir-faire__step reveal" {{ block.shopify_attributes }}>
+        <div class="page-savoir-faire__step-content">
+          <span class="page-savoir-faire__step-number">{{ forloop.index | prepend: '0' }}</span>
+          <h3 class="page-savoir-faire__step-title">{{ block.settings.title }}</h3>
+          <p class="page-savoir-faire__step-text">{{ block.settings.text }}</p>
+        </div>
+        <div class="page-savoir-faire__step-image">
+          {%- if block.settings.image -%}
+            <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" loading="lazy">
+          {%- else -%}
+            <div style="background: var(--color-cream); width: 100%; padding-bottom: 100%;"></div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+{%- comment -%} Citation {%- endcomment -%}
+{%- if section.settings.quote != blank -%}
+  <div class="page-histoire__quote reveal">
+    <p class="page-histoire__quote-text">"{{ section.settings.quote }}"</p>
+  </div>
+{%- endif -%}
+
+{%- comment -%} CTA vers catalogue {%- endcomment -%}
+<section class="section section--lg text-center">
+  <div class="container reveal">
+    <h2>{{ section.settings.cta_title }}</h2>
+    <p style="color: var(--color-text-light); margin: var(--spacing-md) auto var(--spacing-lg); max-width: 500px;">
+      {{ section.settings.cta_text }}
+    </p>
+    <a href="/collections/all" class="btn btn--primary">Voir le catalogue</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page Savoir-faire",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Image hero"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Artisanat"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Notre Savoir-Faire"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "Chaque chèche Katy Couture est le fruit d'un travail minutieux, réalisé entièrement à la main dans notre atelier. De la sélection des tissus à la couture des pompons, découvrez les étapes qui donnent vie à nos créations."
+    },
+    {
+      "type": "text",
+      "id": "quote",
+      "label": "Citation",
+      "default": "Le fait-main, c'est l'âme du créateur dans chaque point de couture"
+    },
+    {
+      "type": "text",
+      "id": "cta_title",
+      "label": "Titre CTA",
+      "default": "Découvrez nos créations"
+    },
+    {
+      "type": "textarea",
+      "id": "cta_text",
+      "label": "Texte CTA",
+      "default": "Chaque pièce est unique, numérotée, et ne sera jamais reproduite à l'identique."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Étape",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Sélection des tissus"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texte",
+          "default": "Nous sélectionnons avec soin chaque tissu pour sa qualité, sa texture et ses couleurs. Seules les plus belles matières trouvent leur place dans notre atelier."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Savoir-faire",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Sélection des tissus",
+            "text": "Nous sélectionnons avec soin chaque tissu pour sa qualité, sa texture et ses couleurs. Seules les plus belles matières trouvent leur place dans notre atelier."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Découpe sur mesure",
+            "text": "Chaque pièce de tissu est découpée à la main selon nos patrons exclusifs. Cette étape demande précision et attention pour garantir un rendu parfait."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Assemblage artisanal",
+            "text": "La couture est réalisée entièrement à la main, point par point. Nous prenons le temps nécessaire pour que chaque assemblage soit impeccable."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Finitions et pompons",
+            "text": "Les pompons sont confectionnés à la main et cousus avec soin. Chaque chèche reçoit son numéro unique avant d'être soigneusement emballé."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
