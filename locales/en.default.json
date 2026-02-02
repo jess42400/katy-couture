@@ -1,0 +1,94 @@
+{
+  "404": {
+    "title": "Page not found",
+    "not_found": "The page you're looking for doesn't exist.",
+    "back_to_shopping": "Continue shopping"
+  },
+  "blog": {
+    "article_comments": "Comments",
+    "article_metadata_html": "{{ date }} by {{ author }}",
+    "comment_form_body": "Comment",
+    "comment_form_email": "Email",
+    "comment_form_name": "Name",
+    "comment_form_submit": "Post comment",
+    "comment_form_title": "Leave a comment"
+  },
+  "cart": {
+    "checkout": "Checkout",
+    "title": "Shopping cart",
+    "update": "Update",
+    "remove": "Remove",
+    "empty": "Your cart is empty",
+    "continue_shopping": "Continue shopping",
+    "subtotal": "Subtotal",
+    "shipping_note": "Shipping calculated at checkout"
+  },
+  "collections": {
+    "title": "Collections",
+    "all": "All products",
+    "empty": "No products found",
+    "products_count": "{{ count }} products"
+  },
+  "customers": {
+    "login": {
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "title": "Login",
+      "forgot_password": "Forgot your password?"
+    },
+    "register": {
+      "title": "Create account",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create"
+    }
+  },
+  "footer": {
+    "all_rights_reserved": "All rights reserved."
+  },
+  "gift_card": {
+    "add_to_apple_wallet": "Add to Apple Wallet",
+    "card": "Gift card",
+    "expired": "This gift card has expired",
+    "expires_on": "Expires on {{ expires_on }}",
+    "use_at_checkout": "Use this gift card at checkout"
+  },
+  "header": {
+    "menu": "Menu",
+    "search": "Search",
+    "account": "Account",
+    "cart": "Cart"
+  },
+  "newsletter": {
+    "placeholder": "Enter your email",
+    "success": "Thank you for subscribing!"
+  },
+  "password": {
+    "title": "This shop is private",
+    "password": "Password",
+    "enter": "Enter"
+  },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "sold_out": "Sold out",
+    "on_sale": "Sale",
+    "quantity": "Quantity",
+    "decrease_quantity": "Decrease quantity",
+    "increase_quantity": "Increase quantity",
+    "share": "Share",
+    "secure_payment": "Secure payment",
+    "free_shipping": "Free shipping",
+    "free_returns": "Free returns",
+    "placeholder_title": "Product name"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search products...",
+    "submit": "Search",
+    "no_results_html": "No results found for \"{{ terms }}\"",
+    "results_for_html": "{{ count }} results for \"{{ terms }}\""
+  }
+}

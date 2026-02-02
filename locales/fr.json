@@ -1,0 +1,94 @@
+{
+  "404": {
+    "title": "Page introuvable",
+    "not_found": "La page que vous recherchez n'existe pas.",
+    "back_to_shopping": "Continuer mes achats"
+  },
+  "blog": {
+    "article_comments": "Commentaires",
+    "article_metadata_html": "{{ date }} par {{ author }}",
+    "comment_form_body": "Commentaire",
+    "comment_form_email": "Email",
+    "comment_form_name": "Nom",
+    "comment_form_submit": "Publier",
+    "comment_form_title": "Laisser un commentaire"
+  },
+  "cart": {
+    "checkout": "Commander",
+    "title": "Votre panier",
+    "update": "Mettre a jour",
+    "remove": "Supprimer",
+    "empty": "Votre panier est vide",
+    "continue_shopping": "Continuer mes achats",
+    "subtotal": "Sous-total",
+    "shipping_note": "Frais de livraison calcules a la commande"
+  },
+  "collections": {
+    "title": "Collections",
+    "all": "Tous les produits",
+    "empty": "Aucun produit trouve",
+    "products_count": "{{ count }} produits"
+  },
+  "customers": {
+    "login": {
+      "email": "Email",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "title": "Connexion",
+      "forgot_password": "Mot de passe oublie ?"
+    },
+    "register": {
+      "title": "Creer un compte",
+      "first_name": "Prenom",
+      "last_name": "Nom",
+      "email": "Email",
+      "password": "Mot de passe",
+      "submit": "Creer"
+    }
+  },
+  "footer": {
+    "all_rights_reserved": "Tous droits reserves."
+  },
+  "gift_card": {
+    "add_to_apple_wallet": "Ajouter a Apple Wallet",
+    "card": "Carte cadeau",
+    "expired": "Cette carte cadeau a expire",
+    "expires_on": "Expire le {{ expires_on }}",
+    "use_at_checkout": "Utilisez cette carte cadeau lors du paiement"
+  },
+  "header": {
+    "menu": "Menu",
+    "search": "Rechercher",
+    "account": "Compte",
+    "cart": "Panier"
+  },
+  "newsletter": {
+    "placeholder": "Entrez votre email",
+    "success": "Merci pour votre inscription !"
+  },
+  "password": {
+    "title": "Cette boutique est privee",
+    "password": "Mot de passe",
+    "enter": "Entrer"
+  },
+  "products": {
+    "add_to_cart": "Ajouter au panier",
+    "sold_out": "Epuise",
+    "on_sale": "Promo",
+    "quantity": "Quantite",
+    "decrease_quantity": "Diminuer la quantite",
+    "increase_quantity": "Augmenter la quantite",
+    "share": "Partager",
+    "secure_payment": "Paiement securise",
+    "free_shipping": "Livraison offerte",
+    "free_returns": "Retours gratuits",
+    "placeholder_title": "Nom du produit"
+  },
+  "search": {
+    "title": "Recherche",
+    "placeholder": "Rechercher...",
+    "submit": "Rechercher",
+    "no_results_html": "Aucun resultat pour \"{{ terms }}\"",
+    "results_for_html": "{{ count }} resultats pour \"{{ terms }}\""
+  }
+}

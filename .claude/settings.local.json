@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(shopify theme dev:*)"
+    ]
+  }
+}

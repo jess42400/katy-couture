@@ -1,0 +1,258 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Katy Couture",
+    "theme_version": "1.0.0",
+    "theme_author": "Katy Couture",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://support.shopify.com/"
+  },
+  {
+    "name": "t:settings.typography.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings.typography.headings"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_heading_font",
+        "default": "playfair_display_n4",
+        "label": "t:settings.typography.heading_font"
+      },
+      {
+        "type": "range",
+        "id": "heading_font_size_scale",
+        "min": 80,
+        "max": 150,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings.typography.heading_scale",
+        "default": 100
+      },
+      {
+        "type": "header",
+        "content": "t:settings.typography.body"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_primary_font",
+        "default": "montserrat_n4",
+        "label": "t:settings.typography.body_font"
+      },
+      {
+        "type": "range",
+        "id": "body_font_size_scale",
+        "min": 80,
+        "max": 130,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings.typography.body_scale",
+        "default": 100
+      }
+    ]
+  },
+  {
+    "name": "t:settings.colors.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings.colors.primary_colors"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "default": "#FDFBF7",
+        "label": "t:settings.colors.background"
+      },
+      {
+        "type": "color",
+        "id": "color_foreground",
+        "default": "#1A1A1A",
+        "label": "t:settings.colors.text"
+      },
+      {
+        "type": "header",
+        "content": "t:settings.colors.accent_colors"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "default": "#C9A962",
+        "label": "t:settings.colors.accent"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_contrast",
+        "default": "#FFFFFF",
+        "label": "t:settings.colors.accent_contrast"
+      },
+      {
+        "type": "header",
+        "content": "t:settings.colors.secondary_colors"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "default": "#2C2C2C",
+        "label": "t:settings.colors.secondary"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary_contrast",
+        "default": "#FFFFFF",
+        "label": "t:settings.colors.secondary_contrast"
+      },
+      {
+        "type": "header",
+        "content": "t:settings.colors.borders"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "default": "#E5E5E5",
+        "label": "t:settings.colors.border"
+      },
+      {
+        "type": "color",
+        "id": "color_border_dark",
+        "default": "#C9A962",
+        "label": "t:settings.colors.border_accent"
+      }
+    ]
+  },
+  {
+    "name": "t:settings.layout.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "max_page_width",
+        "label": "t:settings.layout.page_width",
+        "options": [
+          {
+            "value": "90rem",
+            "label": "t:settings.layout.narrow"
+          },
+          {
+            "value": "110rem",
+            "label": "t:settings.layout.wide"
+          },
+          {
+            "value": "130rem",
+            "label": "t:settings.layout.extra_wide"
+          }
+        ],
+        "default": "90rem"
+      },
+      {
+        "type": "range",
+        "id": "min_page_margin",
+        "min": 10,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings.layout.page_margin",
+        "default": 24
+      },
+      {
+        "type": "range",
+        "id": "section_spacing",
+        "min": 20,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "t:settings.layout.section_spacing",
+        "default": 80
+      }
+    ]
+  },
+  {
+    "name": "t:settings.buttons.name",
+    "settings": [
+      {
+        "type": "range",
+        "id": "button_border_radius",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings.buttons.border_radius",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "input_border_radius",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings.buttons.input_radius",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "t:settings.animations.name",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_animations",
+        "label": "t:settings.animations.enable",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "animation_style",
+        "label": "t:settings.animations.style",
+        "options": [
+          {
+            "value": "subtle",
+            "label": "t:settings.animations.subtle"
+          },
+          {
+            "value": "elegant",
+            "label": "t:settings.animations.elegant"
+          },
+          {
+            "value": "dramatic",
+            "label": "t:settings.animations.dramatic"
+          }
+        ],
+        "default": "elegant"
+      }
+    ]
+  },
+  {
+    "name": "t:settings.social.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings.social.accounts"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram",
+        "info": "t:settings.social.handle_info"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook",
+        "info": "t:settings.social.url_info"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest",
+        "label": "Pinterest",
+        "info": "t:settings.social.url_info"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok",
+        "info": "t:settings.social.handle_info"
+      }
+    ]
+  }
+]

@@ -1,0 +1,329 @@
+<section
+  class="hero-banner full-width {{ section.settings.height }}"
+  style="--overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"
+>
+  <div class="hero-banner__media">
+    {%- if section.settings.video -%}
+      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hero-banner__video' }}
+    {%- elsif section.settings.image -%}
+      {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'eager', class: 'hero-banner__image' }}
+    {%- else -%}
+      <div class="hero-banner__placeholder">
+        {{ 'lifestyle-1' | placeholder_svg_tag }}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="hero-banner__overlay"></div>
+
+  <div class="hero-banner__content {{ section.settings.content_position }} {{ section.settings.text_alignment }}">
+    <div class="hero-banner__inner">
+      {%- if section.settings.subheading != blank -%}
+        <span class="hero-banner__subheading">{{ section.settings.subheading }}</span>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="hero-banner__heading">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <p class="hero-banner__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <div class="hero-banner__actions">
+          {% render 'button',
+            label: section.settings.button_label,
+            url: section.settings.button_link,
+            style: section.settings.button_style,
+            size: 'large'
+          %}
+
+          {%- if section.settings.button_label_2 != blank -%}
+            {% render 'button',
+              label: section.settings.button_label_2,
+              url: section.settings.button_link_2,
+              style: 'secondary',
+              size: 'large'
+            %}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .hero-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-banner--full { min-height: 100vh; }
+  .hero-banner--large { min-height: 80vh; }
+  .hero-banner--medium { min-height: 60vh; }
+  .hero-banner--small { min-height: 40vh; }
+
+  .hero-banner__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-banner__image,
+  .hero-banner__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-banner__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-secondary);
+  }
+
+  .hero-banner__placeholder svg {
+    width: 50%;
+    max-width: 400px;
+    opacity: 0.15;
+    color: var(--color-secondary-contrast);
+  }
+
+  .hero-banner__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, var(--overlay-opacity));
+    z-index: 1;
+  }
+
+  .hero-banner__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--page-width);
+    padding: var(--gap-2xl) var(--page-margin);
+    color: var(--color-secondary-contrast);
+  }
+
+  .hero-banner__inner {
+    max-width: 50rem;
+  }
+
+  .hero-banner__content--left { justify-content: flex-start; }
+  .hero-banner__content--center {
+    display: flex;
+    justify-content: center;
+  }
+  .hero-banner__content--center .hero-banner__inner {
+    text-align: center;
+  }
+  .hero-banner__content--right {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .hero-banner__content--right .hero-banner__inner {
+    text-align: right;
+  }
+
+  .hero-banner__subheading {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+    margin-bottom: var(--gap-md);
+    color: var(--color-accent);
+  }
+
+  .hero-banner__heading {
+    font-size: var(--heading-display);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: var(--gap-md);
+    color: inherit;
+  }
+
+  .hero-banner__text {
+    font-size: var(--text-lg);
+    line-height: 1.6;
+    margin-bottom: var(--gap-xl);
+    opacity: 0.9;
+    max-width: 40rem;
+  }
+
+  .hero-banner__content--center .hero-banner__text {
+    margin-inline: auto;
+  }
+
+  .hero-banner__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+  }
+
+  .hero-banner__content--center .hero-banner__actions {
+    justify-content: center;
+  }
+
+  .hero-banner__content--right .hero-banner__actions {
+    justify-content: flex-end;
+  }
+
+  .hero-banner__actions .btn--secondary {
+    border-color: var(--color-secondary-contrast);
+    color: var(--color-secondary-contrast);
+  }
+
+  .hero-banner__actions .btn--secondary:hover {
+    background-color: var(--color-secondary-contrast);
+    color: var(--color-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .hero-banner--full { min-height: 80vh; }
+    .hero-banner--large { min-height: 60vh; }
+
+    .hero-banner__heading {
+      font-size: var(--heading-2xl);
+    }
+
+    .hero-banner__actions {
+      flex-direction: column;
+    }
+
+    .hero-banner__actions .btn {
+      width: 100%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.hero_banner.name",
+  "tag": "section",
+  "class": "section-hero-banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.hero_banner.settings.media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.hero_banner.settings.image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:sections.hero_banner.settings.video"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "t:sections.hero_banner.settings.overlay",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "t:sections.hero_banner.settings.content"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.hero_banner.settings.subheading",
+      "default": "Collection exclusive"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.hero_banner.settings.heading",
+      "default": "L'elegance intemporelle"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "t:sections.hero_banner.settings.text",
+      "default": "Decouvrez notre collection de pieces d'exception, creees avec passion et savoir-faire."
+    },
+    {
+      "type": "header",
+      "content": "t:sections.hero_banner.settings.buttons"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.hero_banner.settings.button_label",
+      "default": "Decouvrir"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.hero_banner.settings.button_link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "t:sections.hero_banner.settings.button_style",
+      "options": [
+        { "value": "primary", "label": "t:options.button_style.primary" },
+        { "value": "secondary", "label": "t:options.button_style.secondary" },
+        { "value": "accent", "label": "t:options.button_style.accent" }
+      ],
+      "default": "accent"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "t:sections.hero_banner.settings.button_label_2"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "t:sections.hero_banner.settings.button_link_2"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.hero_banner.settings.layout"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "t:sections.hero_banner.settings.height",
+      "options": [
+        { "value": "hero-banner--full", "label": "t:options.height.full" },
+        { "value": "hero-banner--large", "label": "t:options.height.large" },
+        { "value": "hero-banner--medium", "label": "t:options.height.medium" },
+        { "value": "hero-banner--small", "label": "t:options.height.small" }
+      ],
+      "default": "hero-banner--large"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "t:sections.hero_banner.settings.content_position",
+      "options": [
+        { "value": "hero-banner__content--left", "label": "t:options.alignment.left" },
+        { "value": "hero-banner__content--center", "label": "t:options.alignment.center" },
+        { "value": "hero-banner__content--right", "label": "t:options.alignment.right" }
+      ],
+      "default": "hero-banner__content--center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.hero_banner.name"
+    }
+  ]
+}
+{% endschema %}

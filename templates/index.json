@@ -1,0 +1,141 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "subheading": "Collection exclusive",
+        "heading": "L'elegance intemporelle",
+        "text": "Decouvrez notre collection de pieces d'exception, creees avec passion et savoir-faire.",
+        "button_label": "Decouvrir",
+        "button_link": "shopify://collections/all",
+        "button_style": "accent",
+        "overlay_opacity": 30,
+        "height": "hero-banner--large",
+        "content_position": "hero-banner__content--center"
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "subheading": "Selection",
+        "heading": "Nos pieces signatures",
+        "header_alignment": "featured-collection__header--center",
+        "products_count": 4,
+        "columns": "4",
+        "image_ratio": "portrait",
+        "card_alignment": "center",
+        "show_vendor": false,
+        "show_secondary_image": true,
+        "show_view_all": true,
+        "view_all_label": "Voir la collection"
+      }
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "settings": {
+        "subheading": "Notre histoire",
+        "heading": "L'art du savoir-faire",
+        "text": "<p>Chaque piece est le fruit d'un travail minutieux, realise par des artisans passionnes. Nous selectionnons les plus belles matieres pour creer des pieces uniques qui traverseront le temps.</p>",
+        "button_label": "En savoir plus",
+        "button_style": "secondary",
+        "layout": "image-with-text--image-left",
+        "text_alignment": "image-with-text__content--left"
+      }
+    },
+    "brand-values": {
+      "type": "brand-values",
+      "settings": {
+        "subheading": "Nos valeurs",
+        "heading": "Ce qui nous definit"
+      },
+      "blocks": {
+        "value-1": {
+          "type": "value",
+          "settings": {
+            "title": "Qualite premium",
+            "description": "Nous selectionnons uniquement les matieres les plus nobles pour nos creations."
+          }
+        },
+        "value-2": {
+          "type": "value",
+          "settings": {
+            "title": "Savoir-faire artisanal",
+            "description": "Chaque piece est realisee a la main par nos artisans experts."
+          }
+        },
+        "value-3": {
+          "type": "value",
+          "settings": {
+            "title": "Livraison soignee",
+            "description": "Un emballage elegant et une livraison securisee pour chaque commande."
+          }
+        },
+        "value-4": {
+          "type": "value",
+          "settings": {
+            "title": "Service client",
+            "description": "Une equipe dediee pour vous accompagner dans votre experience."
+          }
+        }
+      },
+      "block_order": ["value-1", "value-2", "value-3", "value-4"]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "subheading": "Temoignages",
+        "heading": "Ce que disent nos clientes",
+        "style": "testimonials--bordered"
+      },
+      "blocks": {
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Une experience d'achat exceptionnelle. La qualite est au rendez-vous.",
+            "author": "Marie D.",
+            "title": "Cliente fidele"
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Des pieces uniques qui font la difference. Je recommande vivement.",
+            "author": "Sophie L.",
+            "title": "Acheteuse reguliere"
+          }
+        },
+        "testimonial-3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Le service client est impeccable et les produits sont magnifiques.",
+            "author": "Claire M.",
+            "title": "Nouvelle cliente"
+          }
+        }
+      },
+      "block_order": ["testimonial-1", "testimonial-2", "testimonial-3"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "subheading": "Newsletter",
+        "heading": "Restez informee",
+        "text": "Inscrivez-vous pour recevoir nos nouveautes et offres exclusives.",
+        "button_label": "S'inscrire",
+        "disclaimer": "En vous inscrivant, vous acceptez notre politique de confidentialite.",
+        "style": "newsletter--dark"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "featured-collection",
+    "image-with-text",
+    "brand-values",
+    "testimonials",
+    "newsletter"
+  ]
+}

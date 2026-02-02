@@ -1,0 +1,276 @@
+{
+  "general": {
+    "404": "Not found",
+    "article": "Article",
+    "block": "Block",
+    "blog": "Blog",
+    "cart": "Cart",
+    "collection": "Collection",
+    "collections": "Collections",
+    "collection_card": "Collection card",
+    "collections_grid": "Collections grid",
+    "colors": "Colors",
+    "column": "Column",
+    "content": "Content",
+    "custom_section": "Custom section",
+    "fonts": "Fonts",
+    "footer": "Footer",
+    "group": "Group",
+    "header": "Header",
+    "layout": "Layout",
+    "main": "Main",
+    "page": "Page",
+    "password": "Password",
+    "primary": "Primary",
+    "product": "Product",
+    "row": "Row",
+    "search": "Search",
+    "secondary": "Secondary",
+    "section": "Section",
+    "settings": "Settings",
+    "sidebar": "Sidebar",
+    "text": "Text",
+    "theme": "Theme",
+    "typography": "Typography"
+  },
+  "labels": {
+    "alignment": "Alignment",
+    "background": "Background",
+    "button_label": "Button label",
+    "button_link": "Button link",
+    "button_style": "Button style",
+    "collection": "Collection",
+    "columns": "Columns",
+    "description": "Description",
+    "foreground": "Foreground",
+    "grid_gap": "Grid spacing",
+    "grid_item_width": "Grid item width",
+    "heading": "Heading",
+    "image": "Image",
+    "image_ratio": "Image ratio",
+    "input_corner_radius": "Input corner radius",
+    "layout": "Layout",
+    "layout_direction": "Layout direction",
+    "menu": "Menu",
+    "padding": "Padding",
+    "page_margin": "Page margin",
+    "page_width": "Page width",
+    "show_payment_icons": "Show payment icons",
+    "style": "Style",
+    "subheading": "Subheading",
+    "text": "Text",
+    "text_alignment": "Text alignment",
+    "text_style": "Text style",
+    "title": "Title"
+  },
+  "options": {
+    "alignment": {
+      "left": "Left",
+      "center": "Center",
+      "right": "Right"
+    },
+    "button_style": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "accent": "Accent"
+    },
+    "direction": {
+      "horizontal": "Horizontal",
+      "vertical": "Vertical"
+    },
+    "height": {
+      "full": "Full screen",
+      "large": "Large",
+      "medium": "Medium",
+      "small": "Small"
+    },
+    "image_ratio": {
+      "portrait": "Portrait",
+      "square": "Square",
+      "landscape": "Landscape"
+    },
+    "layout": {
+      "image_left": "Image on left",
+      "image_right": "Image on right"
+    },
+    "page_width": {
+      "narrow": "Narrow",
+      "wide": "Wide"
+    },
+    "size": {
+      "large": "Large",
+      "small": "Small"
+    },
+    "style": {
+      "bordered": "Bordered",
+      "minimal": "Minimal",
+      "cards": "Cards",
+      "light": "Light",
+      "dark": "Dark",
+      "accent": "Accent"
+    },
+    "text_style": {
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "normal": "Normal text"
+    }
+  },
+  "settings": {
+    "typography": {
+      "name": "Typography",
+      "headings": "Headings",
+      "heading_font": "Heading font",
+      "heading_scale": "Heading size scale",
+      "body": "Body text",
+      "body_font": "Body font",
+      "body_scale": "Body size scale"
+    },
+    "colors": {
+      "name": "Colors",
+      "primary_colors": "Primary colors",
+      "background": "Background",
+      "text": "Text",
+      "accent_colors": "Accent colors",
+      "accent": "Accent",
+      "accent_contrast": "Accent contrast",
+      "secondary_colors": "Secondary colors",
+      "secondary": "Secondary",
+      "secondary_contrast": "Secondary contrast",
+      "borders": "Borders",
+      "border": "Border",
+      "border_accent": "Border accent"
+    },
+    "layout": {
+      "name": "Layout",
+      "page_width": "Page width",
+      "narrow": "Narrow",
+      "wide": "Wide",
+      "extra_wide": "Extra wide",
+      "page_margin": "Page margin",
+      "section_spacing": "Section spacing"
+    },
+    "buttons": {
+      "name": "Buttons",
+      "border_radius": "Button corner radius",
+      "input_radius": "Input corner radius"
+    },
+    "animations": {
+      "name": "Animations",
+      "enable": "Enable animations",
+      "style": "Animation style",
+      "subtle": "Subtle",
+      "elegant": "Elegant",
+      "dramatic": "Dramatic"
+    },
+    "social": {
+      "name": "Social media",
+      "accounts": "Accounts",
+      "handle_info": "Enter your username without @",
+      "url_info": "Enter the full URL"
+    }
+  },
+  "sections": {
+    "hero_banner": {
+      "name": "Hero banner",
+      "settings": {
+        "media": "Media",
+        "image": "Image",
+        "video": "Video",
+        "overlay": "Overlay opacity",
+        "content": "Content",
+        "subheading": "Subheading",
+        "heading": "Heading",
+        "text": "Text",
+        "buttons": "Buttons",
+        "button_label": "Button label",
+        "button_link": "Button link",
+        "button_style": "Button style",
+        "button_label_2": "Second button label",
+        "button_link_2": "Second button link",
+        "layout": "Layout",
+        "height": "Section height",
+        "content_position": "Content position"
+      }
+    },
+    "featured_collection": {
+      "name": "Featured collection",
+      "settings": {
+        "header": "Header",
+        "collection": "Collection",
+        "products_count": "Number of products",
+        "product_card": "Product card",
+        "card_alignment": "Card text alignment",
+        "show_vendor": "Show vendor",
+        "show_secondary_image": "Show second image on hover",
+        "view_all": "View all button",
+        "show_view_all": "Show view all button",
+        "view_all_label": "Button label"
+      }
+    },
+    "testimonials": {
+      "name": "Testimonials",
+      "blocks": {
+        "testimonial": "Testimonial",
+        "rating": "Rating",
+        "quote": "Quote",
+        "author": "Author name",
+        "title": "Author title",
+        "image": "Author photo"
+      }
+    },
+    "newsletter": {
+      "name": "Newsletter",
+      "settings": {
+        "disclaimer": "Disclaimer text"
+      }
+    },
+    "image_with_text": {
+      "name": "Image with text",
+      "settings": {
+        "image": "Image",
+        "content": "Content",
+        "layout": "Layout"
+      }
+    },
+    "brand_values": {
+      "name": "Brand values",
+      "blocks": {
+        "value": "Value",
+        "icon": "Icon (emoji)",
+        "icon_info": "Enter an emoji or leave blank"
+      }
+    },
+    "header": {
+      "settings": {
+        "logo": "Logo",
+        "logo_image": "Logo image",
+        "navigation": "Navigation",
+        "announcement": "Announcement bar",
+        "show_announcement": "Show announcement bar",
+        "announcement_text": "Announcement text"
+      }
+    },
+    "footer": {
+      "settings": {
+        "brand": "Brand",
+        "logo": "Logo",
+        "payment": "Payment"
+      },
+      "blocks": {
+        "menu": "Menu",
+        "text": "Text"
+      }
+    },
+    "product": {
+      "settings": {
+        "show_share": "Show share buttons",
+        "show_trust_badges": "Show trust badges"
+      }
+    },
+    "collection": {
+      "settings": {
+        "products_per_page": "Products per page"
+      }
+    }
+  }
+}

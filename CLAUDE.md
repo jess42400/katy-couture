@@ -1,0 +1,1 @@
+C:/shopify-katy-couture/katy-couture/AGENTS.md

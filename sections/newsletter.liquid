@@ -1,0 +1,249 @@
+<section
+  class="newsletter full-width {{ section.settings.style }}"
+  style="--section-bg: {{ section.settings.background_color }};"
+>
+  <div class="newsletter__container">
+    <div class="newsletter__content">
+      {%- if section.settings.subheading != blank -%}
+        <span class="newsletter__subheading">{{ section.settings.subheading }}</span>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="newsletter__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <p class="newsletter__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="newsletter__form-wrapper">
+      {% form 'customer', class: 'newsletter__form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+
+        {%- if form.errors -%}
+          <div class="newsletter__message newsletter__message--error">
+            {{ form.errors.translated_fields['email'] | capitalize }}
+            {{ form.errors.messages['email'] }}
+          </div>
+        {%- endif -%}
+
+        {%- if form.posted_successfully? -%}
+          <div class="newsletter__message newsletter__message--success">
+            {{ 'newsletter.success' | t }}
+          </div>
+        {%- else -%}
+          <div class="newsletter__input-group">
+            <input
+              type="email"
+              name="contact[email]"
+              id="newsletter-email-{{ section.id }}"
+              class="newsletter__input"
+              placeholder="{{ 'newsletter.placeholder' | t }}"
+              required
+              autocomplete="email"
+            >
+            <button type="submit" class="btn btn--accent newsletter__button">
+              {{ section.settings.button_label }}
+            </button>
+          </div>
+
+          {%- if section.settings.disclaimer != blank -%}
+            <p class="newsletter__disclaimer">{{ section.settings.disclaimer }}</p>
+          {%- endif -%}
+        {%- endif -%}
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .newsletter {
+    padding: var(--gap-2xl) var(--page-margin);
+    background-color: var(--section-bg, var(--color-bg-alt));
+  }
+
+  .newsletter--dark {
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-contrast);
+  }
+
+  .newsletter--accent {
+    background-color: var(--color-accent);
+    color: var(--color-accent-contrast);
+  }
+
+  .newsletter__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-xl);
+    max-width: 50rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .newsletter__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
+  }
+
+  .newsletter__subheading {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+
+  .newsletter--dark .newsletter__subheading,
+  .newsletter--accent .newsletter__subheading {
+    color: inherit;
+  }
+
+  .newsletter__heading {
+    font-size: var(--heading-xl);
+    margin: 0;
+  }
+
+  .newsletter__text {
+    font-size: var(--text-lg);
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  .newsletter__form-wrapper {
+    width: 100%;
+    max-width: 30rem;
+  }
+
+  .newsletter__input-group {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--color-border);
+  }
+
+  .newsletter--dark .newsletter__input-group {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .newsletter__input {
+    flex: 1;
+    border: none;
+    padding: 1rem 1.5rem;
+    background: transparent;
+  }
+
+  .newsletter--dark .newsletter__input {
+    color: var(--color-secondary-contrast);
+  }
+
+  .newsletter--dark .newsletter__input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .newsletter__button {
+    border-radius: 0;
+    white-space: nowrap;
+  }
+
+  .newsletter--dark .newsletter__button {
+    background-color: var(--color-accent);
+    color: var(--color-accent-contrast);
+  }
+
+  .newsletter__disclaimer {
+    font-size: var(--text-xs);
+    opacity: 0.7;
+    margin-top: var(--gap-sm);
+  }
+
+  .newsletter__message {
+    padding: var(--gap-sm);
+    margin-bottom: var(--gap-md);
+    text-align: center;
+  }
+
+  .newsletter__message--success {
+    background-color: rgba(0, 128, 0, 0.1);
+    color: green;
+  }
+
+  .newsletter__message--error {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: red;
+  }
+
+  @media (max-width: 640px) {
+    .newsletter__input-group {
+      flex-direction: column;
+    }
+
+    .newsletter__input,
+    .newsletter__button {
+      width: 100%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.newsletter.name",
+  "tag": "section",
+  "class": "section-newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:labels.subheading",
+      "default": "Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Restez informee"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "t:labels.text",
+      "default": "Inscrivez-vous pour recevoir nos nouveautes et offres exclusives."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label",
+      "default": "S'inscrire"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "t:sections.newsletter.settings.disclaimer",
+      "default": "En vous inscrivant, vous acceptez notre politique de confidentialite."
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "t:labels.style",
+      "options": [
+        { "value": "newsletter--light", "label": "t:options.style.light" },
+        { "value": "newsletter--dark", "label": "t:options.style.dark" },
+        { "value": "newsletter--accent", "label": "t:options.style.accent" }
+      ],
+      "default": "newsletter--light"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:labels.background"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.newsletter.name"
+    }
+  ]
+}
+{% endschema %}

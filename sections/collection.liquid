@@ -1,0 +1,231 @@
+<section class="collection-page">
+  <div class="collection-page__header">
+    <h1 class="collection-page__title">{{ collection.title }}</h1>
+
+    {%- if collection.description != blank -%}
+      <div class="collection-page__description">
+        {{ collection.description }}
+      </div>
+    {%- endif -%}
+
+    <p class="collection-page__count">
+      {{ 'collections.products_count' | t: count: collection.products_count }}
+    </p>
+  </div>
+
+  {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- if collection.products.size > 0 -%}
+      <div class="collection-page__grid grid grid--{{ section.settings.columns }}">
+        {%- for product in collection.products -%}
+          {% render 'product-card',
+            product: product,
+            show_vendor: section.settings.show_vendor,
+            show_secondary_image: section.settings.show_secondary_image,
+            image_ratio: section.settings.image_ratio,
+            alignment: section.settings.card_alignment
+          %}
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        <nav class="collection-page__pagination" aria-label="Pagination">
+          <ul class="pagination">
+            {%- if paginate.previous -%}
+              <li class="pagination__item">
+                <a href="{{ paginate.previous.url }}" class="pagination__link pagination__link--prev">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m15 18-6-6 6-6"/>
+                  </svg>
+                </a>
+              </li>
+            {%- endif -%}
+
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}
+                <li class="pagination__item">
+                  <a href="{{ part.url }}" class="pagination__link">{{ part.title }}</a>
+                </li>
+              {%- else -%}
+                {%- if part.title == paginate.current_page -%}
+                  <li class="pagination__item">
+                    <span class="pagination__link pagination__link--current" aria-current="page">{{ part.title }}</span>
+                  </li>
+                {%- else -%}
+                  <li class="pagination__item">
+                    <span class="pagination__link pagination__link--gap">{{ part.title }}</span>
+                  </li>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- if paginate.next -%}
+              <li class="pagination__item">
+                <a href="{{ paginate.next.url }}" class="pagination__link pagination__link--next">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m9 18 6-6-6-6"/>
+                  </svg>
+                </a>
+              </li>
+            {%- endif -%}
+          </ul>
+        </nav>
+      {%- endif -%}
+    {%- else -%}
+      <div class="collection-page__empty">
+        <p>{{ 'collections.empty' | t }}</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary">
+          {{ 'collections.all' | t }}
+        </a>
+      </div>
+    {%- endif -%}
+  {%- endpaginate -%}
+</section>
+
+{% stylesheet %}
+  .collection-page__header {
+    text-align: center;
+    margin-bottom: var(--gap-xl);
+  }
+
+  .collection-page__title {
+    font-size: var(--heading-2xl);
+    margin-bottom: var(--gap-md);
+  }
+
+  .collection-page__description {
+    max-width: 40rem;
+    margin: 0 auto var(--gap-md);
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .collection-page__count {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    margin: 0;
+  }
+
+  .collection-page__grid {
+    margin-bottom: var(--gap-xl);
+  }
+
+  .collection-page__pagination {
+    display: flex;
+    justify-content: center;
+    padding-top: var(--gap-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pagination__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.5rem;
+    font-size: var(--text-sm);
+    text-decoration: none;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    transition: all var(--animation-duration) var(--animation-easing);
+  }
+
+  .pagination__link:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .pagination__link--current {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+  }
+
+  .pagination__link--gap {
+    border: none;
+    color: var(--color-muted);
+  }
+
+  .collection-page__empty {
+    text-align: center;
+    padding: var(--gap-2xl);
+  }
+
+  .collection-page__empty p {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    margin-bottom: var(--gap-lg);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.collection",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "label": "t:sections.collection.settings.products_per_page",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "t:labels.columns",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "t:labels.image_ratio",
+      "options": [
+        { "value": "portrait", "label": "t:options.image_ratio.portrait" },
+        { "value": "square", "label": "t:options.image_ratio.square" },
+        { "value": "landscape", "label": "t:options.image_ratio.landscape" }
+      ],
+      "default": "portrait"
+    },
+    {
+      "type": "select",
+      "id": "card_alignment",
+      "label": "t:sections.featured_collection.settings.card_alignment",
+      "options": [
+        { "value": "left", "label": "t:options.alignment.left" },
+        { "value": "center", "label": "t:options.alignment.center" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "t:sections.featured_collection.settings.show_vendor",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "label": "t:sections.featured_collection.settings.show_secondary_image",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

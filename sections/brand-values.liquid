@@ -1,0 +1,212 @@
+<section class="brand-values">
+  <div class="brand-values__header text-center">
+    {%- if section.settings.subheading != blank -%}
+      <span class="brand-values__subheading">{{ section.settings.subheading }}</span>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="brand-values__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+  </div>
+
+  <div class="brand-values__grid grid grid--{{ section.blocks.size | at_most: 4 }}">
+    {%- for block in section.blocks -%}
+      <div class="brand-value" {{ block.shopify_attributes }}>
+        {%- if block.settings.icon != blank -%}
+          <div class="brand-value__icon">
+            {{ block.settings.icon }}
+          </div>
+        {%- elsif block.settings.image -%}
+          <div class="brand-value__icon brand-value__icon--image">
+            {{ block.settings.image | image_url: width: 120 | image_tag }}
+          </div>
+        {%- endif -%}
+
+        {%- if block.settings.title != blank -%}
+          <h3 class="brand-value__title">{{ block.settings.title }}</h3>
+        {%- endif -%}
+
+        {%- if block.settings.description != blank -%}
+          <p class="brand-value__description">{{ block.settings.description }}</p>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .brand-values {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+  }
+
+  .brand-values__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-sm);
+  }
+
+  .brand-values__subheading {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .brand-values__heading {
+    font-size: var(--heading-2xl);
+    margin: 0;
+  }
+
+  .brand-values__grid {
+    gap: var(--gap-xl);
+  }
+
+  .brand-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--gap-md);
+    padding: var(--gap-lg);
+  }
+
+  .brand-value__icon {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--color-accent);
+  }
+
+  .brand-value__icon--image {
+    width: auto;
+    height: auto;
+  }
+
+  .brand-value__icon img {
+    max-width: 4rem;
+    max-height: 4rem;
+    object-fit: contain;
+  }
+
+  .brand-value__title {
+    font-size: var(--heading-md);
+    margin: 0;
+  }
+
+  .brand-value__description {
+    font-size: var(--text-base);
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .brand-values__grid.grid--4,
+    .brand-values__grid.grid--3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .brand-values__grid.grid--4,
+    .brand-values__grid.grid--3,
+    .brand-values__grid.grid--2 {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.brand_values.name",
+  "tag": "section",
+  "class": "section-brand-values",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:labels.subheading",
+      "default": "Nos valeurs"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Ce qui nous definit"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "t:sections.brand_values.blocks.value",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "t:sections.brand_values.blocks.icon",
+          "info": "t:sections.brand_values.blocks.icon_info"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:labels.image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:labels.title",
+          "default": "Qualite premium"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "t:labels.description",
+          "default": "Nous selectionnons uniquement les matieres les plus nobles pour nos creations."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.brand_values.name",
+      "blocks": [
+        {
+          "type": "value",
+          "settings": {
+            "title": "Qualite premium",
+            "description": "Nous selectionnons uniquement les matieres les plus nobles pour nos creations."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "title": "Savoir-faire artisanal",
+            "description": "Chaque piece est realisee a la main par nos artisans experts."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "title": "Livraison soignee",
+            "description": "Un emballage elegant et une livraison securisee pour chaque commande."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "title": "Service client",
+            "description": "Une equipe dediee pour vous accompagner dans votre experience."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
