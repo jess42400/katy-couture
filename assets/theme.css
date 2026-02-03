@@ -1283,20 +1283,18 @@ a:hover {
 }
 
 /* ============================================
-   IMAGE FULLSCREEN
+   IMAGE FULLSCREEN - Texte EN DESSOUS de l'image
    ============================================ */
 .image-fullscreen {
-  position: relative;
-  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   overflow: hidden;
 }
 
 .image-fullscreen__media {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  height: 70vh;
+  width: 100%;
 }
 
 .image-fullscreen__media img {
@@ -1306,17 +1304,13 @@ a:hover {
 }
 
 .image-fullscreen__overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0,0,0,0.4);
+  display: none;
 }
 
 .image-fullscreen__content {
-  position: relative;
-  z-index: 2;
+  padding: var(--space-lg) var(--space-md);
   text-align: center;
-  color: var(--color-white);
-  padding: var(--spacing-md);
+  background: var(--color-cream, #F2E6DE);
 }
 
 .image-fullscreen__text {
@@ -1324,6 +1318,7 @@ a:hover {
   font-size: var(--font-size-h2);
   font-weight: 400;
   font-style: italic;
+  color: var(--color-dark);
 }
 
 /* Parallax */
@@ -3829,34 +3824,13 @@ article.product-card:hover .product-card__link {
   background-color: #2D2A26 !important;
 }
 
-/* Light theme - Image fullscreen avec texte EN DESSOUS */
-[data-theme="light"] .image-fullscreen {
-  background: #F2E6DE !important;
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  min-height: auto;
-}
-
-[data-theme="light"] .image-fullscreen__media {
-  position: relative;
-  height: 70vh;
-  width: 100%;
-}
-
-[data-theme="light"] .image-fullscreen__overlay {
-  display: none;
-}
-
+/* Light theme - Image fullscreen */
 [data-theme="light"] .image-fullscreen__content {
-  position: relative;
-  padding: var(--space-lg) var(--space-md);
-  text-align: center;
+  background: #F2E6DE;
 }
 
 [data-theme="light"] .image-fullscreen__text {
   color: #2D2A26 !important;
-  font-style: italic;
 }
 
 /* Light theme - Sections avec fond uniforme #F2E6DE */
