@@ -1,7 +1,25 @@
 {
   "permissions": {
     "allow": [
-      "Bash(shopify theme dev:*)"
+      "Bash(shopify theme dev:*)",
+      "Bash(wc:*)",
+      "Bash(npm install:*)",
+      "Bash(ls:*)",
+      "Bash(shopify theme push:*)",
+      "Bash(shopify theme list:*)",
+      "Bash(shopify theme publish:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nThème Katy Couture - Site de marque complet avec responsive design\n\n- Homepage: Hero brand \\(scroll indicator\\), manifeste, nos univers \\(catégories cliquables\\), histoire teaser \\(section entière cliquable\\), matières, instagram feed, newsletter\n- Page produit: Layout 60/40, zoom au hover, badge \"Pièce unique\", accordéon \\(Matières/Dimensions/Entretien/Livraison\\), bouton sticky sur mobile\n- Page Notre Histoire: Hero atelier, sections alternées image/texte, citations élégantes, galerie coulisses\n- Navigation: Header transparent sur hero, dropdown Catalogue, menu mobile touch-friendly\n- Responsive complet: Mobile-first, breakpoints 480/768/1024/1280/1440/1920px\n- Grille produits: 2 cols mobile → 4 cols desktop, format 9:16\n- Images srcset responsive, lazy loading, touch targets 44px min\n- Pas d''emojis, pas de bouton \"Découvrir\", style éditorial luxe\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(curl -s https://a0hc1i-fy.myshopify.com/cdn/shop/t/1/assets/theme.css)",
+      "Bash(curl:*)",
+      "Bash(xargs curl -s)",
+      "Bash(grep:*)",
+      "Bash(tr:*)",
+      "Bash(shopify auth logout:*)",
+      "WebFetch(domain:a0hc1i-fy.myshopify.com)",
+      "Bash(git commit:*)",
+      "Bash(cat:*)"
     ]
   }
 }

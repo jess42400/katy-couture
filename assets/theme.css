@@ -3779,19 +3779,19 @@ article.product-card:hover .product-card__link {
    THEME VARIANTS - Color Schemes
    ============================================ */
 
-/* LIGHT THEME (Default) */
+/* LIGHT THEME (Default) - Beige rosé uniforme */
 [data-theme="light"] {
-  --color-primary: #2C3E2C;
-  --color-primary-light: #3D4F3D;
-  --color-primary-dark: #1E2D1E;
-  --color-cream: #F5F2EB;
-  --color-cream-dark: #E8E5DE;
-  --color-dark: #1A1A1A;
-  --color-dark-soft: #333333;
-  --color-light: #FAFAF8;
-  --color-white: #FFFFFF;
-  --color-border: #E8E6E1;
-  --color-text-muted: #666666;
+  --color-primary: #E8DED6;
+  --color-primary-light: #F0E8E2;
+  --color-primary-dark: #D9CCC2;
+  --color-cream: #F5EDE7;
+  --color-cream-dark: #E8DED6;
+  --color-dark: #3D3532;
+  --color-dark-soft: #5A524E;
+  --color-light: #F5EDE7;
+  --color-white: #FAF6F3;
+  --color-border: #E0D6CE;
+  --color-text-muted: #8A7F78;
   --color-gold: #C9A962;
   --color-gold-light: #D4BA7D;
   --color-gold-dark: #B89952;

@@ -7,7 +7,7 @@
 
 {%- assign link_url = section.settings.link | default: '/pages/notre-histoire' -%}
 
-<a href="{{ link_url }}" class="histoire-section" style="background-color: {{ section.settings.background_color | default: '#2C3E2C' }};">
+<a href="{{ link_url }}" class="histoire-section" style="background-color: {{ section.settings.background_color | default: '#E8DED6' }};">
   {%- comment -%} Texte à gauche {%- endcomment -%}
   <div class="histoire-section__content reveal">
     {%- if section.settings.title != blank -%}
@@ -76,7 +76,7 @@
       "type": "color",
       "id": "background_color",
       "label": "Couleur de fond",
-      "default": "#2C3E2C"
+      "default": "#E8DED6"
     }
   ],
   "presets": [

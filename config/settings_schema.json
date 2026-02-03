@@ -42,8 +42,8 @@
       {
         "type": "color",
         "id": "color_primary",
-        "label": "Vert forêt (principal)",
-        "default": "#2C3E2C"
+        "label": "Beige rosé (principal)",
+        "default": "#E8DED6"
       },
       {
         "type": "color",
