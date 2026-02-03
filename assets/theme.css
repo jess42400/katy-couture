@@ -18,33 +18,34 @@
    DESIGN SYSTEM - Variables CSS
    ============================================ */
 :root {
-  /* Palette Katy Couture - Beige rosé uniforme */
-  --color-primary: #E8DED6;
-  --color-primary-light: #F0E8E2;
-  --color-primary-dark: #D9CCC2;
+  /* Palette Katy Couture - Luxe minimaliste
+     Ivoire + Brun + Or subtil */
+  --color-primary: #F2E6DE;
+  --color-primary-light: #FAFAF8;
+  --color-primary-dark: #EAEAE5;
 
-  --color-cream: #F5EDE7;
-  --color-cream-dark: #E8DED6;
+  --color-cream: #F2E6DE;
+  --color-cream-dark: #EAEAE5;
 
-  --color-gold: #D4C4B8;
-  --color-gold-light: #E0D4CA;
-  --color-gold-dark: #C8B5A6;
+  --color-gold: #C4A77D;
+  --color-gold-light: #D4BC9A;
+  --color-gold-dark: #A8906A;
 
-  --color-terracotta: #E0D0C6;
-  --color-terracotta-light: #EAE0D8;
-  --color-terracotta-dark: #D4C0B4;
+  --color-terracotta: #C4A77D;
+  --color-terracotta-light: #D4BC9A;
+  --color-terracotta-dark: #A8906A;
 
-  --color-rose: #F0E5DE;
-  --color-rose-light: #F7F0EB;
-  --color-rose-dark: #E5D5CC;
+  --color-rose: #F2E6DE;
+  --color-rose-light: #FAFAF8;
+  --color-rose-dark: #EAEAE5;
 
-  --color-dark: #3D3532;
-  --color-dark-soft: #5A524E;
-  --color-light: #F5EDE7;
-  --color-white: #FAF6F3;
+  --color-dark: #2D2A26;
+  --color-dark-soft: #5C5650;
+  --color-light: #F2E6DE;
+  --color-white: #FFFFFF;
 
-  --color-border: #E0D6CE;
-  --color-text-muted: #8A7F78;
+  --color-border: #E0DED8;
+  --color-text-muted: #8A857D;
 
   /* Typographie - Mobile First avec clamp() */
   --font-heading: 'Playfair Display', Georgia, serif;
@@ -1085,7 +1086,7 @@ a:hover {
 .hero-brand__placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 50%, var(--color-primary-dark) 100%);
+  background: #F2E6DE;
 }
 
 .hero-brand__overlay {
@@ -2055,12 +2056,12 @@ a:hover {
 }
 
 /* Quote with dark background */
-.histoire-quote[style*="#2C3E2C"] .histoire-quote__text,
-.histoire-quote[style*="#2C3E2C"] .histoire-quote__author {
+.histoire-quote[style*="#3D3532"] .histoire-quote__text,
+.histoire-quote[style*="#3D3532"] .histoire-quote__author {
   color: var(--color-white);
 }
 
-.histoire-quote[style*="#2C3E2C"] .histoire-quote__author {
+.histoire-quote[style*="#3D3532"] .histoire-quote__author {
   opacity: 0.8;
 }
 
@@ -3779,22 +3780,170 @@ article.product-card:hover .product-card__link {
    THEME VARIANTS - Color Schemes
    ============================================ */
 
-/* LIGHT THEME (Default) - Beige rosé uniforme */
+/* ============================================
+   LIGHT THEME - Palette luxe minimaliste
+   Inspiré théorie des couleurs : tons sourds,
+   harmonie analogique, 2-3 couleurs max
+   ============================================ */
 [data-theme="light"] {
-  --color-primary: #E8DED6;
-  --color-primary-light: #F0E8E2;
-  --color-primary-dark: #D9CCC2;
-  --color-cream: #F5EDE7;
-  --color-cream-dark: #E8DED6;
-  --color-dark: #3D3532;
-  --color-dark-soft: #5A524E;
-  --color-light: #F5EDE7;
-  --color-white: #FAF6F3;
-  --color-border: #E0D6CE;
-  --color-text-muted: #8A7F78;
-  --color-gold: #C9A962;
-  --color-gold-light: #D4BA7D;
-  --color-gold-dark: #B89952;
+  /* Fond unique ivoire chaud */
+  --light-bg: #F2E6DE;
+
+  /* Texte brun profond */
+  --light-text: #2D2A26;
+  --light-text-soft: #5C5650;
+
+  /* Accent doré subtil */
+  --light-accent: #C4A77D;
+
+  /* Bordures discrètes */
+  --light-border: #E0DED8;
+}
+
+/* Light theme - fond unique uniforme */
+[data-theme="light"] body {
+  background-color: #F2E6DE;
+  color: #2D2A26;
+}
+
+/* Light theme - Hero brand sans overlay sombre */
+[data-theme="light"] .hero-brand {
+  background: #F2E6DE !important;
+}
+
+[data-theme="light"] .hero-brand__overlay {
+  background: transparent !important;
+}
+
+[data-theme="light"] .hero-brand__placeholder {
+  background: #F2E6DE !important;
+}
+
+[data-theme="light"] .hero-brand__title,
+[data-theme="light"] .hero-brand__subtitle,
+[data-theme="light"] .hero-brand__scroll-text {
+  color: #2D2A26 !important;
+}
+
+[data-theme="light"] .hero-brand__scroll-line {
+  background-color: #2D2A26 !important;
+}
+
+/* Light theme - Image fullscreen sans overlay gris */
+[data-theme="light"] .image-fullscreen {
+  background: #F2E6DE !important;
+}
+
+[data-theme="light"] .image-fullscreen__overlay {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+[data-theme="light"] .image-fullscreen__text {
+  color: #2D2A26 !important;
+}
+
+/* Light theme - Sections avec fond uniforme #F2E6DE */
+[data-theme="light"] .histoire-section,
+[data-theme="light"] .manifeste,
+[data-theme="light"] .matieres,
+[data-theme="light"] .instagram-feed,
+[data-theme="light"] .newsletter,
+[data-theme="light"] .image-fullscreen,
+[data-theme="light"] .nos-univers,
+[data-theme="light"] .section,
+[data-theme="light"] .section--lg,
+[data-theme="light"] .container,
+[data-theme="light"] section,
+[data-theme="light"] section[style*="background"],
+[data-theme="light"] [style*="background-color"],
+[data-theme="light"] [style*="background:"] {
+  background: #F2E6DE !important;
+  background-color: #F2E6DE !important;
+}
+
+/* Light theme - Placeholders avec contraste visible */
+[data-theme="light"] .manifeste__image-placeholder,
+[data-theme="light"] .histoire-section__image-placeholder,
+[data-theme="light"] .hero-brand__placeholder {
+  background: linear-gradient(135deg, #EAD9CF 0%, #E0D0C6 100%) !important;
+}
+
+/* Light theme - Cartes matières avec ombre 3D */
+[data-theme="light"] .matiere-card {
+  background: #EAD9CF !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 2px 5px rgba(0,0,0,0.08) !important;
+  overflow: hidden;
+}
+
+[data-theme="light"] .matiere-card__overlay {
+  background: transparent !important;
+}
+
+[data-theme="light"] .matiere-card__title {
+  color: #2D2A26 !important;
+  position: relative;
+  bottom: auto;
+  left: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+[data-theme="light"] .matiere-card__image--placeholder {
+  background: #E5D4C8 !important;
+}
+
+/* Light theme - TOUS les textes en noir */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] p,
+[data-theme="light"] span,
+[data-theme="light"] a,
+[data-theme="light"] li,
+[data-theme="light"] .newsletter__title,
+[data-theme="light"] .newsletter__text,
+[data-theme="light"] .histoire-section__title,
+[data-theme="light"] .histoire-section__text,
+[data-theme="light"] .histoire-section__link,
+[data-theme="light"] .section__title,
+[data-theme="light"] .subtitle,
+[data-theme="light"] .footer__title,
+[data-theme="light"] .footer__link,
+[data-theme="light"] .footer__copyright,
+[data-theme="light"] .footer__made-in,
+[data-theme="light"] .footer__logo-text {
+  color: #2D2A26 !important;
+}
+
+/* Light theme - Footer rose-beige (pas noir) */
+[data-theme="light"] .footer,
+[data-theme="light"] footer {
+  background: #F2E6DE !important;
+  background-color: #F2E6DE !important;
+}
+
+[data-theme="light"] .footer__social-link {
+  color: #2D2A26 !important;
+  border-color: #2D2A26 !important;
+}
+
+[data-theme="light"] .footer__social-link svg {
+  stroke: #2D2A26 !important;
+}
+
+/* Light theme - newsletter */
+[data-theme="light"] .newsletter__input {
+  background: #FFFFFF !important;
+  border: 1px solid #E0DED8 !important;
+  color: #2D2A26 !important;
+}
+
+[data-theme="light"] .newsletter__btn {
+  background: #2D2A26 !important;
+  color: #F2E6DE !important;
 }
 
 /* ============================================

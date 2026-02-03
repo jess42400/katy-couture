@@ -42,14 +42,14 @@
       {
         "type": "color",
         "id": "color_primary",
-        "label": "Beige rosé (principal)",
-        "default": "#E8DED6"
+        "label": "Blanc rosé (principal)",
+        "default": "#F5EBE6"
       },
       {
         "type": "color",
         "id": "color_cream",
-        "label": "Crème chaud (fond)",
-        "default": "#F5F2EB"
+        "label": "Blanc cassé (fond)",
+        "default": "#F2E6DE"
       },
       {
         "type": "header",
@@ -87,7 +87,7 @@
         "type": "color",
         "id": "color_light",
         "label": "Blanc cassé",
-        "default": "#FAFAF8"
+        "default": "#F2E6DE"
       }
     ]
   },

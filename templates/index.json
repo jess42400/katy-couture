@@ -13,7 +13,7 @@
       "settings": {
         "title": "L'art du fait-main",
         "text": "<p>Chaque création Katy Couture naît de la passion et du savoir-faire artisanal français. Des pièces uniques, numérotées, confectionnées avec amour dans notre atelier.</p>",
-        "background_color": "#F5EDE7"
+        "background_color": "transparent"
       }
     },
     "image-fullscreen": {
@@ -38,14 +38,14 @@
         "text": "Katy Couture est née dans un petit atelier, avec une machine à coudre et un rêve : créer des pièces uniques qui racontent une histoire.",
         "link_text": "Lire notre histoire",
         "link": "/pages/notre-histoire",
-        "background_color": "#E8DED6"
+        "background_color": "transparent"
       }
     },
     "matieres": {
       "type": "matieres",
       "settings": {
         "title": "Nos matières",
-        "background_color": "#F5EDE7"
+        "background_color": "transparent"
       },
       "blocks": {
         "matiere-1": {
@@ -74,7 +74,7 @@
       "settings": {
         "title": "L'atelier au quotidien",
         "handle": "@katycouture",
-        "background_color": "#F5EDE7"
+        "background_color": "transparent"
       },
       "blocks": {
         "img-1": { "type": "image" },
@@ -92,7 +92,7 @@
         "title": "Rejoignez l'aventure",
         "text": "Nouveautés, coulisses de l'atelier, ventes privées",
         "button_label": "S'inscrire",
-        "background_color": "#E0D0C6"
+        "background_color": "transparent"
       }
     }
   },
