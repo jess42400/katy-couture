@@ -18,33 +18,33 @@
    DESIGN SYSTEM - Variables CSS
    ============================================ */
 :root {
-  /* Palette Katy Couture - Harmonie naturelle & élégante */
-  --color-primary: #4A5D52;
-  --color-primary-light: #5E7368;
-  --color-primary-dark: #3A4A42;
+  /* Palette Katy Couture - Beige rosé uniforme */
+  --color-primary: #E8DED6;
+  --color-primary-light: #F0E8E2;
+  --color-primary-dark: #D9CCC2;
 
-  --color-cream: #F7F4EF;
-  --color-cream-dark: #EBE6DF;
+  --color-cream: #F5EDE7;
+  --color-cream-dark: #E8DED6;
 
-  --color-gold: #B8956B;
-  --color-gold-light: #CDAF8A;
-  --color-gold-dark: #9F7D56;
+  --color-gold: #D4C4B8;
+  --color-gold-light: #E0D4CA;
+  --color-gold-dark: #C8B5A6;
 
-  --color-terracotta: #C4907A;
-  --color-terracotta-light: #D4A694;
-  --color-terracotta-dark: #A97862;
+  --color-terracotta: #E0D0C6;
+  --color-terracotta-light: #EAE0D8;
+  --color-terracotta-dark: #D4C0B4;
 
-  --color-rose: #E5D5CC;
-  --color-rose-light: #F0E5DE;
-  --color-rose-dark: #D4C0B4;
+  --color-rose: #F0E5DE;
+  --color-rose-light: #F7F0EB;
+  --color-rose-dark: #E5D5CC;
 
-  --color-dark: #2D2926;
-  --color-dark-soft: #4A4543;
-  --color-light: #FDFCFA;
-  --color-white: #FFFFFF;
+  --color-dark: #3D3532;
+  --color-dark-soft: #5A524E;
+  --color-light: #F5EDE7;
+  --color-white: #FAF6F3;
 
-  --color-border: #E2DED8;
-  --color-text-muted: #7A756F;
+  --color-border: #E0D6CE;
+  --color-text-muted: #8A7F78;
 
   /* Typographie - Mobile First avec clamp() */
   --font-heading: 'Playfair Display', Georgia, serif;
@@ -1530,7 +1530,7 @@ a:hover {
   grid-template-columns: 1fr 1fr;
   min-height: 70vh;
   text-decoration: none;
-  color: var(--color-cream);
+  color: var(--color-dark);
   cursor: pointer;
   transition: opacity 0.4s ease;
 }
@@ -1548,14 +1548,14 @@ a:hover {
 
 .histoire-section__title {
   font-size: var(--font-size-h2);
-  color: var(--color-cream);
+  color: var(--color-dark);
   margin-bottom: var(--spacing-md);
 }
 
 .histoire-section__text {
   font-size: 18px;
   line-height: 1.8;
-  opacity: 0.85;
+  color: var(--color-dark-soft);
   margin-bottom: var(--spacing-lg);
   max-width: 500px;
 }
@@ -1567,7 +1567,7 @@ a:hover {
   font-size: var(--font-size-small);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);
-  color: var(--color-gold);
+  color: var(--color-dark);
   transition: gap 0.4s ease;
 }
 
@@ -1779,10 +1779,10 @@ a:hover {
 }
 
 /* ============================================
-   NEWSLETTER - Fond terracotta
+   NEWSLETTER - Fond beige rosé
    ============================================ */
 .newsletter {
-  color: var(--color-white);
+  color: var(--color-dark);
   text-align: center;
   padding: var(--spacing-xl) 0;
 }
@@ -1793,12 +1793,12 @@ a:hover {
 }
 
 .newsletter__title {
-  color: var(--color-white);
+  color: var(--color-dark);
   margin-bottom: var(--spacing-sm);
 }
 
 .newsletter__text {
-  opacity: 0.85;
+  color: var(--color-dark-soft);
   margin-bottom: var(--spacing-lg);
 }
 
