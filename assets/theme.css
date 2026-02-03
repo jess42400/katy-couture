@@ -3829,18 +3829,34 @@ article.product-card:hover .product-card__link {
   background-color: #2D2A26 !important;
 }
 
-/* Light theme - Image fullscreen sans overlay gris */
+/* Light theme - Image fullscreen avec texte EN DESSOUS */
 [data-theme="light"] .image-fullscreen {
   background: #F2E6DE !important;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: auto;
+}
+
+[data-theme="light"] .image-fullscreen__media {
+  position: relative;
+  height: 70vh;
+  width: 100%;
 }
 
 [data-theme="light"] .image-fullscreen__overlay {
-  background: transparent !important;
-  background-color: transparent !important;
+  display: none;
+}
+
+[data-theme="light"] .image-fullscreen__content {
+  position: relative;
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
 }
 
 [data-theme="light"] .image-fullscreen__text {
   color: #2D2A26 !important;
+  font-style: italic;
 }
 
 /* Light theme - Sections avec fond uniforme #F2E6DE */
