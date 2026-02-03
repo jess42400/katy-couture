@@ -77,6 +77,37 @@
   };
 
   /* ============================================
+     SEARCH OVERLAY
+     ============================================ */
+  const initSearch = () => {
+    const searchToggle = $('[data-search-toggle]');
+    const searchClose = $('[data-search-close]');
+    const searchOverlay = $('[data-search-overlay]');
+    const searchInput = $('[data-search-input]');
+
+    if (!searchToggle || !searchOverlay) return;
+
+    const openSearch = () => {
+      searchOverlay.setAttribute('data-open', 'true');
+      setTimeout(() => searchInput?.focus(), 300);
+    };
+
+    const closeSearch = () => {
+      searchOverlay.setAttribute('data-open', 'false');
+    };
+
+    searchToggle.addEventListener('click', openSearch);
+    searchClose?.addEventListener('click', closeSearch);
+
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && searchOverlay.getAttribute('data-open') === 'true') {
+        closeSearch();
+      }
+    });
+  };
+
+  /* ============================================
      SCROLL REVEAL ANIMATIONS
      ============================================ */
   const initScrollReveal = () => {
@@ -662,6 +693,65 @@
   };
 
   /* ============================================
+     THEME SWITCHER
+     ============================================ */
+  const initThemeSwitcher = () => {
+    const themeSwitcher = $('[data-theme-switcher]');
+    const themeToggle = $('[data-theme-toggle]');
+    const themeMenu = $('[data-theme-menu]');
+    const themeOptions = $$('[data-theme]', themeMenu);
+
+    if (!themeSwitcher || !themeToggle || !themeMenu) return;
+
+    // Get saved theme or default to light
+    const savedTheme = localStorage.getItem('katy-theme') || 'light';
+    applyTheme(savedTheme);
+    updateActiveOption(savedTheme);
+
+    // Toggle menu
+    themeToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = themeSwitcher.getAttribute('data-open') === 'true';
+      themeSwitcher.setAttribute('data-open', isOpen ? 'false' : 'true');
+    });
+
+    // Theme option clicks
+    themeOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        const theme = option.dataset.theme;
+        applyTheme(theme);
+        updateActiveOption(theme);
+        localStorage.setItem('katy-theme', theme);
+        themeSwitcher.setAttribute('data-open', 'false');
+      });
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!themeSwitcher.contains(e.target)) {
+        themeSwitcher.setAttribute('data-open', 'false');
+      }
+    });
+
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        themeSwitcher.setAttribute('data-open', 'false');
+      }
+    });
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+
+    function updateActiveOption(theme) {
+      themeOptions.forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.theme === theme);
+      });
+    }
+  };
+
+  /* ============================================
      INIT
      ============================================ */
   const init = () => {
@@ -671,6 +761,8 @@
     // Core functionality
     initHeader();
     initMobileMenu();
+    initSearch();
+    initThemeSwitcher();
 
     // Animations
     initScrollReveal();

@@ -26,40 +26,10 @@
     "nos-univers": {
       "type": "nos-univers",
       "settings": {
-        "subtitle": "",
-        "title": "Nos univers"
-      },
-      "blocks": {
-        "cat-1": {
-          "type": "category",
-          "settings": {
-            "title": "Chèches & Écharpes",
-            "link": "/collections/cheches-echarpes"
-          }
-        },
-        "cat-2": {
-          "type": "category",
-          "settings": {
-            "title": "Sacs",
-            "link": "/collections/sacs"
-          }
-        },
-        "cat-3": {
-          "type": "category",
-          "settings": {
-            "title": "Chapeaux",
-            "link": "/collections/chapeaux"
-          }
-        },
-        "cat-4": {
-          "type": "category",
-          "settings": {
-            "title": "Nouveautés",
-            "link": "/collections/nouveautes"
-          }
-        }
-      },
-      "block_order": ["cat-1", "cat-2", "cat-3", "cat-4"]
+        "subtitle": "Créations",
+        "title": "Nos univers",
+        "show_product_count": false
+      }
     },
     "histoire-teaser": {
       "type": "histoire-teaser",

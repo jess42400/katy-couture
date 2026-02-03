@@ -6,11 +6,14 @@
 
 <header class="header" data-header>
   <div class="header__inner">
-    {%- comment -%} Navigation Gauche {%- endcomment -%}
-    <nav class="header__nav header__nav--left">
-      <a href="/pages/notre-histoire" class="header__link">Notre histoire</a>
-      <a href="/pages/savoir-faire" class="header__link">Savoir-faire</a>
-    </nav>
+    {%- comment -%} Menu Burger {%- endcomment -%}
+    <button class="header__menu-toggle" data-menu-toggle aria-label="Menu">
+      <span class="header__menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
 
     {%- comment -%} Logo Centré {%- endcomment -%}
     <a href="/" class="header__logo">
@@ -26,53 +29,105 @@
       {%- endif -%}
     </a>
 
-    {%- comment -%} Navigation Droite + Actions {%- endcomment -%}
-    <nav class="header__nav header__nav--right">
-      {%- comment -%} Catalogue avec sous-menu {%- endcomment -%}
-      <div class="header__dropdown">
-        <a href="/collections/all" class="header__link header__link--dropdown">
-          Catalogue
-          <svg class="header__dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
-            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    {%- comment -%} Actions (thème + recherche + panier) {%- endcomment -%}
+    <div class="header__actions">
+      {%- comment -%} Theme Switcher {%- endcomment -%}
+      <div class="theme-switcher" data-theme-switcher>
+        <button class="header__action theme-switcher__toggle" aria-label="Changer de thème" data-theme-toggle>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
           </svg>
-        </a>
-        <div class="header__dropdown-menu">
-          <a href="/collections/cheches-echarpes" class="header__dropdown-link">Chèches & Écharpes</a>
-          <a href="/collections/sacs" class="header__dropdown-link">Sacs</a>
-          <a href="/collections/chapeaux" class="header__dropdown-link">Chapeaux</a>
-          <div class="header__dropdown-divider"></div>
-          <a href="/collections/all" class="header__dropdown-link header__dropdown-link--all">Tout voir</a>
+        </button>
+        <div class="theme-switcher__menu" data-theme-menu>
+          <button class="theme-switcher__option" data-theme="light">
+            <span class="theme-switcher__swatch theme-switcher__swatch--light"></span>
+            Clair
+          </button>
+          <button class="theme-switcher__option" data-theme="dark">
+            <span class="theme-switcher__swatch theme-switcher__swatch--dark"></span>
+            Gris
+          </button>
+          <button class="theme-switcher__option" data-theme="slate">
+            <span class="theme-switcher__swatch theme-switcher__swatch--slate"></span>
+            Ardoise
+          </button>
+          <button class="theme-switcher__option" data-theme="sepia">
+            <span class="theme-switcher__swatch theme-switcher__swatch--sepia"></span>
+            Sépia
+          </button>
         </div>
       </div>
 
-      <a href="/pages/contact" class="header__link">Contact</a>
-
-      <div class="header__actions">
-        <button class="header__action" aria-label="Rechercher" data-search-toggle>
-          {% render 'icon-search' %}
-        </button>
-        <a href="/account" class="header__action" aria-label="Compte">
-          {% render 'icon-account' %}
-        </a>
-        <a href="/cart" class="header__action header__action--cart" aria-label="Panier">
-          {% render 'icon-cart' %}
-          {%- if cart.item_count > 0 -%}
-            <span class="header__cart-count" data-cart-count>{{ cart.item_count }}</span>
-          {%- endif -%}
-        </a>
-      </div>
-    </nav>
-
-    {%- comment -%} Mobile Menu Toggle {%- endcomment -%}
-    <button class="header__menu-toggle" data-menu-toggle aria-label="Menu">
-      <span class="header__menu-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-    </button>
+      <button class="header__action" aria-label="Rechercher" data-search-toggle>
+        {% render 'icon-search' %}
+      </button>
+      <a href="/cart" class="header__action header__action--cart" aria-label="Panier">
+        {% render 'icon-cart' %}
+        {%- if cart.item_count > 0 -%}
+          <span class="header__cart-count" data-cart-count>{{ cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+    </div>
   </div>
 </header>
+
+{%- comment -%} Search/Shop Overlay {%- endcomment -%}
+<div class="shop-overlay" data-search-overlay>
+  <div class="shop-overlay__header">
+    <h2 class="shop-overlay__title">Nos Collections</h2>
+    <button class="shop-overlay__close" data-search-close aria-label="Fermer">
+      {% render 'icon-close' %}
+    </button>
+  </div>
+
+  <div class="shop-overlay__content">
+    {%- comment -%} Barre de recherche {%- endcomment -%}
+    <form action="/search" method="get" class="shop-overlay__search">
+      <input
+        type="search"
+        name="q"
+        placeholder="Rechercher un produit..."
+        class="shop-overlay__input"
+        autocomplete="off"
+        data-search-input
+      >
+      <button type="submit" class="shop-overlay__submit" aria-label="Rechercher">
+        {% render 'icon-search' %}
+      </button>
+    </form>
+
+    {%- comment -%} Collections dynamiques {%- endcomment -%}
+    <div class="shop-overlay__collections">
+      {%- for collection in collections -%}
+        {%- unless collection.handle == 'all' or collection.handle == 'frontpage' -%}
+          <a href="{{ collection.url }}" class="shop-overlay__collection">
+            <div class="shop-overlay__collection-image">
+              {%- if collection.image -%}
+                <img src="{{ collection.image | image_url: width: 400 }}" alt="{{ collection.title }}">
+              {%- elsif collection.products.first.featured_image -%}
+                <img src="{{ collection.products.first.featured_image | image_url: width: 400 }}" alt="{{ collection.title }}">
+              {%- else -%}
+                <div class="shop-overlay__placeholder"></div>
+              {%- endif -%}
+            </div>
+            <span class="shop-overlay__collection-title">{{ collection.title }}</span>
+          </a>
+        {%- endunless -%}
+      {%- endfor -%}
+
+      {%- comment -%} Lien vers toutes les collections {%- endcomment -%}
+      <a href="/collections/all" class="shop-overlay__collection shop-overlay__collection--all">
+        <div class="shop-overlay__collection-image">
+          <div class="shop-overlay__placeholder shop-overlay__placeholder--all">
+            <span>Tout voir</span>
+          </div>
+        </div>
+        <span class="shop-overlay__collection-title">Tous les produits</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 {%- comment -%} Mobile Menu {%- endcomment -%}
 <div class="mobile-menu" data-mobile-menu data-open="false">
@@ -85,17 +140,8 @@
 
   <nav class="mobile-menu__nav">
     <a href="/" class="mobile-menu__link">Accueil</a>
+    <a href="/collections/all" class="mobile-menu__link">Boutique</a>
     <a href="/pages/notre-histoire" class="mobile-menu__link">Notre histoire</a>
-    <a href="/pages/savoir-faire" class="mobile-menu__link">Savoir-faire</a>
-
-    <div class="mobile-menu__section">
-      <span class="mobile-menu__section-title">Catalogue</span>
-      <a href="/collections/cheches-echarpes" class="mobile-menu__sublink">Chèches & Écharpes</a>
-      <a href="/collections/sacs" class="mobile-menu__sublink">Sacs</a>
-      <a href="/collections/chapeaux" class="mobile-menu__sublink">Chapeaux</a>
-      <a href="/collections/all" class="mobile-menu__sublink">Tout voir</a>
-    </div>
-
     <a href="/pages/contact" class="mobile-menu__link">Contact</a>
   </nav>
 

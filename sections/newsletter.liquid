@@ -9,7 +9,7 @@
   <div class="container">
     <div class="newsletter__inner reveal">
       <h2 class="newsletter__title">{{ section.settings.title | default: "Rejoignez l'aventure" }}</h2>
-      <p class="newsletter__text">{{ section.settings.text | default: 'Nouveautés, coulisses de l'atelier, ventes privées' }}</p>
+      <p class="newsletter__text">{{ section.settings.text | default: "Nouveautés, coulisses de l'atelier, ventes privées" }}</p>
 
       <form class="newsletter__form" action="/contact#contact_form" method="post" accept-charset="UTF-8">
         <input type="hidden" name="form_type" value="customer">
@@ -70,8 +70,7 @@
     {
       "type": "text",
       "id": "disclaimer",
-      "label": "Mention légale (optionnel)",
-      "default": ""
+      "label": "Mention légale (optionnel)"
     },
     {
       "type": "color",
