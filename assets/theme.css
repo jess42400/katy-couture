@@ -4003,15 +4003,6 @@ article.product-card:hover .product-card__link {
   background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
 }
 
-/* Fix: Empêcher le fond opaque de cacher les images des collections */
-[data-theme="dark"] .univers-card__media,
-[data-theme="dark"] .univers-card__overlay,
-[data-theme="slate"] .univers-card__media,
-[data-theme="slate"] .univers-card__overlay,
-[data-theme="sepia"] .univers-card__media,
-[data-theme="sepia"] .univers-card__overlay {
-  background-color: transparent !important;
-}
 
 /* ============================================
    NEWSLETTER
@@ -4759,6 +4750,22 @@ article.product-card:hover .product-card__link {
 [data-theme="sepia"] .matiere-card__image--placeholder {
   background-color: var(--dark-bg-1) !important;
   background: var(--dark-bg-1) !important;
+}
+
+/* ============================================
+   FIX: Images des collections visibles
+   ============================================ */
+[data-theme="dark"] .univers-card__media,
+[data-theme="dark"] .univers-card__overlay,
+[data-theme="dark"] .univers-card__image,
+[data-theme="slate"] .univers-card__media,
+[data-theme="slate"] .univers-card__overlay,
+[data-theme="slate"] .univers-card__image,
+[data-theme="sepia"] .univers-card__media,
+[data-theme="sepia"] .univers-card__overlay,
+[data-theme="sepia"] .univers-card__image {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* ============================================
