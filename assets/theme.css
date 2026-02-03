@@ -3932,12 +3932,22 @@ article.product-card:hover .product-card__link {
 
 [data-theme="dark"] .mobile-menu__link,
 [data-theme="dark"] .mobile-menu__logo,
+[data-theme="dark"] .mobile-menu__close,
 [data-theme="slate"] .mobile-menu__link,
 [data-theme="slate"] .mobile-menu__logo,
+[data-theme="slate"] .mobile-menu__close,
 [data-theme="sepia"] .mobile-menu__link,
-[data-theme="sepia"] .mobile-menu__logo {
-  color: var(--dark-text);
+[data-theme="sepia"] .mobile-menu__logo,
+[data-theme="sepia"] .mobile-menu__close {
+  color: var(--dark-text) !important;
   border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .mobile-menu__close svg,
+[data-theme="slate"] .mobile-menu__close svg,
+[data-theme="sepia"] .mobile-menu__close svg {
+  stroke: var(--dark-text) !important;
+  color: var(--dark-text) !important;
 }
 
 [data-theme="dark"] .mobile-menu__link:hover,
