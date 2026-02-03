@@ -3905,16 +3905,19 @@ article.product-card:hover .product-card__link {
 
 [data-theme="dark"] .header__logo svg,
 [data-theme="dark"] .header__action svg,
-[data-theme="dark"] .header__menu-toggle svg,
 [data-theme="slate"] .header__logo svg,
 [data-theme="slate"] .header__action svg,
-[data-theme="slate"] .header__menu-toggle svg,
 [data-theme="sepia"] .header__logo svg,
-[data-theme="sepia"] .header__action svg,
-[data-theme="sepia"] .header__menu-toggle svg {
-  color: var(--dark-text) !important;
-  stroke: var(--dark-text) !important;
-  fill: var(--dark-text) !important;
+[data-theme="sepia"] .header__action svg {
+  color: var(--dark-text);
+  stroke: var(--dark-text);
+}
+
+/* Burger menu icon - les 3 barres */
+[data-theme="dark"] .header__menu-icon span,
+[data-theme="slate"] .header__menu-icon span,
+[data-theme="sepia"] .header__menu-icon span {
+  background-color: var(--dark-text) !important;
 }
 
 /* ============================================
