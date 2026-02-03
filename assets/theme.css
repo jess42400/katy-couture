@@ -18,33 +18,33 @@
    DESIGN SYSTEM - Variables CSS
    ============================================ */
 :root {
-  /* Palette Katy Couture */
-  --color-primary: #2C3E2C;
-  --color-primary-light: #3D4F3D;
-  --color-primary-dark: #1E2D1E;
+  /* Palette Katy Couture - Harmonie naturelle & élégante */
+  --color-primary: #4A5D52;
+  --color-primary-light: #5E7368;
+  --color-primary-dark: #3A4A42;
 
-  --color-cream: #F5F2EB;
-  --color-cream-dark: #E8E5DE;
+  --color-cream: #F7F4EF;
+  --color-cream-dark: #EBE6DF;
 
-  --color-gold: #C9A962;
-  --color-gold-light: #D4BA7D;
-  --color-gold-dark: #B89952;
+  --color-gold: #B8956B;
+  --color-gold-light: #CDAF8A;
+  --color-gold-dark: #9F7D56;
 
-  --color-terracotta: #B87B5E;
-  --color-terracotta-light: #C99478;
-  --color-terracotta-dark: #A66B4E;
+  --color-terracotta: #C4907A;
+  --color-terracotta-light: #D4A694;
+  --color-terracotta-dark: #A97862;
 
-  --color-rose: #D4B5A8;
-  --color-rose-light: #E0C5B9;
-  --color-rose-dark: #C4A595;
+  --color-rose: #E5D5CC;
+  --color-rose-light: #F0E5DE;
+  --color-rose-dark: #D4C0B4;
 
-  --color-dark: #1A1A1A;
-  --color-dark-soft: #333333;
-  --color-light: #FAFAF8;
+  --color-dark: #2D2926;
+  --color-dark-soft: #4A4543;
+  --color-light: #FDFCFA;
   --color-white: #FFFFFF;
 
-  --color-border: #E8E6E1;
-  --color-text-muted: #666666;
+  --color-border: #E2DED8;
+  --color-text-muted: #7A756F;
 
   /* Typographie - Mobile First avec clamp() */
   --font-heading: 'Playfair Display', Georgia, serif;
