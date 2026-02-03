@@ -4285,12 +4285,25 @@ article.product-card:hover .product-card__link {
 
 /* Pas de fond sur matiere-card pour garder un look propre */
 
+[data-theme="dark"] .matiere-card,
 [data-theme="dark"] .matiere-card__title,
-[data-theme="dark"] .matiere-card__text,
+[data-theme="dark"] .matiere-card__media,
+[data-theme="dark"] .matiere-card__overlay,
+[data-theme="slate"] .matiere-card,
 [data-theme="slate"] .matiere-card__title,
-[data-theme="slate"] .matiere-card__text,
+[data-theme="slate"] .matiere-card__media,
+[data-theme="slate"] .matiere-card__overlay,
+[data-theme="sepia"] .matiere-card,
 [data-theme="sepia"] .matiere-card__title,
-[data-theme="sepia"] .matiere-card__text {
+[data-theme="sepia"] .matiere-card__media,
+[data-theme="sepia"] .matiere-card__overlay {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+[data-theme="dark"] .matiere-card__title,
+[data-theme="slate"] .matiere-card__title,
+[data-theme="sepia"] .matiere-card__title {
   color: var(--dark-text);
 }
 
