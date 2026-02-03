@@ -4003,6 +4003,16 @@ article.product-card:hover .product-card__link {
   background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
 }
 
+/* Fix: Empêcher le fond opaque de cacher les images des collections */
+[data-theme="dark"] .univers-card__media,
+[data-theme="dark"] .univers-card__overlay,
+[data-theme="slate"] .univers-card__media,
+[data-theme="slate"] .univers-card__overlay,
+[data-theme="sepia"] .univers-card__media,
+[data-theme="sepia"] .univers-card__overlay {
+  background-color: transparent !important;
+}
+
 /* ============================================
    NEWSLETTER
    ============================================ */
