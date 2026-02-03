@@ -4283,12 +4283,7 @@ article.product-card:hover .product-card__link {
   background-color: var(--dark-bg-2);
 }
 
-[data-theme="dark"] .matiere-card,
-[data-theme="slate"] .matiere-card,
-[data-theme="sepia"] .matiere-card {
-  background-color: var(--dark-bg-3);
-  border-color: var(--dark-border);
-}
+/* Pas de fond sur matiere-card pour garder un look propre */
 
 [data-theme="dark"] .matiere-card__title,
 [data-theme="dark"] .matiere-card__text,
