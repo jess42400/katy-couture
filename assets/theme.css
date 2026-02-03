@@ -3849,15 +3849,11 @@ article.product-card:hover .product-card__link {
 [data-theme="light"] .matieres,
 [data-theme="light"] .instagram-feed,
 [data-theme="light"] .newsletter,
-[data-theme="light"] .image-fullscreen,
 [data-theme="light"] .nos-univers,
 [data-theme="light"] .section,
 [data-theme="light"] .section--lg,
 [data-theme="light"] .container,
-[data-theme="light"] section,
-[data-theme="light"] section[style*="background"],
-[data-theme="light"] [style*="background-color"],
-[data-theme="light"] [style*="background:"] {
+[data-theme="light"] section {
   background: #F2E6DE !important;
   background-color: #F2E6DE !important;
 }
