@@ -3991,11 +3991,7 @@ article.product-card:hover .product-card__link {
 /* ============================================
    UNIVERS / COLLECTION CARDS
    ============================================ */
-[data-theme="dark"] .univers-card,
-[data-theme="slate"] .univers-card,
-[data-theme="sepia"] .univers-card {
-  background-color: var(--dark-bg-2);
-}
+/* Pas de fond sur .univers-card pour laisser l'image visible */
 
 [data-theme="dark"] .univers-card__content,
 [data-theme="slate"] .univers-card__content,
