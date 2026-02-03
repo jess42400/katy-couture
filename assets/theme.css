@@ -859,7 +859,11 @@ a:hover {
    ============================================ */
 .mobile-menu {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 70%;
+  max-width: 320px;
   z-index: 2000;
   background-color: var(--color-light);
   display: flex;
@@ -3915,7 +3919,8 @@ article.product-card:hover .product-card__link {
 [data-theme="dark"] .mobile-menu,
 [data-theme="slate"] .mobile-menu,
 [data-theme="sepia"] .mobile-menu {
-  background-color: var(--dark-bg-1);
+  background-color: var(--dark-bg-1) !important;
+  background: var(--dark-bg-1) !important;
 }
 
 [data-theme="dark"] .mobile-menu__link,
