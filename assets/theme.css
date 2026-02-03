@@ -4755,17 +4755,37 @@ article.product-card:hover .product-card__link {
 /* ============================================
    FIX: Images des collections visibles
    ============================================ */
-[data-theme="dark"] .univers-card__media,
-[data-theme="dark"] .univers-card__overlay,
-[data-theme="dark"] .univers-card__image,
-[data-theme="slate"] .univers-card__media,
-[data-theme="slate"] .univers-card__overlay,
-[data-theme="slate"] .univers-card__image,
-[data-theme="sepia"] .univers-card__media,
-[data-theme="sepia"] .univers-card__overlay,
-[data-theme="sepia"] .univers-card__image {
+[data-theme="dark"] .nos-univers .univers-card,
+[data-theme="slate"] .nos-univers .univers-card,
+[data-theme="sepia"] .nos-univers .univers-card {
   background: transparent !important;
   background-color: transparent !important;
+}
+
+[data-theme="dark"] .nos-univers .univers-card__media,
+[data-theme="dark"] .nos-univers .univers-card__overlay,
+[data-theme="slate"] .nos-univers .univers-card__media,
+[data-theme="slate"] .nos-univers .univers-card__overlay,
+[data-theme="sepia"] .nos-univers .univers-card__media,
+[data-theme="sepia"] .nos-univers .univers-card__overlay {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+[data-theme="dark"] .nos-univers .univers-card__image,
+[data-theme="slate"] .nos-univers .univers-card__image,
+[data-theme="sepia"] .nos-univers .univers-card__image {
+  position: relative !important;
+  z-index: 1 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+[data-theme="dark"] .nos-univers .univers-card__overlay,
+[data-theme="slate"] .nos-univers .univers-card__overlay,
+[data-theme="sepia"] .nos-univers .univers-card__overlay {
+  z-index: 2 !important;
 }
 
 /* ============================================
