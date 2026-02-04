@@ -14,9 +14,7 @@
 }
 
 /* --- HEADER --- */
-html[data-theme] .header,
-html[data-theme="dark"] .header,
-html[data-theme="light"] .header,
+/* Base - position fixe pour tous */
 body .header,
 .header[data-header] {
   position: fixed;
@@ -24,12 +22,31 @@ body .header,
   left: 0;
   right: 0;
   z-index: 9999;
+}
+
+/* --- HEADER FOND SOLIDE PAR THÈME --- */
+/* Light = notre noir Katy */
+html[data-theme="light"] .header,
+html[data-theme="light"] .header--scrolled {
   background-color: #1A1A1A;
 }
 
-html[data-theme] .header--scrolled,
+/* Dark = gris foncé */
+html[data-theme="dark"] .header,
 html[data-theme="dark"] .header--scrolled {
-  background-color: #1A1A1A;
+  background-color: var(--dark-bg-1);
+}
+
+/* Slate = bleu ardoise */
+html[data-theme="slate"] .header,
+html[data-theme="slate"] .header--scrolled {
+  background-color: var(--dark-bg-1);
+}
+
+/* Sepia = brun chaud */
+html[data-theme="sepia"] .header,
+html[data-theme="sepia"] .header--scrolled {
+  background-color: var(--dark-bg-1);
 }
 
 body .header__logo {
