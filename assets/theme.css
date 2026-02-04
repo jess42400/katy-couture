@@ -5177,6 +5177,89 @@ header,
 
 /* ========== FIN HEADER ========== */
 
+/* ========== CORRECTION 4 PROBLÈMES URGENTS ========== */
+
+/* PROBLÈME 1: Header - liens en ligne, pas superposés */
+.header__nav,
+.header__menu,
+.menu-links,
+.nav-links {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 2rem !important;
+}
+
+.header__nav a,
+.header__menu a,
+.menu-links a,
+.nav-links a {
+  position: relative !important;
+  white-space: nowrap !important;
+}
+
+/* PROBLÈME 2: Image carte en 9:16 PORTRAIT */
+.univers-card__media,
+.univers-card__image,
+.collection-card__image,
+.card__media {
+  aspect-ratio: 9 / 16 !important;
+  overflow: hidden !important;
+  max-width: 350px !important;
+  margin: 0 auto !important;
+}
+
+.univers-card__media img,
+.univers-card__image img,
+.collection-card__image img,
+.card__media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+/* PROBLÈME 3: Un seul bloc - supprimer overlay */
+.univers-card__overlay,
+.collection-card__overlay {
+  display: none !important;
+}
+
+/* PROBLÈME 4: Texte "cheche" EN DESSOUS de l'image */
+.univers-card,
+.collection-card {
+  display: flex !important;
+  flex-direction: column !important;
+  max-width: 350px !important;
+  margin: 0 auto !important;
+}
+
+.univers-card__content,
+.collection-card__content {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  background: #1A1A1A !important;
+  color: white !important;
+  text-align: center !important;
+  padding: 1rem !important;
+  width: 100% !important;
+  max-width: 350px !important;
+  margin: 0 auto !important;
+}
+
+.univers-card__title,
+.collection-card__title {
+  font-family: 'Playfair Display', serif !important;
+  text-transform: lowercase !important;
+  margin: 0 !important;
+  color: white !important;
+}
+
+/* ========== FIN CORRECTIONS URGENTES ========== */
+
 /* ============================================
    PRINT
    ============================================ */
