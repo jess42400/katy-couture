@@ -38,7 +38,8 @@
   {%- endif -%}
 
   {%- comment -%} CSS {%- endcomment -%}
-  {{ 'theme.css' | asset_url | stylesheet_tag }}
+  <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}?v={{ 'now' | date: '%s' }}">
+  <link rel="stylesheet" href="{{ 'katy-custom.css' | asset_url }}?v={{ 'now' | date: '%s' }}">
 
   {%- comment -%} Shopify required {%- endcomment -%}
   {{ content_for_header }}

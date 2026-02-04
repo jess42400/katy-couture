@@ -392,12 +392,12 @@ a:hover {
    Desktop: Split nav + Logo centré
    ============================================ */
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  background-color: transparent;
+  z-index: 9999;
+  background-color: #1A1A1A;
   transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
@@ -1404,13 +1404,16 @@ a:hover {
 .univers-card {
   position: relative;
   display: block;
-  aspect-ratio: 3/4;
+  aspect-ratio: 9/16;
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
   border-radius: 4px;
   will-change: transform, box-shadow;
   z-index: 1;
+  max-width: 350px;
+  margin: 0 auto;
+  background: transparent;
 }
 
 .univers-card__media {

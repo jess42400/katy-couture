@@ -19,7 +19,20 @@
       "Bash(shopify auth logout:*)",
       "WebFetch(domain:a0hc1i-fy.myshopify.com)",
       "Bash(git commit:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "WebSearch",
+      "WebFetch(domain:webflow.com)",
+      "Bash(find:*)",
+      "Bash(git checkout:*)",
+      "Bash(shopify version:*)",
+      "Bash(shopify whoami:*)",
+      "Bash(shopify auth login:*)",
+      "Bash(shopify auth:*)",
+      "Bash(shopify theme info:*)",
+      "Bash(shopify app function schema --help:*)",
+      "Bash(shopify help:*)",
+      "Bash(pkill:*)",
+      "Bash(lsof:*)"
     ]
   }
 }

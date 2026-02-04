@@ -131,7 +131,15 @@
           </button>
         </div>
 
-        {%- comment -%} Accordéon élégant {%- endcomment -%}
+        {%- comment -%} Description produit {%- endcomment -%}
+        <div class="product__description">
+          {{ product.description }}
+        </div>
+
+        {%- comment -%}
+        =============================================
+        ANCIEN ACCORDÉON - Commenté pour référence
+        =============================================
         <div class="product__accordion">
           <details class="product__accordion-item">
             <summary class="product__accordion-header">
@@ -142,50 +150,24 @@
               {%- if product.metafields.custom.composition != blank -%}
                 {{ product.metafields.custom.composition }}
               {%- else -%}
-                <p>Tissu extérieur de qualité premium. Doublure ultra-douce en sherpa, minky ou fausse fourrure selon le modèle.</p>
+                <p>Tissu extérieur de qualité premium...</p>
               {%- endif -%}
             </div>
           </details>
-
           <details class="product__accordion-item">
-            <summary class="product__accordion-header">
-              <span>Dimensions</span>
-              <span class="product__accordion-icon"></span>
-            </summary>
-            <div class="product__accordion-content">
-              {%- if product.metafields.custom.dimensions != blank -%}
-                {{ product.metafields.custom.dimensions }}
-              {%- else -%}
-                <p>Format triangulaire généreux. Dimensions approximatives : 180cm x 90cm (variable selon les modèles).</p>
-              {%- endif -%}
-            </div>
+            <summary class="product__accordion-header"><span>Dimensions</span></summary>
+            <div class="product__accordion-content">{{ product.metafields.custom.dimensions }}</div>
           </details>
-
           <details class="product__accordion-item">
-            <summary class="product__accordion-header">
-              <span>Entretien</span>
-              <span class="product__accordion-icon"></span>
-            </summary>
-            <div class="product__accordion-content">
-              {%- if product.metafields.custom.entretien != blank -%}
-                {{ product.metafields.custom.entretien }}
-              {%- else -%}
-                <p>Lavage à 30°C en programme délicat. Ne pas utiliser de sèche-linge. Repasser à basse température sur l'envers.</p>
-              {%- endif -%}
-            </div>
+            <summary class="product__accordion-header"><span>Entretien</span></summary>
+            <div class="product__accordion-content">{{ product.metafields.custom.entretien }}</div>
           </details>
-
           <details class="product__accordion-item">
-            <summary class="product__accordion-header">
-              <span>Livraison</span>
-              <span class="product__accordion-icon"></span>
-            </summary>
-            <div class="product__accordion-content">
-              <p>Livraison offerte en France métropolitaine à partir de 80€.</p>
-              <p>Expédition sous 2-3 jours ouvrés. Retours gratuits sous 14 jours.</p>
-            </div>
+            <summary class="product__accordion-header"><span>Livraison</span></summary>
+            <div class="product__accordion-content">Livraison offerte...</div>
           </details>
         </div>
+        {%- endcomment -%}
       </div>
     </div>
   </div>

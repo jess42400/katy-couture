@@ -1,0 +1,76 @@
+/* ==========================================
+   KATY COUTURE - CSS PERSONNALISÉ
+   Fichier PROPRE sans !important
+   ========================================== */
+
+/* ---------- VARIABLES ---------- */
+:root {
+  --kc-color-dark: #1A1A1A;
+  --kc-color-light: #FAFAFA;
+  --kc-color-cream: #F5F2EB;
+  --kc-color-gold: #C9A962;
+  --kc-color-green: #2C3E2C;
+  --kc-font-heading: 'Playfair Display', serif;
+  --kc-font-body: 'Montserrat', sans-serif;
+}
+
+/* ---------- HEADER ---------- */
+/* Styles principaux dans theme.css ligne 394 */
+.header__logo {
+  color: var(--kc-color-gold);
+  font-family: var(--kc-font-heading);
+}
+
+.header__action {
+  color: var(--kc-color-cream);
+}
+
+/* ---------- CARTE COLLECTION ---------- */
+/* Styles principaux dans theme.css ligne 1404 */
+.univers-card__overlay {
+  display: none;
+}
+
+.univers-card__content {
+  background: transparent;
+}
+
+.univers-card__title {
+  background: var(--kc-color-dark);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+  font-family: var(--kc-font-heading);
+}
+
+/* ---------- GRILLE RESPONSIVE ---------- */
+.nos-univers__grid {
+  display: grid;
+  gap: 2rem;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .nos-univers__grid {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
+
+/* ---------- EFFETS HOVER ---------- */
+.univers-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* ---------- SCROLL INDICATOR - MASQUÉ ---------- */
+.hero-brand__scroll,
+.hero-brand__scroll-text,
+.hero-brand__scroll-line,
+[data-scroll-trigger] {
+  display: none;
+}
+
+/* ========== FIN DU FICHIER ========== */

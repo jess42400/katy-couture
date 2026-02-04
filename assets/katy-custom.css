@@ -1,0 +1,115 @@
+/* ==========================================
+   KATY COUTURE - STYLES PERSONNALISÉS
+   Sélecteurs PLUS SPÉCIFIQUES que theme.css
+   pour écraser sans !important
+   ========================================== */
+
+/* --- VARIABLES --- */
+:root {
+  --kc-dark: #1A1A1A;
+  --kc-light: #FAFAFA;
+  --kc-cream: #F5F2EB;
+  --kc-gold: #C9A962;
+  --kc-green: #2C3E2C;
+}
+
+/* --- HEADER --- */
+/* Sélecteur body .header est plus spécifique que .header */
+body .header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: var(--kc-dark);
+}
+
+body .header__logo {
+  color: var(--kc-gold);
+}
+
+body .header__action {
+  color: var(--kc-cream);
+}
+
+/* --- CARTE COLLECTION --- */
+/* Sélecteur body .univers-card est plus spécifique que .univers-card */
+body .univers-card {
+  aspect-ratio: 9 / 16;
+  background: transparent;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+body .univers-card__media {
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  inset: auto;
+}
+
+body .univers-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body .univers-card__overlay {
+  display: none;
+}
+
+body .univers-card__content {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  padding: 0;
+  background: transparent;
+}
+
+body .univers-card__title {
+  background: var(--kc-dark);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+}
+
+/* --- HOVER EFFECTS --- */
+body .univers-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body .univers-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* --- SCROLL INDICATOR HIDDEN --- */
+body .hero-brand__scroll,
+body .hero-brand__scroll-text,
+body .hero-brand__scroll-line {
+  display: none;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+  body .header {
+    padding: 0.75rem 1rem;
+  }
+
+  body .univers-card {
+    max-width: 100%;
+    margin: 0 1rem;
+  }
+
+  body .univers-card__title {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body .univers-card {
+    aspect-ratio: 3 / 4;  /* Plus carré sur très petit écran */
+  }
+}
