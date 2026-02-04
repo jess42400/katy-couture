@@ -5145,6 +5145,38 @@ section,
 
 /* ========== FIN CORRECTIONS ACCUEIL ========== */
 
+/* ========== HEADER TOUJOURS VISIBLE AU SCROLL ========== */
+
+/* Header TOUJOURS visible, même au scroll */
+.header,
+header,
+#shopify-section-header,
+.header__wrapper,
+.header-wrapper {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+/* Désactiver le comportement hide-on-scroll */
+.header--hidden,
+.header--scrolled,
+.header--transparent,
+.header.is-hidden,
+.header.hide {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  top: 0 !important;
+}
+
+/* ========== FIN HEADER ========== */
+
 /* ============================================
    PRINT
    ============================================ */
