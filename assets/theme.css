@@ -5043,6 +5043,108 @@ body {
   color: var(--dark-text) !important;
 }
 
+/* ========== PAGE ACCUEIL - CORRECTIONS COMPLÈTES ========== */
+
+/* 1. FOND UNI PARTOUT - Supprimer toute variation de couleur */
+body,
+html,
+main,
+.main-content,
+#MainContent,
+section,
+.shopify-section,
+.section,
+[class*="section"],
+.page-container,
+.content-wrapper,
+.hero,
+[class*="hero"],
+.banner,
+[class*="banner"] {
+  background: var(--color-background) !important;
+  background-color: var(--color-background) !important;
+  background-image: none !important;
+}
+
+/* 2. SCROLL - Supprimer complètement */
+.scroll,
+.scroll-indicator,
+.scroll-text,
+.scroll-down,
+.scroll-arrow,
+[class*="scroll"],
+[data-scroll],
+.hero__scroll,
+.banner__scroll {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 3. UNIVERS CARD - cheche SOUS l'image avec rectangle foncé */
+.univers-card,
+.collection-card,
+[class*="univers-card"],
+[class*="collection-card"] {
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+}
+
+.univers-card__content,
+.collection-card__content,
+[class*="univers-card__content"],
+[class*="collection-card__content"],
+.univers-card__title,
+.collection-card__title {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  background-color: rgba(30, 30, 30, 0.85) !important;
+  padding: 15px 20px !important;
+  text-align: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Supprimer overlay sur image */
+.univers-card__overlay,
+.collection-card__overlay,
+[class*="overlay"],
+.univers-card::before,
+.univers-card::after,
+.univers-card__image::before,
+.univers-card__image::after {
+  display: none !important;
+  background: none !important;
+}
+
+/* 4. IMAGE bien cadrée - centrée sur le produit */
+.univers-card__image,
+.collection-card__image,
+[class*="univers-card__image"],
+[class*="collection-card__image"] {
+  overflow: hidden !important;
+  max-height: 400px !important;
+}
+
+.univers-card__image img,
+.collection-card__image img,
+[class*="univers-card__image"] img,
+[class*="collection-card__image"] img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 400px !important;
+  object-fit: cover !important;
+  object-position: center 20% !important;
+}
+
+/* ========== FIN CORRECTIONS ACCUEIL ========== */
+
 /* ============================================
    PRINT
    ============================================ */
