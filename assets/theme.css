@@ -834,8 +834,8 @@ a:hover {
   }
 
   .header__logo {
-    order: unset;
-    flex: unset;
+    order: 2;
+    flex: 1;
     font-size: 20px;
   }
 
@@ -844,9 +844,8 @@ a:hover {
   }
 
   .header__actions {
-    order: unset;
+    order: 3;
     gap: var(--spacing-xs);
-    margin-left: var(--spacing-md);
   }
 
   .header__action[data-search-toggle] {
