@@ -14,7 +14,7 @@
 }
 
 /* --- HEADER --- */
-/* Base - position fixe pour tous */
+/* Base - position fixe pour tous + fond par défaut */
 body .header,
 .header[data-header] {
   position: fixed;
@@ -22,6 +22,7 @@ body .header,
   left: 0;
   right: 0;
   z-index: 9999;
+  background-color: #1A1A1A;
 }
 
 /* --- HEADER FOND SOLIDE PAR THÈME --- */
