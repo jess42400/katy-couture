@@ -15,12 +15,15 @@
 
 /* --- HEADER --- */
 /* Base - position fixe pour tous + fond par défaut */
-body .header,
-.header[data-header] {
+/* Spécificité maximale pour écraser theme.css */
+html body .header,
+html body .header[data-header],
+body .header[data-header] {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   z-index: 9999;
   background-color: #1A1A1A;
 }
