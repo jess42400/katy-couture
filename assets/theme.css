@@ -4986,6 +4986,64 @@ body {
 }
 
 /* ============================================
+   CORRECTION 2: Page accueil
+   ============================================ */
+
+/* 1. Supprimer SCROLL */
+.scroll-indicator,
+[class*="scroll-indicator"],
+.scroll-text,
+.hero-brand__scroll,
+[data-scroll-trigger] {
+  display: none !important;
+}
+
+/* 2. Cheche SOUS l'image */
+.univers-card {
+  display: flex !important;
+  flex-direction: column !important;
+  aspect-ratio: unset !important;
+}
+
+.univers-card__content {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  /* 3. Rectangle fond plus foncé */
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  padding: 15px !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.univers-card__overlay {
+  display: none !important;
+}
+
+/* 4. Image cadrée sur le chèche */
+.univers-card__image,
+.univers-card__media img,
+.univers-card img {
+  object-fit: cover !important;
+  object-position: center top !important;
+  max-height: 400px !important;
+  width: 100% !important;
+}
+
+.univers-card__media {
+  position: relative !important;
+}
+
+/* Thèmes sombres - texte visible */
+[data-theme="dark"] .univers-card__content,
+[data-theme="slate"] .univers-card__content,
+[data-theme="sepia"] .univers-card__content {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  color: var(--dark-text) !important;
+}
+
+/* ============================================
    PRINT
    ============================================ */
 @media print {
