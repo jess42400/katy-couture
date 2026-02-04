@@ -32,7 +32,9 @@
       "Bash(shopify app function schema --help:*)",
       "Bash(shopify help:*)",
       "Bash(pkill:*)",
-      "Bash(lsof:*)"
+      "Bash(lsof:*)",
+      "Bash(shopify theme pull:*)",
+      "Bash(sort:*)"
     ]
   }
 }
