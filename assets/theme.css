@@ -4954,6 +4954,39 @@ article.product-card:hover .product-card__link {
 }
 
 /* ============================================
+   CORRECTION 1: Header visible + centré
+   ============================================ */
+
+/* Header visible tous thèmes */
+.header {
+  background-color: var(--color-background) !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+}
+
+/* Thèmes sombres */
+[data-theme="dark"] .header,
+[data-theme="slate"] .header,
+[data-theme="sepia"] .header {
+  background-color: var(--dark-bg-1) !important;
+}
+
+/* Logo centré */
+.header__logo {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+/* Contenu sous le header */
+body {
+  padding-top: 70px !important;
+}
+
+/* ============================================
    PRINT
    ============================================ */
 @media print {
