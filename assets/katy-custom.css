@@ -78,9 +78,10 @@ html[data-theme="dark"] .shopify-section,
 html[data-theme="dark"] main,
 html[data-theme="dark"] footer.footer {
   background-color: var(--dark-bg-1);
+  background: var(--dark-bg-1);
 }
 
-/* SLATE */
+/* SLATE (gris) */
 html[data-theme="slate"] section,
 html[data-theme="slate"] .matieres,
 html[data-theme="slate"] .newsletter,
@@ -91,6 +92,7 @@ html[data-theme="slate"] .shopify-section,
 html[data-theme="slate"] main,
 html[data-theme="slate"] footer.footer {
   background-color: var(--dark-bg-1);
+  background: var(--dark-bg-1);
 }
 
 /* SEPIA */
@@ -104,6 +106,7 @@ html[data-theme="sepia"] .shopify-section,
 html[data-theme="sepia"] main,
 html[data-theme="sepia"] footer.footer {
   background-color: var(--dark-bg-1);
+  background: var(--dark-bg-1);
 }
 
 /* Histoire section - fond par défaut thème light */
