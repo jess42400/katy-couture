@@ -35,7 +35,6 @@ html body .header[data-header] {
   width: 100%;
   z-index: 9999;
   background-color: var(--header-bg-light);
-  background: var(--header-bg-light);
   transition: none;
 }
 
