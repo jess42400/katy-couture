@@ -4008,12 +4008,15 @@ html[data-theme="light"] .newsletter__btn {
 /* ============================================
    HEADER
    ============================================ */
+/* COMMENTÉ - géré par katy-custom.css (header fixe avec --dark-bg-1)
 html[data-theme="dark"] .header,
 html[data-theme="slate"] .header,
 html[data-theme="sepia"] .header {
   background-color: transparent;
 }
+*/
 
+/* COMMENTÉ - géré par katy-custom.css (header fixe avec --dark-bg-1)
 html[data-theme="dark"] .header--scrolled,
 html[data-theme="slate"] .header--scrolled,
 html[data-theme="sepia"] .header--scrolled {
@@ -4021,6 +4024,7 @@ html[data-theme="sepia"] .header--scrolled {
   background: var(--dark-bg-2);
   border-bottom: 1px solid var(--dark-border);
 }
+*/
 
 html[data-theme="dark"] .header__logo,
 html[data-theme="dark"] .header__action,
