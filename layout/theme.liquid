@@ -45,11 +45,7 @@
   {{ content_for_header }}
 
   {%- comment -%} No-JS fallback {%- endcomment -%}
-  <script>document.documentElement.classList.replace('no-js', 'js');</script>
-  <script>
-    var t = localStorage.getItem('katy-theme');
-    if (t) document.documentElement.setAttribute('data-theme', t);
-  </script>
+  <script>document.documentElement.classList.replace('no-js', 'js');var t=localStorage.getItem('katy-theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
 </head>
 
 <body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}">
