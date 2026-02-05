@@ -4,60 +4,69 @@
    pour écraser sans !important
    ========================================== */
 
-/* --- VARIABLES --- */
+/* --- VARIABLES KATY COUTURE --- */
 :root {
+  /* Couleurs de marque */
   --kc-dark: #1A1A1A;
   --kc-light: #FAFAFA;
   --kc-cream: #F5F2EB;
   --kc-gold: #C9A962;
   --kc-green: #2C3E2C;
+
+  /* Couleurs header par thème (MODIFIABLES ICI) */
+  --header-bg-light: #1A1A1A;      /* Thème light = noir Katy */
+  --header-bg-dark: #2A2A2A;       /* Thème dark = gris foncé */
+  --header-bg-slate: #1A2332;      /* Thème slate = bleu ardoise */
+  --header-bg-sepia: #3D2E1F;      /* Thème sepia = brun chaud */
 }
 
-/* --- HEADER --- */
-/* Base - position fixe pour tous + fond par défaut */
-/* Spécificité maximale pour écraser theme.css */
-html body .header,
-html body .header[data-header],
-body .header[data-header] {
+/* ==========================================
+   HEADER - POSITION FIXE + FOND SOLIDE
+   Spécificité : html body .header[data-header]
+   = (0,0,2,2) bat theme.css (0,0,2,1)
+   ========================================== */
+
+/* Base : s'applique à TOUS les thèmes */
+html body .header[data-header] {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 9999;
-  background-color: #1A1A1A;
+  background-color: var(--header-bg-light);
 }
 
-/* --- HEADER FOND SOLIDE PAR THÈME --- */
-/* Light = notre noir Katy */
-html[data-theme="light"] .header,
-html[data-theme="light"] .header--scrolled {
-  background-color: #1A1A1A;
+/* Thème Light (défaut Katy Couture) */
+html[data-theme="light"] body .header[data-header],
+html[data-theme="light"] body .header[data-header].header--scrolled {
+  background-color: var(--header-bg-light);
 }
 
-/* Dark = gris foncé */
-html[data-theme="dark"] .header,
-html[data-theme="dark"] .header--scrolled {
-  background-color: var(--dark-bg-1);
+/* Thème Dark */
+html[data-theme="dark"] body .header[data-header],
+html[data-theme="dark"] body .header[data-header].header--scrolled {
+  background-color: var(--header-bg-dark);
 }
 
-/* Slate = bleu ardoise */
-html[data-theme="slate"] .header,
-html[data-theme="slate"] .header--scrolled {
-  background-color: var(--dark-bg-1);
+/* Thème Slate */
+html[data-theme="slate"] body .header[data-header],
+html[data-theme="slate"] body .header[data-header].header--scrolled {
+  background-color: var(--header-bg-slate);
 }
 
-/* Sepia = brun chaud */
-html[data-theme="sepia"] .header,
-html[data-theme="sepia"] .header--scrolled {
-  background-color: var(--dark-bg-1);
+/* Thème Sepia */
+html[data-theme="sepia"] body .header[data-header],
+html[data-theme="sepia"] body .header[data-header].header--scrolled {
+  background-color: var(--header-bg-sepia);
 }
 
-body .header__logo {
+/* Éléments internes du header */
+html body .header[data-header] .header__logo {
   color: var(--kc-gold);
 }
 
-body .header__action {
+html body .header[data-header] .header__action {
   color: var(--kc-cream);
 }
 
@@ -130,8 +139,7 @@ body .hero-brand__scroll-line {
 
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
-  body .header,
-  html[data-theme] .header {
+  html body .header[data-header] {
     padding: 0.75rem 1rem;
   }
 
