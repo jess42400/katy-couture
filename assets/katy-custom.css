@@ -62,15 +62,54 @@ html[data-theme="sepia"] body .header[data-header].header--scrolled {
 }
 
 /* ==========================================
-   THÈME SOMBRE - FOND UNI
+   THÈMES SOMBRES - FOND UNI
    Écrase les --dark-bg-2 de theme.css
    pour avoir un fond uniforme partout
    ========================================== */
+
+/* DARK */
+html[data-theme="dark"] section,
 html[data-theme="dark"] .matieres,
 html[data-theme="dark"] .newsletter,
+html[data-theme="dark"] .cart__summary,
+html[data-theme="dark"] .collection__filter,
+html[data-theme="dark"] .histoire-section,
 html[data-theme="dark"] .shopify-section,
-html[data-theme="dark"] section {
+html[data-theme="dark"] main,
+html[data-theme="dark"] footer.footer {
   background-color: var(--dark-bg-1);
+}
+
+/* SLATE */
+html[data-theme="slate"] section,
+html[data-theme="slate"] .matieres,
+html[data-theme="slate"] .newsletter,
+html[data-theme="slate"] .cart__summary,
+html[data-theme="slate"] .collection__filter,
+html[data-theme="slate"] .histoire-section,
+html[data-theme="slate"] .shopify-section,
+html[data-theme="slate"] main,
+html[data-theme="slate"] footer.footer {
+  background-color: var(--dark-bg-1);
+}
+
+/* SEPIA */
+html[data-theme="sepia"] section,
+html[data-theme="sepia"] .matieres,
+html[data-theme="sepia"] .newsletter,
+html[data-theme="sepia"] .cart__summary,
+html[data-theme="sepia"] .collection__filter,
+html[data-theme="sepia"] .histoire-section,
+html[data-theme="sepia"] .shopify-section,
+html[data-theme="sepia"] main,
+html[data-theme="sepia"] footer.footer {
+  background-color: var(--dark-bg-1);
+}
+
+/* Histoire section - fond par défaut thème light */
+html[data-theme="light"] .histoire-section,
+.histoire-section {
+  background-color: #F5EBE6;
 }
 
 /* Éléments internes du header */

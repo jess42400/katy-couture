@@ -7,7 +7,7 @@
 
 {%- assign link_url = section.settings.link | default: '/pages/notre-histoire' -%}
 
-<a href="{{ link_url }}" class="histoire-section" style="background-color: {{ section.settings.background_color | default: '#F5EBE6' }};">
+<a href="{{ link_url }}" class="histoire-section" data-bg-color="{{ section.settings.background_color | default: '#F5EBE6' }}">
   {%- comment -%} Texte à gauche {%- endcomment -%}
   <div class="histoire-section__content reveal">
     {%- if section.settings.title != blank -%}
