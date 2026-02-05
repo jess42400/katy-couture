@@ -7,8 +7,9 @@
 4. ATTENDS confirmation
 
 ## ARCHITECTURE CSS
-- theme.css = NE PAS TOUCHER (Dawn original)
-- katy-custom.css = TOUTES nos modifications
+- theme.css = Base Dawn, modifiable si une règle bloque nos overrides
+- katy-custom.css = Fichier principal pour nos modifications
+- En cas de conflit CSS : supprimer la règle source dans theme.css plutôt que contourner avec des hacks
 
 ## RÈGLE CSS ABSOLUE
 **INTERDIT d'utiliser !important** - JAMAIS, nulle part, pour aucune raison.
@@ -26,3 +27,19 @@ Si une règle ne s'applique pas :
 ## COMMITS
 - Message clair en français
 - Une seule chose par commit
+
+## RÈGLE DE DIAGNOSTIC OBLIGATOIRE
+
+AVANT de modifier QUOI QUE CE SOIT, tu DOIS :
+
+1. **LISTER** tous les fichiers qui touchent l'élément concerné
+2. **CHERCHER** tous les !important, conflits de spécificité, et règles qui pourraient bloquer
+3. **MONTRER** les conflits potentiels à l'utilisateur
+4. **EXPLIQUER** pourquoi ça ne marche pas actuellement
+5. **PROPOSER** une solution basée sur le diagnostic
+6. **ATTENDRE** confirmation avant de modifier
+
+Tu ne modifies JAMAIS un fichier sans avoir fait ce diagnostic.
+Tu ne proposes JAMAIS une solution sans avoir compris la CAUSE RACINE.
+
+Si tu ne trouves pas la cause, DIS-LE. Ne fais pas de modifications "au hasard".
