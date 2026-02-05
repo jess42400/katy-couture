@@ -52,6 +52,10 @@ html[data-theme="dark"] body .header[data-header].header--scrolled {
   background: var(--header-bg-dark);
   box-shadow: none;
   border-bottom: none;
+  --dark-bg-2: var(--header-bg-dark);
+  --color-cream: var(--header-bg-dark);
+  --shadow-subtle: none;
+  --dark-border: transparent;
 }
 
 /* Thème Slate */
@@ -61,6 +65,10 @@ html[data-theme="slate"] body .header[data-header].header--scrolled {
   background: var(--header-bg-slate);
   box-shadow: none;
   border-bottom: none;
+  --dark-bg-2: var(--header-bg-slate);
+  --color-cream: var(--header-bg-slate);
+  --shadow-subtle: none;
+  --dark-border: transparent;
 }
 
 /* Thème Sepia */
@@ -70,6 +78,10 @@ html[data-theme="sepia"] body .header[data-header].header--scrolled {
   background: var(--header-bg-sepia);
   box-shadow: none;
   border-bottom: none;
+  --dark-bg-2: var(--header-bg-sepia);
+  --color-cream: var(--header-bg-sepia);
+  --shadow-subtle: none;
+  --dark-border: transparent;
 }
 
 /* ==========================================
