@@ -109,6 +109,13 @@ html[data-theme="sepia"] footer.footer {
   background: var(--dark-bg-1);
 }
 
+/* Hero overlay - fond uni au lieu de gradient */
+html[data-theme="dark"] .hero-brand__overlay,
+html[data-theme="slate"] .hero-brand__overlay,
+html[data-theme="sepia"] .hero-brand__overlay {
+  background: none;
+}
+
 /* Histoire section - fond par défaut thème light */
 html[data-theme="light"] .histoire-section,
 .histoire-section {
