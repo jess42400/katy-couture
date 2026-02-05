@@ -35,6 +35,7 @@ html body .header[data-header] {
   width: 100%;
   z-index: 9999;
   background-color: var(--header-bg-light);
+  background: var(--header-bg-light);
   transition: none;
 }
 
@@ -49,6 +50,8 @@ html[data-theme="dark"] body .header[data-header],
 html[data-theme="dark"] body .header[data-header].header--scrolled {
   background-color: var(--header-bg-dark);
   background: var(--header-bg-dark);
+  box-shadow: none;
+  border-bottom: none;
 }
 
 /* Thème Slate */
@@ -56,6 +59,8 @@ html[data-theme="slate"] body .header[data-header],
 html[data-theme="slate"] body .header[data-header].header--scrolled {
   background-color: var(--header-bg-slate);
   background: var(--header-bg-slate);
+  box-shadow: none;
+  border-bottom: none;
 }
 
 /* Thème Sepia */
@@ -63,6 +68,8 @@ html[data-theme="sepia"] body .header[data-header],
 html[data-theme="sepia"] body .header[data-header].header--scrolled {
   background-color: var(--header-bg-sepia);
   background: var(--header-bg-sepia);
+  box-shadow: none;
+  border-bottom: none;
 }
 
 /* ==========================================
