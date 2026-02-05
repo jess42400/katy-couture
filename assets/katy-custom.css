@@ -121,6 +121,13 @@ html body .header[data-header] .header__action {
   color: var(--kc-cream);
 }
 
+/* Burger menu visible sur thèmes sombres */
+html[data-theme="dark"] body .header[data-header] .header__menu-icon span,
+html[data-theme="slate"] body .header[data-header] .header__menu-icon span,
+html[data-theme="sepia"] body .header[data-header] .header__menu-icon span {
+  background-color: var(--dark-text);
+}
+
 /* --- CARTE COLLECTION --- */
 /* Sélecteurs renforcés pour écraser theme.css */
 body .univers-card,
