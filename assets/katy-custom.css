@@ -48,18 +48,21 @@ html[data-theme="light"] body .header[data-header].header--scrolled {
 html[data-theme="dark"] body .header[data-header],
 html[data-theme="dark"] body .header[data-header].header--scrolled {
   background-color: var(--header-bg-dark);
+  background: var(--header-bg-dark);
 }
 
 /* Thème Slate */
 html[data-theme="slate"] body .header[data-header],
 html[data-theme="slate"] body .header[data-header].header--scrolled {
   background-color: var(--header-bg-slate);
+  background: var(--header-bg-slate);
 }
 
 /* Thème Sepia */
 html[data-theme="sepia"] body .header[data-header],
 html[data-theme="sepia"] body .header[data-header].header--scrolled {
   background-color: var(--header-bg-sepia);
+  background: var(--header-bg-sepia);
 }
 
 /* ==========================================
