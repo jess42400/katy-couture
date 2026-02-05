@@ -397,13 +397,9 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: transparent;
-  transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .header--scrolled {
-  background-color: var(--color-cream);
-  box-shadow: var(--shadow-subtle);
 }
 
 .header--scrolled .header__logo,
