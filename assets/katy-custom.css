@@ -48,7 +48,7 @@ html[data-theme="slate"] body .header[data-header],
 html[data-theme="slate"] body .header[data-header].header--scrolled,
 html[data-theme="sepia"] body .header[data-header],
 html[data-theme="sepia"] body .header[data-header].header--scrolled {
-  background-color: var(--dark-bg-1);
+  background-color: var(--dark-bg-1) !important;
 }
 
 /* ==========================================
