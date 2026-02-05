@@ -61,6 +61,18 @@ html[data-theme="sepia"] body .header[data-header].header--scrolled {
   background-color: var(--header-bg-sepia);
 }
 
+/* ==========================================
+   THÈME SOMBRE - FOND UNI
+   Écrase les --dark-bg-2 de theme.css
+   pour avoir un fond uniforme partout
+   ========================================== */
+html[data-theme="dark"] .matieres,
+html[data-theme="dark"] .newsletter,
+html[data-theme="dark"] .shopify-section,
+html[data-theme="dark"] section {
+  background-color: var(--dark-bg-1);
+}
+
 /* Éléments internes du header */
 html body .header[data-header] .header__logo {
   color: var(--kc-gold);
