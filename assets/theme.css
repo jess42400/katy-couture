@@ -418,7 +418,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--header-height);
+  min-height: var(--header-height);
   padding: 0 var(--container-padding);
 }
 
@@ -561,7 +561,8 @@ a:hover {
   text-align: center;
   order: 2;
   flex: 1;
-  line-height: 1.2;
+  line-height: normal;
+  padding: 8px 0;
 }
 
 .header__logo img {
