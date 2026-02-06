@@ -89,6 +89,7 @@
 
     const openSearch = () => {
       searchOverlay.setAttribute('data-open', 'true');
+      history.pushState({ searchOpen: true }, '');
       setTimeout(() => searchInput?.focus(), 300);
     };
 
@@ -97,11 +98,22 @@
     };
 
     searchToggle.addEventListener('click', openSearch);
-    searchClose?.addEventListener('click', closeSearch);
+    searchClose?.addEventListener('click', () => {
+      closeSearch();
+      if (history.state?.searchOpen) history.back();
+    });
 
     // Close on escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && searchOverlay.getAttribute('data-open') === 'true') {
+        closeSearch();
+        if (history.state?.searchOpen) history.back();
+      }
+    });
+
+    // Close on browser back button
+    window.addEventListener('popstate', () => {
+      if (searchOverlay.getAttribute('data-open') === 'true') {
         closeSearch();
       }
     });

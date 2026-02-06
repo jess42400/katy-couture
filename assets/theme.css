@@ -654,7 +654,7 @@ a:hover {
   position: fixed;
   inset: 0;
   z-index: 2001;
-  background-color: var(--color-cream);
+  background-color: #1A1A1A;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -671,10 +671,10 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   padding: var(--spacing-md) var(--container-padding);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
   position: sticky;
   top: 0;
-  background-color: var(--color-cream);
+  background-color: #1A1A1A;
   z-index: 10;
 }
 
@@ -683,6 +683,7 @@ a:hover {
   font-size: var(--font-size-h3);
   font-weight: 400;
   margin: 0;
+  color: #F5F2EB;
 }
 
 .shop-overlay__close {
@@ -693,7 +694,7 @@ a:hover {
   height: 44px;
   background: none;
   border: none;
-  color: var(--color-dark);
+  color: #F5F2EB;
   cursor: pointer;
 }
 
@@ -712,8 +713,8 @@ a:hover {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
+  background-color: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 8px;
   padding: 0 var(--spacing-sm);
   margin-bottom: var(--spacing-lg);
@@ -726,11 +727,11 @@ a:hover {
   background: none;
   font-size: 16px;
   font-family: var(--font-body);
-  color: var(--color-dark);
+  color: #F5F2EB;
 }
 
 .shop-overlay__input::placeholder {
-  color: var(--color-text-muted);
+  color: rgba(245,242,235,0.5);
 }
 
 .shop-overlay__input:focus {
@@ -745,7 +746,7 @@ a:hover {
   height: 44px;
   background: none;
   border: none;
-  color: var(--color-dark);
+  color: #F5F2EB;
   cursor: pointer;
 }
 
@@ -816,7 +817,7 @@ a:hover {
 .shop-overlay__collection-title {
   font-family: var(--font-heading);
   font-size: 16px;
-  color: var(--color-dark);
+  color: #F5F2EB;
 }
 
 @media (min-width: 768px) {
