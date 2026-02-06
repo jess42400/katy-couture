@@ -787,6 +787,13 @@
     // Loading screen (must be first)
     initLoadingScreen();
 
+    // Move overlays to body to escape .shopify-section wrappers
+    // (parent transform/will-change breaks position:fixed)
+    const searchOverlay = $('[data-search-overlay]');
+    const mobileMenu = $('[data-mobile-menu]');
+    if (searchOverlay) document.body.appendChild(searchOverlay);
+    if (mobileMenu) document.body.appendChild(mobileMenu);
+
     // Core functionality
     initHeader();
     initMobileMenu();
