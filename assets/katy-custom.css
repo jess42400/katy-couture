@@ -34,6 +34,13 @@ html body .header[data-header] {
   z-index: 9999;
   background-color: var(--header-bg-light);
   transition: none;
+  overflow: visible !important;
+}
+
+/* Header inner - hauteur suffisante pour le logo */
+html body .header[data-header] .header__inner {
+  min-height: 64px;
+  overflow: visible !important;
 }
 
 /* Thème Light (défaut Katy Couture) */
@@ -116,9 +123,13 @@ html[data-theme="light"] .histoire-section,
 /* Éléments internes du header */
 html body .header[data-header] .header__logo {
   color: var(--kc-gold);
-  line-height: 1.5;
-  padding: 12px 0;
-  overflow: visible;
+  font-size: 20px;
+  line-height: 1.6;
+  padding: 14px 0;
+  overflow: visible !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 html body .header[data-header] .header__action {
@@ -140,28 +151,28 @@ html[data-theme="sepia"] body .header[data-header] .header__menu-icon span {
 /* Search overlay - fond solide + z-index */
 html body .shop-overlay[data-search-overlay] {
   z-index: 10001;
-  background: #1A1A1A;
-  background-color: #1A1A1A;
+  background: #1A1A1A !important;
+  background-color: #1A1A1A !important;
 }
 
 html body .shop-overlay[data-search-overlay] .shop-overlay__header {
-  background: #1A1A1A;
-  background-color: #1A1A1A;
+  background: #1A1A1A !important;
+  background-color: #1A1A1A !important;
 }
 
-/* Search overlay - thèmes sombres */
+/* Search overlay - thèmes sombres : fond plus foncé que la page pour distinguer */
 html[data-theme="dark"] body .shop-overlay[data-search-overlay],
 html[data-theme="slate"] body .shop-overlay[data-search-overlay],
 html[data-theme="sepia"] body .shop-overlay[data-search-overlay] {
-  background: var(--dark-bg-1);
-  background-color: var(--dark-bg-1);
+  background: #111111 !important;
+  background-color: #111111 !important;
 }
 
 html[data-theme="dark"] body .shop-overlay[data-search-overlay] .shop-overlay__header,
 html[data-theme="slate"] body .shop-overlay[data-search-overlay] .shop-overlay__header,
 html[data-theme="sepia"] body .shop-overlay[data-search-overlay] .shop-overlay__header {
-  background: var(--dark-bg-1);
-  background-color: var(--dark-bg-1);
+  background: #111111 !important;
+  background-color: #111111 !important;
 }
 
 /* Mobile menu - z-index au-dessus du header */
