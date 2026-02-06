@@ -13,8 +13,9 @@
   --kc-gold: #C9A962;
   --kc-green: #2C3E2C;
 
-  /* Couleur header thème light */
+  /* Couleur header - variable unique pour tous les thèmes */
   --header-bg-light: #1A1A1A;      /* Thème light = noir Katy */
+  --header-bg: #1A1A1A;            /* Défaut = light */
 }
 
 /* ==========================================

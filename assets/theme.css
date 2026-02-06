@@ -3935,6 +3935,7 @@ html[data-theme="light"] .newsletter__btn {
 
 /* GRIS - Vrai gris neutre visible */
 [data-theme="dark"] {
+  --header-bg: #2A2A2A;
   --dark-bg-1: #2A2A2A;
   --dark-bg-2: #353535;
   --dark-bg-3: #404040;
@@ -3949,6 +3950,7 @@ html[data-theme="light"] .newsletter__btn {
 
 /* ARDOISE - Ambiance bleue froide complète */
 [data-theme="slate"] {
+  --header-bg: #1A2332;
   --dark-bg-1: #1A2332;
   --dark-bg-2: #243040;
   --dark-bg-3: #2E3D4F;
@@ -3963,6 +3965,7 @@ html[data-theme="light"] .newsletter__btn {
 
 /* SEPIA - Ambiance chaude brune complète */
 [data-theme="sepia"] {
+  --header-bg: #2A2218;
   --dark-bg-1: #2A2218;
   --dark-bg-2: #362C20;
   --dark-bg-3: #423628;
