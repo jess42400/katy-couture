@@ -1,34 +1,10 @@
 {%- comment -%}
   HEADER - Logo centré, menu split
-  TRANSPARENT sur hero, SOLIDE au scroll
   Sous-menu Catalogue au hover
 {%- endcomment -%}
 
-<style>
-  .header__logo { line-height: 1.2 !important; padding: 4px 0 !important; }
-  .mobile-menu { background-color: #1A1A1A !important; }
-  .mobile-menu__logo { color: #C9A962 !important; }
-  .mobile-menu__link { color: #F5F2EB !important; border-bottom-color: rgba(255,255,255,0.12) !important; }
-  .mobile-menu__close { color: #F5F2EB !important; }
-  .mobile-menu__close svg { stroke: #F5F2EB !important; }
-  .mobile-menu__header { border-bottom-color: rgba(255,255,255,0.12) !important; }
-  .mobile-menu__footer { border-top-color: rgba(255,255,255,0.12) !important; }
-  .mobile-menu__social a { color: #F5F2EB !important; border-color: rgba(255,255,255,0.2) !important; }
-  .mobile-menu[data-open="true"]::before { pointer-events: auto !important; }
-  .shop-overlay { background-color: #1A1A1A !important; }
-  .shop-overlay__header { background-color: #1A1A1A !important; border-bottom-color: rgba(255,255,255,0.12) !important; }
-  .shop-overlay__title { color: #F5F2EB !important; }
-  .shop-overlay__close { color: #F5F2EB !important; }
-  .shop-overlay__input { color: #F5F2EB !important; }
-  .shop-overlay__input::placeholder { color: rgba(245,242,235,0.5) !important; }
-  .shop-overlay__submit { color: #F5F2EB !important; }
-  .shop-overlay__search { background-color: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.15) !important; }
-  .shop-overlay__collection-title { color: #F5F2EB !important; }
-</style>
-
-<header class="header" data-header style="background-color: #1A1A1A;">
+<header class="header" data-header>
   <div class="header__inner">
-    {%- comment -%} Menu Burger {%- endcomment -%}
     <button class="header__menu-toggle" data-menu-toggle aria-label="Menu">
       <span class="header__menu-icon">
         <span></span>
@@ -37,8 +13,7 @@
       </span>
     </button>
 
-    {%- comment -%} Logo Centré {%- endcomment -%}
-    <a href="/" class="header__logo" style="color: #C9A962; line-height: 1.2;">
+    <a href="/" class="header__logo">
       {%- if settings.logo -%}
         <img
           src="{{ settings.logo | image_url: width: 200 }}"
@@ -51,9 +26,7 @@
       {%- endif -%}
     </a>
 
-    {%- comment -%} Actions (thème + recherche + panier) {%- endcomment -%}
     <div class="header__actions">
-      {%- comment -%} Theme Switcher {%- endcomment -%}
       <div class="theme-switcher" data-theme-switcher>
         <button class="header__action theme-switcher__toggle" aria-label="Changer de thème" data-theme-toggle>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -95,16 +68,15 @@
 </header>
 
 {%- comment -%} Search/Shop Overlay {%- endcomment -%}
-<div class="shop-overlay" data-search-overlay style="background-color: #1A1A1A;">
-  <div class="shop-overlay__header" style="background-color: #1A1A1A; border-bottom-color: rgba(255,255,255,0.12);">
-    <h2 class="shop-overlay__title" style="color: #F5F2EB;">Nos Collections</h2>
-    <button class="shop-overlay__close" data-search-close aria-label="Fermer" style="color: #F5F2EB;">
+<div class="shop-overlay" data-search-overlay>
+  <div class="shop-overlay__header">
+    <h2 class="shop-overlay__title">Nos Collections</h2>
+    <button class="shop-overlay__close" data-search-close aria-label="Fermer">
       {% render 'icon-close' %}
     </button>
   </div>
 
   <div class="shop-overlay__content">
-    {%- comment -%} Barre de recherche {%- endcomment -%}
     <form action="/search" method="get" class="shop-overlay__search">
       <input
         type="search"
@@ -119,7 +91,6 @@
       </button>
     </form>
 
-    {%- comment -%} Collections dynamiques {%- endcomment -%}
     <div class="shop-overlay__collections">
       {%- for collection in collections -%}
         {%- unless collection.handle == 'all' or collection.handle == 'frontpage' -%}
@@ -138,7 +109,6 @@
         {%- endunless -%}
       {%- endfor -%}
 
-      {%- comment -%} Lien vers toutes les collections {%- endcomment -%}
       <a href="/collections/all" class="shop-overlay__collection shop-overlay__collection--all">
         <div class="shop-overlay__collection-image">
           <div class="shop-overlay__placeholder shop-overlay__placeholder--all">
@@ -152,10 +122,10 @@
 </div>
 
 {%- comment -%} Mobile Menu {%- endcomment -%}
-<div class="mobile-menu" data-mobile-menu data-open="false" style="background-color: #1A1A1A;">
-  <div class="mobile-menu__header" style="border-bottom-color: rgba(255,255,255,0.12);">
-    <a href="/" class="mobile-menu__logo" style="color: #C9A962;">KATY COUTURE</a>
-    <button class="mobile-menu__close" data-menu-close aria-label="Fermer" style="color: #F5F2EB;">
+<div class="mobile-menu" data-mobile-menu data-open="false">
+  <div class="mobile-menu__header">
+    <a href="/" class="mobile-menu__logo">KATY COUTURE</a>
+    <button class="mobile-menu__close" data-menu-close aria-label="Fermer">
       {% render 'icon-close' %}
     </button>
   </div>
