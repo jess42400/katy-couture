@@ -561,8 +561,9 @@ a:hover {
   text-align: center;
   order: 2;
   flex: 1;
-  line-height: normal;
-  padding: 8px 0;
+  line-height: 1.4;
+  padding: 10px 0;
+  overflow: visible;
 }
 
 .header__logo img {
@@ -654,7 +655,7 @@ a:hover {
 .shop-overlay {
   position: fixed;
   inset: 0;
-  z-index: 2001;
+  z-index: 10001;
   background-color: #1A1A1A;
   opacity: 0;
   visibility: hidden;
@@ -864,7 +865,7 @@ a:hover {
   bottom: 0;
   width: 70%;
   max-width: 320px;
-  z-index: 2000;
+  z-index: 10001;
   background-color: #1A1A1A;
   display: flex;
   flex-direction: column;
@@ -4081,6 +4082,43 @@ html[data-theme="sepia"] .mobile-menu__close svg {
 [data-theme="slate"] .mobile-menu__link:hover,
 [data-theme="sepia"] .mobile-menu__link:hover {
   background-color: var(--dark-bg-3);
+}
+
+/* ============================================
+   SEARCH OVERLAY - Dark themes
+   ============================================ */
+html[data-theme="dark"] .shop-overlay,
+html[data-theme="slate"] .shop-overlay,
+html[data-theme="sepia"] .shop-overlay {
+  background-color: var(--dark-bg-1);
+  background: var(--dark-bg-1);
+}
+
+html[data-theme="dark"] .shop-overlay__header,
+html[data-theme="slate"] .shop-overlay__header,
+html[data-theme="sepia"] .shop-overlay__header {
+  background-color: var(--dark-bg-1);
+}
+
+html[data-theme="dark"] .shop-overlay__title,
+html[data-theme="dark"] .shop-overlay__close,
+html[data-theme="dark"] .shop-overlay__input,
+html[data-theme="dark"] .shop-overlay__collection-title,
+html[data-theme="slate"] .shop-overlay__title,
+html[data-theme="slate"] .shop-overlay__close,
+html[data-theme="slate"] .shop-overlay__input,
+html[data-theme="slate"] .shop-overlay__collection-title,
+html[data-theme="sepia"] .shop-overlay__title,
+html[data-theme="sepia"] .shop-overlay__close,
+html[data-theme="sepia"] .shop-overlay__input,
+html[data-theme="sepia"] .shop-overlay__collection-title {
+  color: var(--dark-text);
+}
+
+html[data-theme="dark"] .shop-overlay__close svg,
+html[data-theme="slate"] .shop-overlay__close svg,
+html[data-theme="sepia"] .shop-overlay__close svg {
+  stroke: var(--dark-text);
 }
 
 /* ============================================

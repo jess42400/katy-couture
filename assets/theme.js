@@ -89,12 +89,14 @@
 
     const openSearch = () => {
       searchOverlay.setAttribute('data-open', 'true');
+      document.body.style.overflow = 'hidden';
       history.pushState({ searchOpen: true }, '');
       setTimeout(() => searchInput?.focus(), 300);
     };
 
     const closeSearch = () => {
       searchOverlay.setAttribute('data-open', 'false');
+      document.body.style.overflow = '';
     };
 
     searchToggle.addEventListener('click', openSearch);
@@ -115,6 +117,14 @@
     window.addEventListener('popstate', () => {
       if (searchOverlay.getAttribute('data-open') === 'true') {
         closeSearch();
+      }
+    });
+
+    // Close on overlay background click
+    searchOverlay.addEventListener('click', (e) => {
+      if (e.target === searchOverlay) {
+        closeSearch();
+        if (history.state?.searchOpen) history.back();
       }
     });
   };
