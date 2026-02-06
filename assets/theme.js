@@ -90,6 +90,13 @@
     const openSearch = () => {
       searchOverlay.setAttribute('data-open', 'true');
       document.body.style.overflow = 'hidden';
+      // Force solid background (CSS may not apply in some contexts)
+      const theme = document.documentElement.getAttribute('data-theme');
+      if (theme && theme !== 'light') {
+        searchOverlay.style.backgroundColor = '#111111';
+      } else {
+        searchOverlay.style.backgroundColor = '#1A1A1A';
+      }
       history.pushState({ searchOpen: true }, '');
       setTimeout(() => searchInput?.focus(), 300);
     };
