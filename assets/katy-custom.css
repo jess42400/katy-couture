@@ -143,42 +143,7 @@ html[data-theme="sepia"] body .header[data-header] .header__menu-icon span {
   background-color: var(--dark-text);
 }
 
-/* ==========================================
-   OVERLAYS AU-DESSUS DU HEADER
-   z-index > 9999 du header
-   ========================================== */
-
-/* Search overlay - fond solide + z-index */
-html body .shop-overlay[data-search-overlay] {
-  z-index: 10001;
-  background: #1A1A1A !important;
-  background-color: #1A1A1A !important;
-}
-
-html body .shop-overlay[data-search-overlay] .shop-overlay__header {
-  background: #1A1A1A !important;
-  background-color: #1A1A1A !important;
-}
-
-/* Search overlay - thèmes sombres : fond plus foncé que la page pour distinguer */
-html[data-theme="dark"] body .shop-overlay[data-search-overlay],
-html[data-theme="slate"] body .shop-overlay[data-search-overlay],
-html[data-theme="sepia"] body .shop-overlay[data-search-overlay] {
-  background: #111111 !important;
-  background-color: #111111 !important;
-}
-
-html[data-theme="dark"] body .shop-overlay[data-search-overlay] .shop-overlay__header,
-html[data-theme="slate"] body .shop-overlay[data-search-overlay] .shop-overlay__header,
-html[data-theme="sepia"] body .shop-overlay[data-search-overlay] .shop-overlay__header {
-  background: #111111 !important;
-  background-color: #111111 !important;
-}
-
-/* Mobile menu - z-index au-dessus du header */
-html body .mobile-menu[data-mobile-menu] {
-  z-index: 10001;
-}
+/* Overlays gérés dans theme.css (display none/block) */
 
 /* --- CARTE COLLECTION --- */
 /* Sélecteurs renforcés pour écraser theme.css */

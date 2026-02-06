@@ -653,19 +653,19 @@ a:hover {
 
 /* Shop Overlay - Full Screen */
 .shop-overlay {
+  display: none;
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 10001;
   background-color: #1A1A1A;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
   overflow-y: auto;
 }
 
 .shop-overlay[data-open="true"] {
-  opacity: 1;
-  visibility: visible;
+  display: block;
 }
 
 .shop-overlay__header {
@@ -859,6 +859,7 @@ a:hover {
    MOBILE MENU - Touch-Optimized
    ============================================ */
 .mobile-menu {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -867,33 +868,25 @@ a:hover {
   max-width: 320px;
   z-index: 10001;
   background-color: #1A1A1A;
-  display: flex;
   flex-direction: column;
-  transform: translateX(-100%);
-  transition: transform 0.4s var(--ease-smooth);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .mobile-menu[data-open="true"] {
-  transform: translateX(0);
+  display: flex;
 }
 
 /* Overlay background when menu is open */
 .mobile-menu::before {
   content: '';
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0,0,0,0.5);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
   z-index: -1;
-}
-
-.mobile-menu[data-open="true"]::before {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .mobile-menu__header {

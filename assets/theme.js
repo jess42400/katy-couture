@@ -90,13 +90,6 @@
     const openSearch = () => {
       searchOverlay.setAttribute('data-open', 'true');
       document.body.style.overflow = 'hidden';
-      // Force solid background (CSS may not apply in some contexts)
-      const theme = document.documentElement.getAttribute('data-theme');
-      if (theme && theme !== 'light') {
-        searchOverlay.style.backgroundColor = '#111111';
-      } else {
-        searchOverlay.style.backgroundColor = '#1A1A1A';
-      }
       history.pushState({ searchOpen: true }, '');
       setTimeout(() => searchInput?.focus(), 300);
     };
@@ -786,13 +779,6 @@
   const init = () => {
     // Loading screen (must be first)
     initLoadingScreen();
-
-    // Move overlays to body to escape .shopify-section wrappers
-    // (parent transform/will-change breaks position:fixed)
-    const searchOverlay = $('[data-search-overlay]');
-    const mobileMenu = $('[data-mobile-menu]');
-    if (searchOverlay) document.body.appendChild(searchOverlay);
-    if (mobileMenu) document.body.appendChild(mobileMenu);
 
     // Core functionality
     initHeader();
