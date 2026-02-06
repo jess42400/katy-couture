@@ -116,6 +116,9 @@ html[data-theme="light"] .histoire-section,
 /* Éléments internes du header */
 html body .header[data-header] .header__logo {
   color: var(--kc-gold);
+  line-height: 1.5;
+  padding: 12px 0;
+  overflow: visible;
 }
 
 html body .header[data-header] .header__action {
@@ -127,6 +130,43 @@ html[data-theme="dark"] body .header[data-header] .header__menu-icon span,
 html[data-theme="slate"] body .header[data-header] .header__menu-icon span,
 html[data-theme="sepia"] body .header[data-header] .header__menu-icon span {
   background-color: var(--dark-text);
+}
+
+/* ==========================================
+   OVERLAYS AU-DESSUS DU HEADER
+   z-index > 9999 du header
+   ========================================== */
+
+/* Search overlay - fond solide + z-index */
+html body .shop-overlay[data-search-overlay] {
+  z-index: 10001;
+  background: #1A1A1A;
+  background-color: #1A1A1A;
+}
+
+html body .shop-overlay[data-search-overlay] .shop-overlay__header {
+  background: #1A1A1A;
+  background-color: #1A1A1A;
+}
+
+/* Search overlay - thèmes sombres */
+html[data-theme="dark"] body .shop-overlay[data-search-overlay],
+html[data-theme="slate"] body .shop-overlay[data-search-overlay],
+html[data-theme="sepia"] body .shop-overlay[data-search-overlay] {
+  background: var(--dark-bg-1);
+  background-color: var(--dark-bg-1);
+}
+
+html[data-theme="dark"] body .shop-overlay[data-search-overlay] .shop-overlay__header,
+html[data-theme="slate"] body .shop-overlay[data-search-overlay] .shop-overlay__header,
+html[data-theme="sepia"] body .shop-overlay[data-search-overlay] .shop-overlay__header {
+  background: var(--dark-bg-1);
+  background-color: var(--dark-bg-1);
+}
+
+/* Mobile menu - z-index au-dessus du header */
+html body .mobile-menu[data-mobile-menu] {
+  z-index: 10001;
 }
 
 /* --- CARTE COLLECTION --- */
