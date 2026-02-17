@@ -1,8 +1,3 @@
-{%- comment -%}
-  HEADER - Logo centré, menu split
-  Sous-menu Catalogue au hover
-{%- endcomment -%}
-
 <header class="header" data-header>
   <div class="header__inner">
     <button class="header__menu-toggle" data-menu-toggle aria-label="Menu">
@@ -13,18 +8,7 @@
       </span>
     </button>
 
-    <a href="/" class="header__logo">
-      {%- if settings.logo -%}
-        <img
-          src="{{ settings.logo | image_url: width: 200 }}"
-          alt="{{ shop.name }}"
-          width="{{ settings.logo_width | default: 120 }}"
-          height="auto"
-        >
-      {%- else -%}
-        KATY COUTURE
-      {%- endif -%}
-    </a>
+    <a href="/" class="header__logo">KATY COUTURE</a>
 
     <div class="header__actions">
       <div class="theme-switcher" data-theme-switcher>
@@ -55,10 +39,10 @@
       </div>
 
       <button class="header__action" aria-label="Rechercher" data-search-toggle>
-        {% render 'icon-search' %}
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
       </button>
       <a href="/cart" class="header__action header__action--cart" aria-label="Panier">
-        {% render 'icon-cart' %}
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         {%- if cart.item_count > 0 -%}
           <span class="header__cart-count" data-cart-count>{{ cart.item_count }}</span>
         {%- endif -%}
@@ -67,66 +51,11 @@
   </div>
 </header>
 
-{%- comment -%} Search/Shop Overlay {%- endcomment -%}
-<div class="shop-overlay" data-search-overlay data-open="false">
-  <div class="shop-overlay__header">
-    <h2 class="shop-overlay__title">Nos Collections</h2>
-    <button class="shop-overlay__close" data-search-close aria-label="Fermer">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5F2EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-    </button>
-  </div>
-
-  <div class="shop-overlay__content">
-    <form action="/search" method="get" class="shop-overlay__search">
-      <input
-        type="search"
-        name="q"
-        placeholder="Rechercher un produit..."
-        class="shop-overlay__input"
-        autocomplete="off"
-        data-search-input
-      >
-      <button type="submit" class="shop-overlay__submit" aria-label="Rechercher">
-        {% render 'icon-search' %}
-      </button>
-    </form>
-
-    <div class="shop-overlay__collections">
-      {%- for collection in collections -%}
-        {%- unless collection.handle == 'all' or collection.handle == 'frontpage' -%}
-          <a href="{{ collection.url }}" class="shop-overlay__collection">
-            <div class="shop-overlay__collection-image">
-              {%- if collection.image -%}
-                <img src="{{ collection.image | image_url: width: 400 }}" alt="{{ collection.title }}">
-              {%- elsif collection.products.first.featured_image -%}
-                <img src="{{ collection.products.first.featured_image | image_url: width: 400 }}" alt="{{ collection.title }}">
-              {%- else -%}
-                <div class="shop-overlay__placeholder"></div>
-              {%- endif -%}
-            </div>
-            <span class="shop-overlay__collection-title">{{ collection.title }}</span>
-          </a>
-        {%- endunless -%}
-      {%- endfor -%}
-
-      <a href="/collections/all" class="shop-overlay__collection shop-overlay__collection--all">
-        <div class="shop-overlay__collection-image">
-          <div class="shop-overlay__placeholder shop-overlay__placeholder--all">
-            <span>Tout voir</span>
-          </div>
-        </div>
-        <span class="shop-overlay__collection-title">Tous les produits</span>
-      </a>
-    </div>
-  </div>
-</div>
-
-{%- comment -%} Mobile Menu {%- endcomment -%}
 <div class="mobile-menu" data-mobile-menu data-open="false">
   <div class="mobile-menu__header">
     <a href="/" class="mobile-menu__logo">KATY COUTURE</a>
     <button class="mobile-menu__close" data-menu-close aria-label="Fermer">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5F2EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </button>
   </div>
 
@@ -136,20 +65,6 @@
     <a href="/pages/notre-histoire" class="mobile-menu__link">Notre histoire</a>
     <a href="/pages/contact" class="mobile-menu__link">Contact</a>
   </nav>
-
-  <div class="mobile-menu__footer">
-    <div class="mobile-menu__social">
-      {%- if settings.social_instagram_link != blank -%}
-        <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener">{% render 'icon-instagram' %}</a>
-      {%- endif -%}
-      {%- if settings.social_tiktok_link != blank -%}
-        <a href="{{ settings.social_tiktok_link }}" target="_blank" rel="noopener">{% render 'icon-tiktok' %}</a>
-      {%- endif -%}
-      {%- if settings.social_pinterest_link != blank -%}
-        <a href="{{ settings.social_pinterest_link }}" target="_blank" rel="noopener">{% render 'icon-pinterest' %}</a>
-      {%- endif -%}
-    </div>
-  </div>
 </div>
 
 {% schema %}

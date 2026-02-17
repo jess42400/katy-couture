@@ -34,7 +34,9 @@
       "Bash(pkill:*)",
       "Bash(lsof:*)",
       "Bash(shopify theme pull:*)",
-      "Bash(sort:*)"
+      "Bash(sort:*)",
+      "Bash(npx shopify theme push:*)",
+      "Bash(npx shopify theme list:*)"
     ]
   }
 }

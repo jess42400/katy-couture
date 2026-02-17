@@ -90,6 +90,7 @@
     const openSearch = () => {
       searchOverlay.setAttribute('data-open', 'true');
       document.body.style.overflow = 'hidden';
+      searchOverlay.style.background = '#0D0D0D';
       history.pushState({ searchOpen: true }, '');
       setTimeout(() => searchInput?.focus(), 300);
     };
@@ -175,6 +176,8 @@
     if (!parallaxElements.length) return;
 
     const parallaxSpeed = 0.3; // Subtle effect
+    const header = $('.header');
+    const headerHeight = header ? header.offsetHeight : 0;
 
     let ticking = false;
 
@@ -186,6 +189,9 @@
         const elementTop = rect.top + scrollY;
         const elementHeight = rect.height;
         const viewportHeight = window.innerHeight;
+
+        // Skip parallax for elements still under the header zone
+        if (elementTop < headerHeight) return;
 
         // Only apply parallax when element is in or near viewport
         if (scrollY + viewportHeight > elementTop && scrollY < elementTop + elementHeight) {

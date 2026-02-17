@@ -660,12 +660,23 @@ a:hover {
   width: 100%;
   height: 100%;
   z-index: 10001;
-  background-color: #1A1A1A;
+  background: #0D0D0D;
   overflow-y: auto;
 }
 
 .shop-overlay[data-open="true"] {
   display: block;
+}
+
+.shop-overlay__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0D0D0D;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .shop-overlay__header {
@@ -676,8 +687,8 @@ a:hover {
   border-bottom: 1px solid rgba(255,255,255,0.12);
   position: sticky;
   top: 0;
-  background-color: #1A1A1A;
-  z-index: 10;
+  background: #0D0D0D;
+  z-index: 2;
 }
 
 .shop-overlay__title {
@@ -706,6 +717,8 @@ a:hover {
 }
 
 .shop-overlay__content {
+  position: relative;
+  z-index: 1;
   padding: var(--spacing-lg) var(--container-padding);
   max-width: 1200px;
   margin: 0 auto;
@@ -4081,16 +4094,15 @@ html[data-theme="sepia"] .mobile-menu__close svg {
    SEARCH OVERLAY - Dark themes
    ============================================ */
 html[data-theme="dark"] .shop-overlay,
-html[data-theme="slate"] .shop-overlay,
-html[data-theme="sepia"] .shop-overlay {
-  background-color: var(--dark-bg-1);
-  background: var(--dark-bg-1);
-}
-
+html[data-theme="dark"] .shop-overlay__bg,
 html[data-theme="dark"] .shop-overlay__header,
+html[data-theme="slate"] .shop-overlay,
+html[data-theme="slate"] .shop-overlay__bg,
 html[data-theme="slate"] .shop-overlay__header,
+html[data-theme="sepia"] .shop-overlay,
+html[data-theme="sepia"] .shop-overlay__bg,
 html[data-theme="sepia"] .shop-overlay__header {
-  background-color: var(--dark-bg-1);
+  background: #0D0D0D;
 }
 
 html[data-theme="dark"] .shop-overlay__title,
@@ -4399,43 +4411,7 @@ html[data-theme="sepia"] .theme-switcher__option.active {
   background: var(--dark-bg-4);
 }
 
-/* ============================================
-   SEARCH OVERLAY
-   ============================================ */
-[data-theme="dark"] .search-overlay,
-[data-theme="dark"] .shop-overlay,
-[data-theme="slate"] .search-overlay,
-[data-theme="slate"] .shop-overlay,
-[data-theme="sepia"] .search-overlay,
-[data-theme="sepia"] .shop-overlay {
-  background-color: var(--dark-bg-1);
-}
-
-[data-theme="dark"] .search-overlay__title,
-[data-theme="dark"] .shop-overlay__title,
-[data-theme="slate"] .search-overlay__title,
-[data-theme="slate"] .shop-overlay__title,
-[data-theme="sepia"] .search-overlay__title,
-[data-theme="sepia"] .shop-overlay__title {
-  color: var(--dark-text);
-}
-
-[data-theme="dark"] .search-overlay__input,
-[data-theme="dark"] .shop-overlay__input,
-[data-theme="slate"] .search-overlay__input,
-[data-theme="slate"] .shop-overlay__input,
-[data-theme="sepia"] .search-overlay__input,
-[data-theme="sepia"] .shop-overlay__input {
-  background-color: var(--dark-bg-3);
-  border-color: var(--dark-border);
-  color: var(--dark-text);
-}
-
-[data-theme="dark"] .shop-overlay__collection-title,
-[data-theme="slate"] .shop-overlay__collection-title,
-[data-theme="sepia"] .shop-overlay__collection-title {
-  color: var(--dark-text);
-}
+/* Search overlay dark theme rules consolidated above */
 
 /* ============================================
    HISTOIRE / BRAND SECTIONS

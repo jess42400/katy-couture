@@ -5,15 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#FDF9F7">
 
-  {%- comment -%} Preconnect to external resources {%- endcomment -%}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-
-  {%- comment -%} Google Fonts - Playfair Display & Inter {%- endcomment -%}
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
-  {%- comment -%} Title {%- endcomment -%}
   <title>
     {%- if page_title -%}
       {{ page_title }}
@@ -24,53 +20,79 @@
     {%- endif -%}
   </title>
 
-  {%- comment -%} Meta description {%- endcomment -%}
   {%- if page_description -%}
     <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
 
-  {%- comment -%} Canonical URL {%- endcomment -%}
   <link rel="canonical" href="{{ canonical_url }}">
 
-  {%- comment -%} Favicon {%- endcomment -%}
   {%- if settings.favicon -%}
     <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
   {%- endif -%}
 
-  {%- comment -%} CSS {%- endcomment -%}
   <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}?v={{ 'now' | date: '%s' }}">
   <link rel="stylesheet" href="{{ 'katy-custom.css' | asset_url }}?v={{ 'now' | date: '%s' }}">
 
-  {%- comment -%} Shopify required {%- endcomment -%}
   {{ content_for_header }}
 
-  {%- comment -%} No-JS fallback {%- endcomment -%}
   <script>document.documentElement.classList.replace('no-js', 'js');var t=localStorage.getItem('katy-theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
 </head>
 
 <body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}">
-  {%- comment -%} Optional Loading Screen {%- endcomment -%}
-  {%- if settings.show_loading_screen -%}
-    <div class="loading-screen">
-      <span class="loading-screen__logo">KATY COUTURE</span>
-    </div>
-  {%- endif -%}
-
-  {%- comment -%} Skip link for accessibility {%- endcomment -%}
   <a href="#main" class="visually-hidden">Aller au contenu</a>
 
-  {%- comment -%} Header {%- endcomment -%}
   {% sections 'header-group' %}
 
-  {%- comment -%} Main Content {%- endcomment -%}
+  <div id="kc-search" class="shop-overlay" data-search-overlay data-open="false" style="background:#0D0D0D">
+    <div class="shop-overlay__bg" aria-hidden="true"></div>
+    <div class="shop-overlay__header">
+      <h2 class="shop-overlay__title">Nos Collections</h2>
+      <button class="shop-overlay__close" data-search-close aria-label="Fermer">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="shop-overlay__content">
+      <form action="/search" method="get" class="shop-overlay__search">
+        <input type="search" name="q" placeholder="Rechercher un produit..." class="shop-overlay__input" autocomplete="off" data-search-input>
+        <button type="submit" class="shop-overlay__submit" aria-label="Rechercher">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+      </form>
+      <div class="shop-overlay__collections">
+        {%- for collection in collections -%}
+          {%- unless collection.handle == 'all' or collection.handle == 'frontpage' -%}
+            <a href="{{ collection.url }}" class="shop-overlay__collection">
+              <div class="shop-overlay__collection-image">
+                {%- if collection.image -%}
+                  <img src="{{ collection.image | image_url: width: 400 }}" alt="{{ collection.title }}">
+                {%- elsif collection.products.first.featured_image -%}
+                  <img src="{{ collection.products.first.featured_image | image_url: width: 400 }}" alt="{{ collection.title }}">
+                {%- else -%}
+                  <div class="shop-overlay__placeholder"></div>
+                {%- endif -%}
+              </div>
+              <span class="shop-overlay__collection-title">{{ collection.title }}</span>
+            </a>
+          {%- endunless -%}
+        {%- endfor -%}
+        <a href="/collections/all" class="shop-overlay__collection shop-overlay__collection--all">
+          <div class="shop-overlay__collection-image">
+            <div class="shop-overlay__placeholder shop-overlay__placeholder--all">
+              <span>Tout voir</span>
+            </div>
+          </div>
+          <span class="shop-overlay__collection-title">Tous les produits</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <main id="main" role="main">
     {{ content_for_layout }}
   </main>
 
-  {%- comment -%} Footer {%- endcomment -%}
   {% sections 'footer-group' %}
 
-  {%- comment -%} JavaScript {%- endcomment -%}
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
 </body>
 </html>

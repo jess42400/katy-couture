@@ -124,12 +124,16 @@ html[data-theme="light"] .histoire-section,
 html body .header[data-header] .header__logo {
   color: var(--kc-gold);
   font-size: 20px;
-  line-height: 1.6;
-  padding: 14px 0;
+  line-height: 1;
+  padding: 20px 0;
   overflow: visible !important;
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
+  text-decoration: none;
+  height: auto;
+  min-height: 44px;
 }
 
 html body .header[data-header] .header__action {
